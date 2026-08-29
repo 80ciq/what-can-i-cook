@@ -11,7 +11,7 @@ const recipes = [
         id: 1,
         name: "ข้าวผัดไข่",
         description: "ข้าวผัดง่าย ๆ หอมกลิ่นกระทะ พร้อมไข่และผัก",
-        image: "https://images.unsplash.com/photo-1603133872878-684f208fb84b?auto=format&fit=crop&w=900&q=80",
+        image: "https://source.unsplash.com/900x600/?egg,fried,rice";
         ingredients: ["ข้าว", "ไข่", "น้ำมัน", "กระเทียม", "ซีอิ๊ว"],
         instructions: [
             "ตั้งกระทะใส่น้ำมันและผัดกระเทียมให้หอม",
@@ -29,7 +29,7 @@ const recipes = [
         id: 2,
         name: "ข้าวผัดหมู",
         description: "ข้าวผัดหมูรสกลมกล่อม ทำง่าย เหมาะสำหรับมื้อเร่งด่วน",
-        image: "https://images.unsplash.com/photo-1512058564366-18510be2db19?auto=format&fit=crop&w=900&q=80",
+        image: https://source.unsplash.com/900x600/?pork,fried,rice";
         ingredients: ["ข้าว", "หมู", "ไข่", "กระเทียม", "ซีอิ๊ว", "น้ำมัน"],
         instructions: [
             "หั่นหมูเป็นชิ้นพอดีคำ",
@@ -47,7 +47,7 @@ const recipes = [
         id: 3,
         name: "ผัดกะเพราหมู",
         description: "เมนูยอดนิยมรสจัดจ้าน หอมใบกะเพรา",
-        image: "https://images.unsplash.com/photo-1601050690597-df0568f70950?auto=format&fit=crop&w=900&q=80",
+        image: "https://source.unsplash.com/900x600/?thai,basil,pork";
         ingredients: ["หมู", "ใบกะเพรา", "กระเทียม", "พริก", "น้ำปลา", "น้ำมัน"],
         instructions: [
             "โขลกกระเทียมและพริกพอหยาบ",
@@ -66,7 +66,7 @@ const recipes = [
         id: 4,
         name: "ไข่เจียวหมูสับ",
         description: "ไข่เจียวฟู ๆ ใส่หมูสับ เหมาะกับข้าวสวยร้อน ๆ",
-        image: "https://images.unsplash.com/photo-1525351484163-7529414344d8?auto=format&fit=crop&w=900&q=80",
+        image: "https://source.unsplash.com/900x600/?thai,omelette,pork";
         ingredients: ["ไข่", "หมู", "น้ำปลา", "น้ำมัน"],
         instructions: [
             "ตอกไข่ใส่ชาม",
@@ -84,7 +84,7 @@ const recipes = [
         id: 5,
         name: "ผัดคะน้าหมู",
         description: "คะน้ากรอบ ๆ ผัดกับหมูนุ่มและซอสปรุงรส",
-        image: "https://images.unsplash.com/photo-1515003197210-e0cd71810b5f?auto=format&fit=crop&w=900&q=80",
+        image: "https://source.unsplash.com/900x600/?thai,kale,pork";
         ingredients: ["คะน้า", "หมู", "กระเทียม", "น้ำมัน", "ซีอิ๊ว"],
         instructions: [
             "ล้างและหั่นคะน้า",
@@ -103,7 +103,7 @@ const recipes = [
         id: 6,
         name: "ต้มจืดเต้าหู้หมูสับ",
         description: "ซุปใสรสอ่อน ๆ พร้อมเต้าหู้และหมูสับ",
-        image: "https://images.unsplash.com/photo-1547592180-85f173990554?auto=format&fit=crop&w=900&q=80",
+        image: https://source.unsplash.com/900x600/?tofu,pork,soup";
         ingredients: ["หมู", "เต้าหู้", "ผักกาดขาว", "กระเทียม", "น้ำปลา"],
         instructions: [
             "ต้มน้ำให้เดือด",
@@ -121,7 +121,7 @@ const recipes = [
         id: 7,
         name: "ต้มยำกุ้ง",
         description: "ต้มยำกุ้งรสจัดจ้าน เปรี้ยว เผ็ด หอมสมุนไพร",
-        image: "https://images.unsplash.com/photo-1547592180-85f173990554?auto=format&fit=crop&w=900&q=80",
+        image:  "https://source.unsplash.com/900x600/?tom,yum,goong";
         ingredients: ["กุ้ง", "ตะไคร้", "ใบมะกรูด", "พริก", "มะนาว", "น้ำปลา"],
         instructions: [
             "ต้มน้ำให้เดือด",
@@ -159,7 +159,7 @@ const recipes = [
         id: 9,
         name: "สุกี้น้ำ",
         description: "สุกี้น้ำร้อน ๆ พร้อมผัก ไข่ และเนื้อสัตว์",
-        image: "https://images.unsplash.com/photo-1601050690597-df0568f70950?auto=format&fit=crop&w=900&q=80",
+        image: "https://source.unsplash.com/900x600/?thai,suki,soup";
         ingredients: ["หมู", "ไข่", "ผักกาดขาว", "วุ้นเส้น", "น้ำจิ้มสุกี้"],
         instructions: [
             "ต้มน้ำให้เดือด",
@@ -178,7 +178,7 @@ const recipes = [
         id: 10,
         name: "ยำวุ้นเส้น",
         description: "ยำวุ้นเส้นรสเปรี้ยวเผ็ด หอมสมุนไพร",
-        image: "https://images.unsplash.com/photo-1512621776951-a57141f2eefd?auto=format&fit=crop&w=900&q=80",
+        image: "https://source.unsplash.com/900x600/?thai,glass,noodle,salad";
         ingredients: ["วุ้นเส้น", "หมู", "หอมใหญ่", "มะนาว", "พริก", "น้ำปลา"],
         instructions: [
             "ลวกวุ้นเส้นและพักไว้",
@@ -197,7 +197,7 @@ const recipes = [
         id: 11,
         name: "ไข่ดาว",
         description: "ไข่ดาวทอดง่าย ๆ ไข่ขาวกรอบ ไข่แดงเยิ้ม",
-        image: "https://images.unsplash.com/photo-1482049016688-2d3e1b311543?auto=format&fit=crop&w=900&q=80",
+        image: "https://source.unsplash.com/900x600/?fried,egg";
         ingredients: ["ไข่", "น้ำมัน"],
         instructions: [
             "ตั้งกระทะใส่น้ำมัน",
@@ -214,7 +214,7 @@ const recipes = [
         id: 12,
         name: "ไข่ต้ม",
         description: "ไข่ต้มทำง่าย เหมาะสำหรับรับประทานคู่กับอาหารหลายชนิด",
-        image: "https://images.unsplash.com/photo-1506976785307-8732e854ad03?auto=format&fit=crop&w=900&q=80",
+        image: "https://source.unsplash.com/900x600/?boiled,egg";
         ingredients: ["ไข่"],
         instructions: [
             "ต้มน้ำให้เดือด",
@@ -232,7 +232,7 @@ const recipes = [
         id: 13,
         name: "ผัดผักรวม",
         description: "ผัดผักหลากชนิดกรอบ ๆ ปรุงรสกลมกล่อม",
-        image: "https://images.unsplash.com/photo-1540420773420-3366772f4999?auto=format&fit=crop&w=900&q=80",
+        image: "https://source.unsplash.com/900x600/?stir,fried,vegetables";
         ingredients: ["แครอท", "คะน้า", "กะหล่ำ", "กระเทียม", "น้ำมัน", "ซีอิ๊ว"],
         instructions: [
             "ล้างและหั่นผักทุกชนิด",
