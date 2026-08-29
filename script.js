@@ -403,7 +403,7 @@ const recipes = [
         id: 22,
         name: "ปลาทอดน้ำปลา",
         description: "ปลาทอดกรอบราดน้ำปลาหอม ๆ",
-        image: "https://images.unsplash.com/photo-1544943910-1c2e4b0b3f8b?auto=format&fit=crop&w=900&q=80",
+        image: "https://images.unsplash.com/photo-1519708227418-c8fd9a32b7a2?auto=format&fit=crop&w=800&q=80",
         ingredients: ["ปลา", "น้ำปลา", "น้ำมัน", "น้ำตาล"],
         instructions: [
             "ทำความสะอาดปลาและซับให้แห้ง",
