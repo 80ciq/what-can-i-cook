@@ -1,17 +1,22 @@
 /* =========================================================
    What Can I Cook? - script.js
+   FULL VERSION
+   22 เมนูเดิม + ค้นหาวัตถุดิบ + ตัวกรอง + Favorite
+   + Recent Search + Random + Recipe Modal
    ========================================================= */
+
 
 /* =========================================================
    RECIPE DATABASE
    ========================================================= */
 
 const recipes = [
+
     {
         id: 1,
         name: "ข้าวผัดไข่",
-        description: "ข้าวผัดง่าย ๆ หอมกลิ่นกระทะ พร้อมไข่และผัก",
-        image: "images/khao-pad-khai.jpg",
+        description: "ข้าวผัดง่าย ๆ หอมกลิ่นกระทะ พร้อมไข่",
+        imageKeywords: "egg fried rice thai food",
         ingredients: ["ข้าว", "ไข่", "น้ำมัน", "กระเทียม", "ซีอิ๊ว"],
         instructions: [
             "ตั้งกระทะใส่น้ำมันและผัดกระเทียมให้หอม",
@@ -29,7 +34,7 @@ const recipes = [
         id: 2,
         name: "ข้าวผัดหมู",
         description: "ข้าวผัดหมูรสกลมกล่อม ทำง่าย เหมาะสำหรับมื้อเร่งด่วน",
-        image: "images/khao-pad-moo.jpg",
+        imageKeywords: "thai pork fried rice",
         ingredients: ["ข้าว", "หมู", "ไข่", "กระเทียม", "ซีอิ๊ว", "น้ำมัน"],
         instructions: [
             "หั่นหมูเป็นชิ้นพอดีคำ",
@@ -47,7 +52,7 @@ const recipes = [
         id: 3,
         name: "ผัดกะเพราหมู",
         description: "เมนูยอดนิยมรสจัดจ้าน หอมใบกะเพรา",
-        image: "images/pad-krapao-moo.jpg",
+        imageKeywords: "pad kra pao pork thai basil",
         ingredients: ["หมู", "ใบกะเพรา", "กระเทียม", "พริก", "น้ำปลา", "น้ำมัน"],
         instructions: [
             "โขลกกระเทียมและพริกพอหยาบ",
@@ -66,7 +71,7 @@ const recipes = [
         id: 4,
         name: "ไข่เจียวหมูสับ",
         description: "ไข่เจียวฟู ๆ ใส่หมูสับ เหมาะกับข้าวสวยร้อน ๆ",
-        image: "images/khai-jiao-moo-sap.jpg",
+        imageKeywords: "thai pork omelette minced pork",
         ingredients: ["ไข่", "หมู", "น้ำปลา", "น้ำมัน"],
         instructions: [
             "ตอกไข่ใส่ชาม",
@@ -84,7 +89,7 @@ const recipes = [
         id: 5,
         name: "ผัดคะน้าหมู",
         description: "คะน้ากรอบ ๆ ผัดกับหมูนุ่มและซอสปรุงรส",
-        image: "images/pad-kana-moo.jpg",
+        imageKeywords: "thai stir fried kale pork",
         ingredients: ["คะน้า", "หมู", "กระเทียม", "น้ำมัน", "ซีอิ๊ว"],
         instructions: [
             "ล้างและหั่นคะน้า",
@@ -103,7 +108,7 @@ const recipes = [
         id: 6,
         name: "ต้มจืดเต้าหู้หมูสับ",
         description: "ซุปใสรสอ่อน ๆ พร้อมเต้าหู้และหมูสับ",
-        image: "images/tom-jued-taohu-moo-sap.jpg",
+        imageKeywords: "thai clear soup tofu minced pork",
         ingredients: ["หมู", "เต้าหู้", "ผักกาดขาว", "กระเทียม", "น้ำปลา"],
         instructions: [
             "ต้มน้ำให้เดือด",
@@ -121,7 +126,7 @@ const recipes = [
         id: 7,
         name: "ต้มยำกุ้ง",
         description: "ต้มยำกุ้งรสจัดจ้าน เปรี้ยว เผ็ด หอมสมุนไพร",
-        image: "images/tom-yum-goong.jpg",
+        imageKeywords: "tom yum goong thai spicy shrimp soup",
         ingredients: ["กุ้ง", "ตะไคร้", "ใบมะกรูด", "พริก", "มะนาว", "น้ำปลา"],
         instructions: [
             "ต้มน้ำให้เดือด",
@@ -140,7 +145,7 @@ const recipes = [
         id: 8,
         name: "ผัดซีอิ๊ว",
         description: "เส้นใหญ่ผัดซีอิ๊วพร้อมหมูและผักคะน้า",
-        image: "images/pad-see-ew.jpg",
+        imageKeywords: "pad see ew thai stir fried noodles pork",
         ingredients: ["เส้นใหญ่", "หมู", "ไข่", "คะน้า", "ซีอิ๊ว", "น้ำมัน"],
         instructions: [
             "ตั้งกระทะใส่น้ำมัน",
@@ -159,7 +164,7 @@ const recipes = [
         id: 9,
         name: "สุกี้น้ำ",
         description: "สุกี้น้ำร้อน ๆ พร้อมผัก ไข่ และเนื้อสัตว์",
-        image: "images/suki-nam.jpg",
+        imageKeywords: "thai sukiyaki soup vegetables pork",
         ingredients: ["หมู", "ไข่", "ผักกาดขาว", "วุ้นเส้น", "น้ำจิ้มสุกี้"],
         instructions: [
             "ต้มน้ำให้เดือด",
@@ -178,7 +183,7 @@ const recipes = [
         id: 10,
         name: "ยำวุ้นเส้น",
         description: "ยำวุ้นเส้นรสเปรี้ยวเผ็ด หอมสมุนไพร",
-        image: "images/yum-woon-sen.jpg",
+        imageKeywords: "thai glass noodle salad yum woon sen",
         ingredients: ["วุ้นเส้น", "หมู", "หอมใหญ่", "มะนาว", "พริก", "น้ำปลา"],
         instructions: [
             "ลวกวุ้นเส้นและพักไว้",
@@ -197,7 +202,7 @@ const recipes = [
         id: 11,
         name: "ไข่ดาว",
         description: "ไข่ดาวทอดง่าย ๆ ไข่ขาวกรอบ ไข่แดงเยิ้ม",
-        image: "images/khai-dao.jpg",
+        imageKeywords: "fried egg sunny side up",
         ingredients: ["ไข่", "น้ำมัน"],
         instructions: [
             "ตั้งกระทะใส่น้ำมัน",
@@ -214,7 +219,7 @@ const recipes = [
         id: 12,
         name: "ไข่ต้ม",
         description: "ไข่ต้มทำง่าย เหมาะสำหรับรับประทานคู่กับอาหารหลายชนิด",
-        image: "images/khai-tom.jpg",
+        imageKeywords: "boiled eggs food",
         ingredients: ["ไข่"],
         instructions: [
             "ต้มน้ำให้เดือด",
@@ -232,7 +237,7 @@ const recipes = [
         id: 13,
         name: "ผัดผักรวม",
         description: "ผัดผักหลากชนิดกรอบ ๆ ปรุงรสกลมกล่อม",
-        image: "images/pad-pak-ruam.jpg",
+        imageKeywords: "thai mixed vegetables stir fry",
         ingredients: ["แครอท", "คะน้า", "กะหล่ำ", "กระเทียม", "น้ำมัน", "ซีอิ๊ว"],
         instructions: [
             "ล้างและหั่นผักทุกชนิด",
@@ -251,7 +256,7 @@ const recipes = [
         id: 14,
         name: "แกงจืดไข่น้ำ",
         description: "ซุปไข่นุ่ม ๆ รสอ่อน รับประทานง่าย",
-        image: "images/kaeng-jued-khai-nam.jpg",
+        imageKeywords: "thai egg soup omelette soup",
         ingredients: ["ไข่", "หมู", "ต้นหอม", "กระเทียม", "น้ำปลา"],
         instructions: [
             "ตีไข่ให้เข้ากัน",
@@ -270,7 +275,7 @@ const recipes = [
         id: 15,
         name: "หมูกระเทียม",
         description: "หมูผัดกระเทียมหอม ๆ รสเค็มหวานกำลังดี",
-        image: "images/moo-kra-thiam.jpg",
+        imageKeywords: "thai garlic pork moo krathiam",
         ingredients: ["หมู", "กระเทียม", "ซีอิ๊ว", "น้ำมัน", "น้ำตาล"],
         instructions: [
             "หมักหมูกับซีอิ๊วและน้ำตาล",
@@ -289,7 +294,7 @@ const recipes = [
         id: 16,
         name: "ผัดพริกแกงหมู",
         description: "หมูผัดพริกแกงรสเข้มข้น หอมเครื่องแกง",
-        image: "images/pad-prik-kaeng-moo.jpg",
+        imageKeywords: "thai red curry paste stir fried pork",
         ingredients: ["หมู", "พริกแกง", "ถั่วฝักยาว", "ใบมะกรูด", "น้ำปลา", "น้ำมัน"],
         instructions: [
             "หั่นหมูและถั่วฝักยาว",
@@ -308,7 +313,7 @@ const recipes = [
         id: 17,
         name: "แกงเขียวหวานไก่",
         description: "แกงไทยรสเข้มข้น หอมกะทิและเครื่องแกง",
-        image: "images/green-curry-chicken.jpg",
+        imageKeywords: "thai green curry chicken",
         ingredients: ["ไก่", "พริกแกงเขียวหวาน", "กะทิ", "มะเขือ", "ใบโหระพา"],
         instructions: [
             "ตั้งหม้อใส่กะทิ",
@@ -327,7 +332,7 @@ const recipes = [
         id: 18,
         name: "ลาบหมู",
         description: "ลาบหมูรสจัดจ้าน หอมข้าวคั่วและสมุนไพร",
-        image: "images/larb-moo.jpg",
+        imageKeywords: "thai larb moo minced pork salad",
         ingredients: ["หมู", "มะนาว", "น้ำปลา", "พริก", "ข้าวคั่ว", "หอมแดง"],
         instructions: [
             "รวนหมูสับในกระทะจนสุก",
@@ -346,7 +351,7 @@ const recipes = [
         id: 19,
         name: "ข้าวต้มหมู",
         description: "ข้าวต้มหมูร้อน ๆ รสอ่อน เหมาะสำหรับมื้อเช้า",
-        image: "images/khao-tom-moo.jpg"
+        imageKeywords: "thai rice porridge pork khao tom moo",
         ingredients: ["ข้าว", "หมู", "กระเทียม", "ต้นหอม", "น้ำปลา"],
         instructions: [
             "ต้มน้ำให้เดือด",
@@ -365,7 +370,7 @@ const recipes = [
         id: 20,
         name: "มาม่าผัดไข่",
         description: "บะหมี่กึ่งสำเร็จรูปผัดไข่ เมนูง่าย ๆ ใช้วัตถุดิบน้อย",
-        image: "images/mama-pad-khai.jpg",
+        imageKeywords: "instant noodle fried egg stir fry",
         ingredients: ["บะหมี่", "ไข่", "กระเทียม", "น้ำมัน", "ซีอิ๊ว"],
         instructions: [
             "ต้มบะหมี่ให้พอนิ่มแล้วพักไว้",
@@ -384,7 +389,7 @@ const recipes = [
         id: 21,
         name: "ไก่ผัดเม็ดมะม่วง",
         description: "ไก่ผัดซอสพร้อมเม็ดมะม่วงหิมพานต์กรุบกรอบ",
-        image: "images/gai-pad-med-mamuang.jpg",
+        imageKeywords: "thai cashew chicken stir fry",
         ingredients: ["ไก่", "เม็ดมะม่วง", "หอมใหญ่", "พริกแห้ง", "ซีอิ๊ว", "น้ำมัน"],
         instructions: [
             "หั่นไก่เป็นชิ้นพอดีคำ",
@@ -403,7 +408,7 @@ const recipes = [
         id: 22,
         name: "ปลาทอดน้ำปลา",
         description: "ปลาทอดกรอบราดน้ำปลาหอม ๆ",
-        image: "images/pla-tod-nam-pla.jpg",
+        imageKeywords: "thai fried fish with fish sauce",
         ingredients: ["ปลา", "น้ำปลา", "น้ำมัน", "น้ำตาล"],
         instructions: [
             "ทำความสะอาดปลาและซับให้แห้ง",
@@ -417,6 +422,7 @@ const recipes = [
         difficulty: "ปานกลาง",
         time: 30
     }
+
 ];
 
 
@@ -466,12 +472,102 @@ const ingredientList = [
 
 
 /* =========================================================
+   IMAGE SYSTEM
+   ========================================================= */
+
+/*
+   ใช้ LoremFlickr โดยค้นด้วย keyword เฉพาะเมนู
+   ถ้ารูปโหลดไม่ได้ จะใช้ภาพสำรองที่สร้างด้วย SVG
+*/
+
+function getRecipeImage(recipe) {
+
+    const query =
+        encodeURIComponent(recipe.imageKeywords);
+
+    return `https://loremflickr.com/900/600/${query}?lock=${recipe.id}`;
+}
+
+
+function createFallbackImage(recipe) {
+
+    const title =
+        escapeHTML(recipe.name);
+
+    const svg = `
+        <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="900"
+            height="600"
+            viewBox="0 0 900 600"
+        >
+            <rect
+                width="900"
+                height="600"
+                fill="#f3f4f6"
+            />
+
+            <circle
+                cx="450"
+                cy="245"
+                r="125"
+                fill="#ffffff"
+            />
+
+            <circle
+                cx="450"
+                cy="245"
+                r="100"
+                fill="#e5e7eb"
+            />
+
+            <text
+                x="450"
+                y="430"
+                text-anchor="middle"
+                font-family="Arial, sans-serif"
+                font-size="44"
+                font-weight="bold"
+                fill="#374151"
+            >
+                ${title}
+            </text>
+
+            <text
+                x="450"
+                y="480"
+                text-anchor="middle"
+                font-family="Arial, sans-serif"
+                font-size="24"
+                fill="#6b7280"
+            >
+                What Can I Cook?
+            </text>
+        </svg>
+    `;
+
+    return "data:image/svg+xml;charset=UTF-8," +
+        encodeURIComponent(svg);
+}
+
+
+/* =========================================================
    STATE
    ========================================================= */
 
 let selectedIngredients = [];
-let favoriteIds = loadStorage("whatCanICookFavorites", []);
-let recentSearches = loadStorage("whatCanICookRecent", []);
+
+let favoriteIds =
+    loadStorage(
+        "whatCanICookFavorites",
+        []
+    );
+
+let recentSearches =
+    loadStorage(
+        "whatCanICookRecent",
+        []
+    );
 
 let currentRecipes = [...recipes];
 
@@ -585,27 +681,43 @@ const modalInstructions =
    ========================================================= */
 
 function loadStorage(key, fallback) {
+
     try {
-        const value = localStorage.getItem(key);
+
+        const value =
+            localStorage.getItem(key);
 
         return value
             ? JSON.parse(value)
             : fallback;
+
     } catch (error) {
-        console.warn("Cannot read localStorage:", error);
+
+        console.warn(
+            "Cannot read localStorage:",
+            error
+        );
+
         return fallback;
     }
 }
 
 
 function saveStorage(key, value) {
+
     try {
+
         localStorage.setItem(
             key,
             JSON.stringify(value)
         );
+
     } catch (error) {
-        console.warn("Cannot save localStorage:", error);
+
+        console.warn(
+            "Cannot save localStorage:",
+            error
+        );
     }
 }
 
@@ -615,10 +727,26 @@ function saveStorage(key, value) {
    ========================================================= */
 
 function normalizeText(value) {
+
     return String(value)
         .trim()
         .toLowerCase()
         .replace(/\s+/g, "");
+}
+
+
+/* =========================================================
+   ESCAPE HTML
+   ========================================================= */
+
+function escapeHTML(value) {
+
+    return String(value)
+        .replace(/&/g, "&amp;")
+        .replace(/</g, "&lt;")
+        .replace(/>/g, "&gt;")
+        .replace(/"/g, "&quot;")
+        .replace(/'/g, "&#039;");
 }
 
 
@@ -628,27 +756,34 @@ function normalizeText(value) {
 
 function addIngredient(value) {
 
-    const ingredient = String(value)
-        .trim()
-        .replace(/\s+/g, " ");
+    const ingredient =
+        String(value)
+            .trim()
+            .replace(/\s+/g, " ");
 
     if (!ingredient) {
         return;
     }
 
-    const exists = selectedIngredients.some(
-        item =>
-            normalizeText(item) ===
-            normalizeText(ingredient)
-    );
+    const exists =
+        selectedIngredients.some(
+            item =>
+                normalizeText(item) ===
+                normalizeText(ingredient)
+        );
 
     if (exists) {
+
         ingredientInput.value = "";
+
         hideSuggestions();
+
         return;
     }
 
-    selectedIngredients.push(ingredient);
+    selectedIngredients.push(
+        ingredient
+    );
 
     ingredientInput.value = "";
 
@@ -660,12 +795,22 @@ function addIngredient(value) {
 
 function removeIngredient(index) {
 
-    selectedIngredients.splice(index, 1);
+    selectedIngredients.splice(
+        index,
+        1
+    );
 
     renderSelectedIngredients();
 
     if (selectedIngredients.length > 0) {
+
         searchRecipes();
+
+    } else {
+
+        currentRecipes = [...recipes];
+
+        applyFilters();
     }
 }
 
@@ -680,6 +825,9 @@ function clearIngredients() {
 
     currentRecipes = [...recipes];
 
+    resultMessage.textContent =
+        "แสดงเมนูทั้งหมด เลือกวัตถุดิบเพื่อจัดอันดับเมนู";
+
     applyFilters();
 }
 
@@ -689,6 +837,12 @@ function clearIngredients() {
    ========================================================= */
 
 function renderSelectedIngredients() {
+
+    if (
+        !selectedIngredientsContainer
+    ) {
+        return;
+    }
 
     if (selectedIngredients.length === 0) {
 
@@ -706,6 +860,7 @@ function renderSelectedIngredients() {
             .map(
                 (ingredient, index) => `
                     <span class="ingredient-tag">
+
                         ${escapeHTML(ingredient)}
 
                         <button
@@ -715,6 +870,7 @@ function renderSelectedIngredients() {
                         >
                             ×
                         </button>
+
                     </span>
                 `
             )
@@ -728,30 +884,46 @@ function renderSelectedIngredients() {
 
 function showSuggestions(value) {
 
-    const query = normalizeText(value);
-
-    if (!query) {
-        hideSuggestions();
+    if (!ingredientSuggestions) {
         return;
     }
 
-    const matches = ingredientList
-        .filter(
-            ingredient =>
-                normalizeText(ingredient).includes(query)
-        )
-        .filter(
-            ingredient =>
-                !selectedIngredients.some(
-                    selected =>
-                        normalizeText(selected) ===
-                        normalizeText(ingredient)
-                )
-        )
-        .slice(0, 8);
+    const query =
+        normalizeText(value);
+
+    if (!query) {
+
+        hideSuggestions();
+
+        return;
+    }
+
+    const matches =
+        ingredientList
+            .filter(
+                ingredient =>
+                    normalizeText(
+                        ingredient
+                    ).includes(query)
+            )
+            .filter(
+                ingredient =>
+                    !selectedIngredients.some(
+                        selected =>
+                            normalizeText(
+                                selected
+                            ) ===
+                            normalizeText(
+                                ingredient
+                            )
+                    )
+            )
+            .slice(0, 8);
 
     if (matches.length === 0) {
+
         hideSuggestions();
+
         return;
     }
 
@@ -764,19 +936,30 @@ function showSuggestions(value) {
                         class="ingredient-suggestion"
                         data-suggestion="${escapeHTML(ingredient)}"
                     >
-                        <span>🥕 ${escapeHTML(ingredient)}</span>
+                        <span>
+                            🥕 ${escapeHTML(ingredient)}
+                        </span>
+
                         <span>+</span>
+
                     </button>
                 `
             )
             .join("");
 
-    ingredientSuggestions.style.display = "block";
+    ingredientSuggestions.style.display =
+        "block";
 }
 
 
 function hideSuggestions() {
-    ingredientSuggestions.style.display = "none";
+
+    if (!ingredientSuggestions) {
+        return;
+    }
+
+    ingredientSuggestions.style.display =
+        "none";
 }
 
 
@@ -800,28 +983,39 @@ function searchRecipes() {
 
     saveRecentSearch();
 
-    currentRecipes = recipes
-        .map(recipe => ({
-            ...recipe,
-            match: calculateMatch(recipe)
-        }))
-        .sort(
-            (a, b) =>
-                b.match.percentage -
-                a.match.percentage
-        );
+    currentRecipes =
+        recipes
+            .map(recipe => ({
+
+                ...recipe,
+
+                match:
+                    calculateMatch(recipe)
+
+            }))
+            .sort(
+                (a, b) =>
+                    b.match.percentage -
+                    a.match.percentage
+            );
 
     resultMessage.textContent =
         `พบเมนูที่ตรงกับวัตถุดิบ ${selectedIngredients.length} รายการ`;
 
     applyFilters();
 
-    document
-        .getElementById("recipes-section")
-        .scrollIntoView({
+    const section =
+        document.getElementById(
+            "recipes-section"
+        );
+
+    if (section) {
+
+        section.scrollIntoView({
             behavior: "smooth",
             block: "start"
         });
+    }
 }
 
 
@@ -831,7 +1025,12 @@ function searchRecipes() {
 
 function calculateMatch(recipe) {
 
-    if (recipe.ingredients.length === 0) {
+    if (
+        !recipe ||
+        !recipe.ingredients ||
+        recipe.ingredients.length === 0
+    ) {
+
         return {
             count: 0,
             total: 0,
@@ -839,24 +1038,31 @@ function calculateMatch(recipe) {
         };
     }
 
-    const selected = selectedIngredients.map(
-        normalizeText
-    );
+    const selected =
+        selectedIngredients.map(
+            normalizeText
+        );
 
     const matchedIngredients =
         recipe.ingredients.filter(
             ingredient =>
                 selected.includes(
-                    normalizeText(ingredient)
+                    normalizeText(
+                        ingredient
+                    )
                 )
         );
 
-    const count = matchedIngredients.length;
+    const count =
+        matchedIngredients.length;
 
-    const total = recipe.ingredients.length;
+    const total =
+        recipe.ingredients.length;
 
     const percentage =
-        Math.round((count / total) * 100);
+        Math.round(
+            (count / total) * 100
+        );
 
     return {
         count,
@@ -873,50 +1079,68 @@ function calculateMatch(recipe) {
 function applyFilters() {
 
     const menuQuery =
-        normalizeText(menuSearchInput.value);
+        menuSearchInput
+            ? normalizeText(
+                menuSearchInput.value
+            )
+            : "";
 
     const category =
-        categoryFilter.value;
+        categoryFilter
+            ? categoryFilter.value
+            : "all";
 
     const maxTime =
-        timeFilter.value;
+        timeFilter
+            ? timeFilter.value
+            : "all";
 
     const difficulty =
-        difficultyFilter.value;
+        difficultyFilter
+            ? difficultyFilter.value
+            : "all";
 
-    let filtered = [...currentRecipes];
+    let filtered =
+        [...currentRecipes];
 
     if (menuQuery) {
 
-        filtered = filtered.filter(
-            recipe =>
-                normalizeText(recipe.name)
-                    .includes(menuQuery)
-        );
+        filtered =
+            filtered.filter(
+                recipe =>
+                    normalizeText(
+                        recipe.name
+                    ).includes(menuQuery)
+            );
     }
 
     if (category !== "all") {
 
-        filtered = filtered.filter(
-            recipe =>
-                recipe.category === category
-        );
+        filtered =
+            filtered.filter(
+                recipe =>
+                    recipe.category === category
+            );
     }
 
     if (maxTime !== "all") {
 
-        filtered = filtered.filter(
-            recipe =>
-                recipe.time <= Number(maxTime)
-        );
+        filtered =
+            filtered.filter(
+                recipe =>
+                    recipe.time <=
+                    Number(maxTime)
+            );
     }
 
     if (difficulty !== "all") {
 
-        filtered = filtered.filter(
-            recipe =>
-                recipe.difficulty === difficulty
-        );
+        filtered =
+            filtered.filter(
+                recipe =>
+                    recipe.difficulty ===
+                    difficulty
+            );
     }
 
     renderRecipes(filtered);
@@ -929,24 +1153,39 @@ function applyFilters() {
 
 function renderRecipes(recipeList) {
 
-    recipeCount.textContent =
-        `(${recipeList.length})`;
+    if (!recipeGrid) {
+        return;
+    }
+
+    if (recipeCount) {
+
+        recipeCount.textContent =
+            `(${recipeList.length})`;
+    }
 
     if (recipeList.length === 0) {
 
         recipeGrid.innerHTML = "";
 
-        emptyState.hidden = false;
+        if (emptyState) {
+            emptyState.hidden = false;
+        }
 
         return;
     }
 
-    emptyState.hidden = true;
+    if (emptyState) {
+        emptyState.hidden = true;
+    }
 
     recipeGrid.innerHTML =
         recipeList
             .map(createRecipeCard)
             .join("");
+
+    setupImageFallbacks(
+        recipeGrid
+    );
 }
 
 
@@ -957,10 +1196,19 @@ function renderRecipes(recipeList) {
 function createRecipeCard(recipe) {
 
     const match =
-        calculateMatch(recipe);
+        selectedIngredients.length > 0
+            ? calculateMatch(recipe)
+            : {
+                count: 0,
+                total: recipe.ingredients.length,
+                percentage: 0
+            };
 
     const isFavorite =
         favoriteIds.includes(recipe.id);
+
+    const image =
+        getRecipeImage(recipe);
 
     return `
         <article
@@ -971,17 +1219,17 @@ function createRecipeCard(recipe) {
             <div class="recipe-image">
 
                 <img
-                    src="${recipe.image}"
+                    src="${image}"
                     alt="${escapeHTML(recipe.name)}"
                     loading="lazy"
-                    onerror="this.style.display='none'"
+                    data-recipe-image="${recipe.id}"
                 >
 
                 <button
                     type="button"
                     class="favorite-btn ${isFavorite ? "active" : ""}"
                     data-favorite-id="${recipe.id}"
-                    aria-label="เพิ่ม ${escapeHTML(recipe.name)} ในรายการโปรด"
+                    aria-label="${isFavorite ? "ลบ" : "เพิ่ม"} ${escapeHTML(recipe.name)} ${isFavorite ? "จากรายการโปรด" : "ในรายการโปรด"}"
                 >
                     ${isFavorite ? "❤️" : "♡"}
                 </button>
@@ -1007,21 +1255,41 @@ function createRecipeCard(recipe) {
                 <div class="match-info">
 
                     <div class="match-header">
+
                         <span>
-                            มีวัตถุดิบ ${match.count}/${match.total}
+                            ${
+                                selectedIngredients.length > 0
+                                    ? `มีวัตถุดิบ ${match.count}/${match.total}`
+                                    : `วัตถุดิบ ${match.total} รายการ`
+                            }
                         </span>
 
-                        <span class="match-percentage">
-                            ${match.percentage}%
-                        </span>
+                        ${
+                            selectedIngredients.length > 0
+                                ? `
+                                    <span class="match-percentage">
+                                        ${match.percentage}%
+                                    </span>
+                                `
+                                : ""
+                        }
+
                     </div>
 
-                    <div class="progress-bar">
-                        <div
-                            class="progress-fill"
-                            style="width: ${match.percentage}%"
-                        ></div>
-                    </div>
+                    ${
+                        selectedIngredients.length > 0
+                            ? `
+                                <div class="progress-bar">
+
+                                    <div
+                                        class="progress-fill"
+                                        style="width: ${match.percentage}%"
+                                    ></div>
+
+                                </div>
+                            `
+                            : ""
+                    }
 
                 </div>
 
@@ -1051,6 +1319,65 @@ function createRecipeCard(recipe) {
 
         </article>
     `;
+}
+
+
+/* =========================================================
+   IMAGE FALLBACK
+   ========================================================= */
+
+function setupImageFallbacks(container) {
+
+    if (!container) {
+        return;
+    }
+
+    const images =
+        container.querySelectorAll(
+            "img[data-recipe-image]"
+        );
+
+    images.forEach(image => {
+
+        image.addEventListener(
+            "error",
+            function () {
+
+                const recipeId =
+                    Number(
+                        this.dataset.recipeImage
+                    );
+
+                const recipe =
+                    recipes.find(
+                        item =>
+                            item.id === recipeId
+                    );
+
+                if (!recipe) {
+                    return;
+                }
+
+                if (
+                    this.dataset.fallbackUsed ===
+                    "true"
+                ) {
+                    return;
+                }
+
+                this.dataset.fallbackUsed =
+                    "true";
+
+                this.src =
+                    createFallbackImage(
+                        recipe
+                    );
+            },
+            {
+                once: true
+            }
+        );
+    });
 }
 
 
@@ -1085,27 +1412,42 @@ function toggleFavorite(recipeId) {
 
 function renderFavorites() {
 
+    if (
+        !favoriteGrid ||
+        !favoriteEmpty
+    ) {
+        return;
+    }
+
     const favoriteRecipes =
         recipes.filter(
             recipe =>
-                favoriteIds.includes(recipe.id)
+                favoriteIds.includes(
+                    recipe.id
+                )
         );
 
     if (favoriteRecipes.length === 0) {
 
         favoriteGrid.innerHTML = "";
 
-        favoriteEmpty.style.display = "block";
+        favoriteEmpty.style.display =
+            "block";
 
         return;
     }
 
-    favoriteEmpty.style.display = "none";
+    favoriteEmpty.style.display =
+        "none";
 
     favoriteGrid.innerHTML =
         favoriteRecipes
             .map(createRecipeCard)
             .join("");
+
+    setupImageFallbacks(
+        favoriteGrid
+    );
 }
 
 
@@ -1115,7 +1457,9 @@ function renderFavorites() {
 
 function saveRecentSearch() {
 
-    if (selectedIngredients.length === 0) {
+    if (
+        selectedIngredients.length === 0
+    ) {
         return;
     }
 
@@ -1134,10 +1478,13 @@ function saveRecentSearch() {
                 item
                     .map(normalizeText)
                     .sort()
-                    .join("|") !== searchKey
+                    .join("|") !==
+                searchKey
         );
 
-    recentSearches.unshift(search);
+    recentSearches.unshift(
+        search
+    );
 
     recentSearches =
         recentSearches.slice(0, 6);
@@ -1153,14 +1500,23 @@ function saveRecentSearch() {
 
 function renderRecentSearches() {
 
+    if (
+        !recentSection ||
+        !recentSearchesContainer
+    ) {
+        return;
+    }
+
     if (recentSearches.length === 0) {
 
-        recentSection.style.display = "none";
+        recentSection.style.display =
+            "none";
 
         return;
     }
 
-    recentSection.style.display = "block";
+    recentSection.style.display =
+        "block";
 
     recentSearchesContainer.innerHTML =
         recentSearches
@@ -1173,7 +1529,9 @@ function renderRecentSearches() {
                     >
                         🔄
                         ${search
-                            .map(escapeHTML)
+                            .map(
+                                escapeHTML
+                            )
                             .join(", ")}
                     </button>
                 `
@@ -1234,7 +1592,10 @@ function randomRecipe() {
         availableRecipes[randomIndex];
 
     if (recipe) {
-        openRecipeModal(recipe.id);
+
+        openRecipeModal(
+            recipe.id
+        );
     }
 }
 
@@ -1247,7 +1608,9 @@ function openRecipeModal(recipeId) {
 
     const recipe =
         recipes.find(
-            item => item.id === Number(recipeId)
+            item =>
+                item.id ===
+                Number(recipeId)
         );
 
     if (!recipe) {
@@ -1257,78 +1620,170 @@ function openRecipeModal(recipeId) {
     const match =
         calculateMatch(recipe);
 
-    modalRecipeImage.innerHTML = `
-        <img
-            src="${recipe.image}"
-            alt="${escapeHTML(recipe.name)}"
-            onerror="this.style.display='none'"
-        >
-    `;
+    if (modalRecipeImage) {
 
-    modalRecipeMeta.innerHTML = `
-        <span>🍽️ ${escapeHTML(recipe.category)}</span>
-        <span>⏱️ ${recipe.time} นาที</span>
-        <span>📊 ${escapeHTML(recipe.difficulty)}</span>
-    `;
+        modalRecipeImage.innerHTML = `
+            <img
+                src="${getRecipeImage(recipe)}"
+                alt="${escapeHTML(recipe.name)}"
+                data-modal-recipe-image="${recipe.id}"
+            >
+        `;
 
-    modalRecipeTitle.textContent =
-        recipe.name;
+        const image =
+            modalRecipeImage.querySelector(
+                "img"
+            );
 
-    modalRecipeDescription.textContent =
-        recipe.description;
+        if (image) {
 
-    modalMatchPercentage.textContent =
-        `${match.percentage}%`;
+            image.addEventListener(
+                "error",
+                function () {
 
-    modalProgressBar.style.width =
-        `${match.percentage}%`;
+                    if (
+                        this.dataset.fallbackUsed ===
+                        "true"
+                    ) {
+                        return;
+                    }
 
-    modalIngredientCount.textContent =
-        `มีวัตถุดิบ ${match.count} จาก ${match.total} รายการ`;
+                    this.dataset.fallbackUsed =
+                        "true";
 
-    modalIngredients.innerHTML =
-        recipe.ingredients
-            .map(
-                ingredient => `
-                    <li>
-                        ${escapeHTML(ingredient)}
-                    </li>
-                `
-            )
-            .join("");
+                    this.src =
+                        createFallbackImage(
+                            recipe
+                        );
+                }
+            );
+        }
+    }
 
-    modalInstructions.innerHTML =
-        recipe.instructions
-            .map(
-                instruction => `
-                    <li>
-                        ${escapeHTML(instruction)}
-                    </li>
-                `
-            )
-            .join("");
 
-    recipeModal.classList.add("active");
+    if (modalRecipeMeta) {
 
-    recipeModal.setAttribute(
-        "aria-hidden",
-        "false"
-    );
+        modalRecipeMeta.innerHTML = `
+            <span>
+                🍽️ ${escapeHTML(recipe.category)}
+            </span>
 
-    document.body.style.overflow = "hidden";
+            <span>
+                ⏱️ ${recipe.time} นาที
+            </span>
+
+            <span>
+                📊 ${escapeHTML(recipe.difficulty)}
+            </span>
+        `;
+    }
+
+
+    if (modalRecipeTitle) {
+
+        modalRecipeTitle.textContent =
+            recipe.name;
+    }
+
+
+    if (modalRecipeDescription) {
+
+        modalRecipeDescription.textContent =
+            recipe.description;
+    }
+
+
+    if (modalMatchPercentage) {
+
+        modalMatchPercentage.textContent =
+            `${match.percentage}%`;
+    }
+
+
+    if (modalProgressBar) {
+
+        modalProgressBar.style.width =
+            `${match.percentage}%`;
+    }
+
+
+    if (modalIngredientCount) {
+
+        modalIngredientCount.textContent =
+            selectedIngredients.length > 0
+                ? `มีวัตถุดิบ ${match.count} จาก ${match.total} รายการ`
+                : `วัตถุดิบทั้งหมด ${match.total} รายการ`;
+    }
+
+
+    if (modalIngredients) {
+
+        modalIngredients.innerHTML =
+            recipe.ingredients
+                .map(
+                    ingredient => `
+                        <li>
+                            ${escapeHTML(
+                                ingredient
+                            )}
+                        </li>
+                    `
+                )
+                .join("");
+    }
+
+
+    if (modalInstructions) {
+
+        modalInstructions.innerHTML =
+            recipe.instructions
+                .map(
+                    instruction => `
+                        <li>
+                            ${escapeHTML(
+                                instruction
+                            )}
+                        </li>
+                    `
+                )
+                .join("");
+    }
+
+
+    if (recipeModal) {
+
+        recipeModal.classList.add(
+            "active"
+        );
+
+        recipeModal.setAttribute(
+            "aria-hidden",
+            "false"
+        );
+
+        document.body.style.overflow =
+            "hidden";
+    }
 }
 
 
 function closeRecipeModal() {
 
-    recipeModal.classList.remove("active");
+    if (!recipeModal) {
+        return;
+    }
+
+    recipeModal.classList.remove(
+        "active"
+    );
 
     recipeModal.setAttribute(
         "aria-hidden",
         "true"
     );
 
-    document.body.style.overflow = "";
+    document.body.style.overflow =
+        "";
 }
 
 
@@ -1338,13 +1793,21 @@ function closeRecipeModal() {
 
 function resetFilters() {
 
-    menuSearchInput.value = "";
+    if (menuSearchInput) {
+        menuSearchInput.value = "";
+    }
 
-    categoryFilter.value = "all";
+    if (categoryFilter) {
+        categoryFilter.value = "all";
+    }
 
-    timeFilter.value = "all";
+    if (timeFilter) {
+        timeFilter.value = "all";
+    }
 
-    difficultyFilter.value = "all";
+    if (difficultyFilter) {
+        difficultyFilter.value = "all";
+    }
 
     applyFilters();
 }
@@ -1354,280 +1817,340 @@ function resetFilters() {
    EVENT LISTENERS
    ========================================================= */
 
-addIngredientBtn.addEventListener(
-    "click",
-    () => {
-        addIngredient(
-            ingredientInput.value
-        );
-    }
-);
+if (addIngredientBtn) {
+
+    addIngredientBtn.addEventListener(
+        "click",
+        () => {
+
+            addIngredient(
+                ingredientInput.value
+            );
+        }
+    );
+}
 
 
-ingredientInput.addEventListener(
-    "input",
-    event => {
-        showSuggestions(
-            event.target.value
-        );
-    }
-);
+if (ingredientInput) {
+
+    ingredientInput.addEventListener(
+        "input",
+        event => {
+
+            showSuggestions(
+                event.target.value
+            );
+        }
+    );
 
 
-ingredientInput.addEventListener(
-    "keydown",
-    event => {
+    ingredientInput.addEventListener(
+        "keydown",
+        event => {
 
-        if (event.key === "Enter") {
+            if (event.key === "Enter") {
 
-            event.preventDefault();
+                event.preventDefault();
 
-            const firstSuggestion =
-                ingredientSuggestions.querySelector(
+                const firstSuggestion =
+                    ingredientSuggestions
+                        ? ingredientSuggestions.querySelector(
+                            "[data-suggestion]"
+                        )
+                        : null;
+
+                if (firstSuggestion) {
+
+                    addIngredient(
+                        firstSuggestion.dataset.suggestion
+                    );
+
+                } else {
+
+                    addIngredient(
+                        ingredientInput.value
+                    );
+                }
+            }
+
+
+            if (event.key === "Escape") {
+
+                hideSuggestions();
+            }
+        }
+    );
+}
+
+
+if (selectedIngredientsContainer) {
+
+    selectedIngredientsContainer.addEventListener(
+        "click",
+        event => {
+
+            const button =
+                event.target.closest(
+                    "[data-remove-ingredient]"
+                );
+
+            if (!button) {
+                return;
+            }
+
+            removeIngredient(
+                Number(
+                    button.dataset.removeIngredient
+                )
+            );
+        }
+    );
+}
+
+
+if (ingredientSuggestions) {
+
+    ingredientSuggestions.addEventListener(
+        "click",
+        event => {
+
+            const button =
+                event.target.closest(
                     "[data-suggestion]"
                 );
 
-            if (firstSuggestion) {
-
-                addIngredient(
-                    firstSuggestion.dataset.suggestion
-                );
-
-            } else {
-
-                addIngredient(
-                    ingredientInput.value
-                );
+            if (!button) {
+                return;
             }
-        }
 
-        if (event.key === "Escape") {
-            hideSuggestions();
-        }
-    }
-);
-
-
-selectedIngredientsContainer.addEventListener(
-    "click",
-    event => {
-
-        const button =
-            event.target.closest(
-                "[data-remove-ingredient]"
+            addIngredient(
+                button.dataset.suggestion
             );
-
-        if (!button) {
-            return;
         }
-
-        removeIngredient(
-            Number(
-                button.dataset.removeIngredient
-            )
-        );
-    }
-);
+    );
+}
 
 
-ingredientSuggestions.addEventListener(
-    "click",
-    event => {
+if (clearIngredientsBtn) {
 
-        const button =
-            event.target.closest(
-                "[data-suggestion]"
-            );
-
-        if (!button) {
-            return;
-        }
-
-        addIngredient(
-            button.dataset.suggestion
-        );
-    }
-);
+    clearIngredientsBtn.addEventListener(
+        "click",
+        clearIngredients
+    );
+}
 
 
-clearIngredientsBtn.addEventListener(
-    "click",
-    clearIngredients
-);
+if (searchBtn) {
+
+    searchBtn.addEventListener(
+        "click",
+        searchRecipes
+    );
+}
 
 
-searchBtn.addEventListener(
-    "click",
-    searchRecipes
-);
+if (randomBtn) {
+
+    randomBtn.addEventListener(
+        "click",
+        randomRecipe
+    );
+}
 
 
-randomBtn.addEventListener(
-    "click",
-    randomRecipe
-);
+if (menuSearchInput) {
+
+    menuSearchInput.addEventListener(
+        "input",
+        applyFilters
+    );
+}
 
 
-menuSearchInput.addEventListener(
-    "input",
-    applyFilters
-);
+if (categoryFilter) {
+
+    categoryFilter.addEventListener(
+        "change",
+        applyFilters
+    );
+}
 
 
-categoryFilter.addEventListener(
-    "change",
-    applyFilters
-);
+if (timeFilter) {
+
+    timeFilter.addEventListener(
+        "change",
+        applyFilters
+    );
+}
 
 
-timeFilter.addEventListener(
-    "change",
-    applyFilters
-);
+if (difficultyFilter) {
+
+    difficultyFilter.addEventListener(
+        "change",
+        applyFilters
+    );
+}
 
 
-difficultyFilter.addEventListener(
-    "change",
-    applyFilters
-);
+if (resetFiltersBtn) {
+
+    resetFiltersBtn.addEventListener(
+        "click",
+        resetFilters
+    );
+}
 
 
-resetFiltersBtn.addEventListener(
-    "click",
-    resetFilters
-);
+if (clearRecentBtn) {
 
-
-clearRecentBtn.addEventListener(
-    "click",
-    clearRecentSearches
-);
+    clearRecentBtn.addEventListener(
+        "click",
+        clearRecentSearches
+    );
+}
 
 
 /* =========================================================
    RECIPE GRID EVENTS
    ========================================================= */
 
-recipeGrid.addEventListener(
-    "click",
-    event => {
+if (recipeGrid) {
 
-        const favoriteButton =
-            event.target.closest(
-                "[data-favorite-id]"
-            );
+    recipeGrid.addEventListener(
+        "click",
+        event => {
 
-        if (favoriteButton) {
+            const favoriteButton =
+                event.target.closest(
+                    "[data-favorite-id]"
+                );
 
-            toggleFavorite(
-                Number(
-                    favoriteButton.dataset.favoriteId
-                )
-            );
+            if (favoriteButton) {
 
-            return;
+                toggleFavorite(
+                    Number(
+                        favoriteButton.dataset.favoriteId
+                    )
+                );
+
+                return;
+            }
+
+
+            const viewButton =
+                event.target.closest(
+                    "[data-view-recipe]"
+                );
+
+            if (viewButton) {
+
+                openRecipeModal(
+                    Number(
+                        viewButton.dataset.viewRecipe
+                    )
+                );
+            }
         }
-
-
-        const viewButton =
-            event.target.closest(
-                "[data-view-recipe]"
-            );
-
-        if (viewButton) {
-
-            openRecipeModal(
-                Number(
-                    viewButton.dataset.viewRecipe
-                )
-            );
-        }
-    }
-);
+    );
+}
 
 
 /* =========================================================
    FAVORITE GRID EVENTS
    ========================================================= */
 
-favoriteGrid.addEventListener(
-    "click",
-    event => {
+if (favoriteGrid) {
 
-        const favoriteButton =
-            event.target.closest(
-                "[data-favorite-id]"
-            );
+    favoriteGrid.addEventListener(
+        "click",
+        event => {
 
-        if (favoriteButton) {
+            const favoriteButton =
+                event.target.closest(
+                    "[data-favorite-id]"
+                );
 
-            toggleFavorite(
-                Number(
-                    favoriteButton.dataset.favoriteId
-                )
-            );
+            if (favoriteButton) {
 
-            return;
+                toggleFavorite(
+                    Number(
+                        favoriteButton.dataset.favoriteId
+                    )
+                );
+
+                return;
+            }
+
+
+            const viewButton =
+                event.target.closest(
+                    "[data-view-recipe]"
+                );
+
+            if (viewButton) {
+
+                openRecipeModal(
+                    Number(
+                        viewButton.dataset.viewRecipe
+                    )
+                );
+            }
         }
-
-
-        const viewButton =
-            event.target.closest(
-                "[data-view-recipe]"
-            );
-
-        if (viewButton) {
-
-            openRecipeModal(
-                Number(
-                    viewButton.dataset.viewRecipe
-                )
-            );
-        }
-    }
-);
+    );
+}
 
 
 /* =========================================================
    RECENT SEARCH EVENTS
    ========================================================= */
 
-recentSearchesContainer.addEventListener(
-    "click",
-    event => {
+if (recentSearchesContainer) {
 
-        const button =
-            event.target.closest(
-                "[data-recent-index]"
+    recentSearchesContainer.addEventListener(
+        "click",
+        event => {
+
+            const button =
+                event.target.closest(
+                    "[data-recent-index]"
+                );
+
+            if (!button) {
+                return;
+            }
+
+            loadRecentSearch(
+                Number(
+                    button.dataset.recentIndex
+                )
             );
-
-        if (!button) {
-            return;
         }
-
-        loadRecentSearch(
-            Number(
-                button.dataset.recentIndex
-            )
-        );
-    }
-);
+    );
+}
 
 
 /* =========================================================
    MODAL EVENTS
    ========================================================= */
 
-closeModalBtn.addEventListener(
-    "click",
-    closeRecipeModal
-);
+if (closeModalBtn) {
+
+    closeModalBtn.addEventListener(
+        "click",
+        closeRecipeModal
+    );
+}
 
 
-modalOverlay.addEventListener(
-    "click",
-    closeRecipeModal
-);
+if (modalOverlay) {
+
+    modalOverlay.addEventListener(
+        "click",
+        closeRecipeModal
+    );
+}
 
 
 document.addEventListener(
@@ -1636,8 +2159,12 @@ document.addEventListener(
 
         if (
             event.key === "Escape" &&
-            recipeModal.classList.contains("active")
+            recipeModal &&
+            recipeModal.classList.contains(
+                "active"
+            )
         ) {
+
             closeRecipeModal();
         }
     }
@@ -1657,25 +2184,11 @@ document.addEventListener(
                 ".ingredient-search"
             )
         ) {
+
             hideSuggestions();
         }
     }
 );
-
-
-/* =========================================================
-   ESCAPE HTML
-   ========================================================= */
-
-function escapeHTML(value) {
-
-    return String(value)
-        .replace(/&/g, "&amp;")
-        .replace(/</g, "&lt;")
-        .replace(/>/g, "&gt;")
-        .replace(/"/g, "&quot;")
-        .replace(/'/g, "&#039;");
-}
 
 
 /* =========================================================
