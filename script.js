@@ -481,11 +481,32 @@ const ingredientList = [
 */
 
 function getRecipeImage(recipe) {
+    const imageMap = {
+        "ข้าวผัดไข่": "https://images.unsplash.com/photo-1603133872878-684f208fb84b?w=900&h=600&fit=crop",
+        "ข้าวผัดหมู": "https://images.unsplash.com/photo-1512058564366-18510be2db19?w=900&h=600&fit=crop",
+        "ผัดกะเพราหมู": "https://images.unsplash.com/photo-1562565652-a0d8f0c59eb4?w=900&h=600&fit=crop",
+        "ไข่เจียวหมูสับ": "https://images.unsplash.com/photo-1565299507177-b0ac66763828?w=900&h=600&fit=crop",
+        "ผัดคะน้าหมู": "https://images.unsplash.com/photo-1512058564366-18510be2db19?w=900&h=600&fit=crop",
+        "ต้มจืดเต้าหู้หมูสับ": "https://images.unsplash.com/photo-1547592166-23ac45744acd?w=900&h=600&fit=crop",
+        "ต้มยำกุ้ง": "https://images.unsplash.com/photo-1455619452474-d2be8b1e70cd?w=900&h=600&fit=crop",
+        "ผัดซีอิ๊ว": "https://images.unsplash.com/photo-1552611052-33e04de081de?w=900&h=600&fit=crop",
+        "สุกี้น้ำ": "https://images.unsplash.com/photo-1569718212165-3a8278d5f624?w=900&h=600&fit=crop",
+        "ยำวุ้นเส้น": "https://images.unsplash.com/photo-1547592180-85f173990554?w=900&h=600&fit=crop",
+        "ไข่ดาว": "https://images.unsplash.com/photo-1525351484163-7529414344d8?w=900&h=600&fit=crop",
+        "ไข่ต้ม": "https://images.unsplash.com/photo-1582722872445-44dc5f7e3c8f?w=900&h=600&fit=crop",
+        "ผัดผักรวม": "https://images.unsplash.com/photo-1540420773420-3366772f4999?w=900&h=600&fit=crop",
+        "แกงจืดไข่น้ำ": "https://images.unsplash.com/photo-1547592166-23ac45744acd?w=900&h=600&fit=crop",
+        "หมูกระเทียม": "https://images.unsplash.com/photo-1544025162-d76694265947?w=900&h=600&fit=crop",
+        "ผัดพริกแกงหมู": "https://images.unsplash.com/photo-1455619452474-d2be8b1e70cd?w=900&h=600&fit=crop",
+        "แกงเขียวหวานไก่": "https://images.unsplash.com/photo-1601050690597-df0568f70950?w=900&h=600&fit=crop",
+        "ลาบหมู": "https://images.unsplash.com/photo-1547592180-85f173990554?w=900&h=600&fit=crop",
+        "ข้าวต้มหมู": "https://images.unsplash.com/photo-1547592166-23ac45744acd?w=900&h=600&fit=crop",
+        "มาม่าผัดไข่": "https://images.unsplash.com/photo-1569718212165-3a8278d5f624?w=900&h=600&fit=crop",
+        "ไก่ผัดเม็ดมะม่วง": "https://images.unsplash.com/photo-1603133872878-684f208fb84b?w=900&h=600&fit=crop",
+        "ปลาทอดน้ำปลา": "https://images.unsplash.com/photo-1544943910-4c1dc44aab44?w=900&h=600&fit=crop"
+    };
 
-    const query =
-        encodeURIComponent(recipe.imageKeywords);
-
-    return `https://loremflickr.com/900/600/${query}?lock=${recipe.id}`;
+    return imageMap[recipe.name] || createFallbackImage(recipe);
 }
 
 
