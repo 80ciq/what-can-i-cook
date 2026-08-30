@@ -3,48 +3,66 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
     <title>What Can I Cook? 🍳</title>
     <meta name="description" content="ค้นหาเมนูอาหารจากวัตถุดิบที่คุณมีอยู่">
+
     <link rel="stylesheet" href="style.css">
 </head>
+
 <body>
+
     <!-- =========================
          HEADER
     ========================== -->
     <header class="site-header">
         <div class="container header-inner">
+
             <a href="#" class="logo">
                 <span class="logo-icon">🍳</span>
                 <span>What Can I Cook?</span>
             </a>
+
             <button class="random-btn" id="randomRecipeBtn" type="button">
                 🎲 สุ่มเมนู
             </button>
+
         </div>
     </header>
+
+
     <!-- =========================
          HERO / SEARCH
     ========================== -->
     <main>
+
         <section class="hero">
             <div class="container">
+
                 <div class="hero-content">
                     <span class="hero-badge">🍽️ Cook with what you have</span>
+
                     <h1>วันนี้ทำอะไรกินดี?</h1>
+
                     <p>
                         ใส่วัตถุดิบที่คุณมี แล้วให้เราช่วยค้นหาเมนูที่ทำได้
                     </p>
                 </div>
+
+
                 <!-- Ingredient Search -->
                 <div class="search-box">
+
                     <div class="search-input-wrapper">
                         <span class="search-icon">🔍</span>
+
                         <input
                             type="text"
                             id="ingredientInput"
                             placeholder="พิมพ์วัตถุดิบ เช่น ไข่, ข้าว, หมู..."
                             autocomplete="off"
                         >
+
                         <button
                             id="addIngredientBtn"
                             class="add-btn"
@@ -53,16 +71,22 @@
                             เพิ่ม
                         </button>
                     </div>
+
+
                     <!-- Ingredient Suggestions -->
                     <div
                         id="ingredientSuggestions"
                         class="ingredient-suggestions"
                         aria-label="คำแนะนำวัตถุดิบ"
                     ></div>
+
+
                     <!-- Selected Ingredients -->
                     <div class="selected-section">
+
                         <div class="selected-header">
                             <span>วัตถุดิบที่มี</span>
+
                             <button
                                 id="clearIngredientsBtn"
                                 class="clear-btn"
@@ -71,6 +95,7 @@
                                 ล้างทั้งหมด
                             </button>
                         </div>
+
                         <div
                             id="selectedIngredients"
                             class="ingredient-tags"
@@ -79,7 +104,10 @@
                                 ยังไม่ได้เลือกวัตถุดิบ
                             </span>
                         </div>
+
                     </div>
+
+
                     <button
                         id="searchRecipeBtn"
                         class="search-recipe-btn"
@@ -87,19 +115,25 @@
                     >
                         🔎 ค้นหาเมนู
                     </button>
+
                 </div>
+
             </div>
         </section>
+
+
         <!-- =========================
              RECENT SEARCHES
         ========================== -->
         <section class="recent-section">
             <div class="container">
+
                 <div class="section-heading">
                     <div>
                         <span class="section-label">HISTORY</span>
                         <h2>ค้นหาล่าสุด</h2>
                     </div>
+
                     <button
                         id="clearRecentBtn"
                         class="text-btn"
@@ -108,6 +142,7 @@
                         ล้างประวัติ
                     </button>
                 </div>
+
                 <div
                     id="recentSearches"
                     class="recent-list"
@@ -116,41 +151,58 @@
                         ยังไม่มีประวัติการค้นหา
                     </span>
                 </div>
+
             </div>
         </section>
+
+
         <!-- =========================
              RECIPES
         ========================== -->
         <section class="recipes-section">
             <div class="container">
+
                 <!-- Results Header -->
                 <div class="results-header">
+
                     <div class="results-title">
                         <span class="section-label">RECIPES</span>
                         <h2 id="resultsTitle">เมนูแนะนำ</h2>
+
                         <p id="resultsCount">
                             เมนูทั้งหมด
                         </p>
                     </div>
+
+
                     <!-- Recipe Name Search -->
                     <div class="recipe-name-search">
+
                         <span>🔍</span>
+
                         <input
                             type="text"
                             id="recipeSearchInput"
                             placeholder="ค้นหาชื่อเมนู..."
                         >
+
                     </div>
+
                 </div>
+
+
                 <!-- =========================
                      FILTERS
                 ========================== -->
                 <div class="filters">
+
                     <!-- Food Type -->
                     <div class="filter-group">
+
                         <label for="categoryFilter">
                             ประเภทอาหาร
                         </label>
+
                         <select id="categoryFilter">
                             <option value="all">ทั้งหมด</option>
                             <option value="main">อาหารจานหลัก</option>
@@ -161,40 +213,57 @@
                             <option value="noodle">เส้น</option>
                             <option value="rice">ข้าว</option>
                         </select>
+
                     </div>
+
+
                     <!-- Cooking Time -->
                     <div class="filter-group">
+
                         <label for="timeFilter">
                             เวลา
                         </label>
+
                         <select id="timeFilter">
                             <option value="all">ทั้งหมด</option>
                             <option value="15">ไม่เกิน 15 นาที</option>
                             <option value="30">ไม่เกิน 30 นาที</option>
                             <option value="45">ไม่เกิน 45 นาที</option>
                         </select>
+
                     </div>
+
+
                     <!-- Difficulty -->
                     <div class="filter-group">
+
                         <label for="difficultyFilter">
                             ระดับความยาก
                         </label>
+
                         <select id="difficultyFilter">
                             <option value="all">ทั้งหมด</option>
                             <option value="easy">ง่าย</option>
                             <option value="medium">ปานกลาง</option>
                             <option value="hard">ยาก</option>
                         </select>
+
                     </div>
+
+
                     <!-- Favorite -->
                     <label class="favorite-filter">
                         <input
                             type="checkbox"
                             id="favoriteFilter"
                         >
+
                         <span>❤️ เมนูโปรด</span>
                     </label>
+
                 </div>
+
+
                 <!-- =========================
                      RECIPE GRID
                 ========================== -->
@@ -202,6 +271,8 @@
                     id="recipeGrid"
                     class="recipe-grid"
                 ></div>
+
+
                 <!-- =========================
                      NO RESULTS
                 ========================== -->
@@ -209,14 +280,18 @@
                     id="noResults"
                     class="no-results hidden"
                 >
+
                     <div class="no-results-icon">
                         🍳
                     </div>
+
                     <h3>ไม่พบเมนูที่ตรงกับการค้นหา</h3>
+
                     <p>
                         ลองเพิ่มวัตถุดิบอื่น ๆ
                         หรือลองเปลี่ยนตัวกรองดูนะ
                     </p>
+
                     <button
                         id="resetFiltersBtn"
                         class="secondary-btn"
@@ -224,10 +299,15 @@
                     >
                         ล้างตัวกรอง
                     </button>
+
                 </div>
+
             </div>
         </section>
+
     </main>
+
+
     <!-- =========================
          RECIPE DETAIL MODAL
     ========================== -->
@@ -238,8 +318,11 @@
         aria-modal="true"
         aria-labelledby="modalRecipeTitle"
     >
+
         <div class="modal-overlay" id="modalOverlay"></div>
+
         <div class="modal-content">
+
             <button
                 id="closeModalBtn"
                 class="modal-close"
@@ -248,11 +331,15 @@
             >
                 ×
             </button>
+
             <div id="modalRecipeImage" class="modal-image">
                 🍳
             </div>
+
             <div class="modal-body">
+
                 <div class="modal-title-row">
+
                     <div>
                         <span
                             id="modalRecipeCategory"
@@ -260,13 +347,16 @@
                         >
                             อาหารจานหลัก
                         </span>
+
                         <h2 id="modalRecipeTitle">
                             ชื่อเมนู
                         </h2>
+
                         <p id="modalRecipeDescription">
                             คำอธิบายเมนู
                         </p>
                     </div>
+
                     <button
                         id="modalFavoriteBtn"
                         class="modal-favorite"
@@ -275,9 +365,13 @@
                     >
                         ♡
                     </button>
+
                 </div>
+
+
                 <!-- Recipe Meta -->
                 <div class="recipe-meta">
+
                     <div class="meta-item">
                         <span>⏱️</span>
                         <div>
@@ -287,6 +381,7 @@
                             </strong>
                         </div>
                     </div>
+
                     <div class="meta-item">
                         <span>📊</span>
                         <div>
@@ -296,6 +391,7 @@
                             </strong>
                         </div>
                     </div>
+
                     <div class="meta-item">
                         <span>🥕</span>
                         <div>
@@ -305,65 +401,101 @@
                             </strong>
                         </div>
                     </div>
+
                 </div>
+
+
                 <!-- Ingredient Match -->
                 <div class="match-section">
+
                     <div class="match-header">
+
                         <h3>วัตถุดิบที่คุณมี</h3>
+
                         <strong id="modalMatchPercentage">
                             0%
                         </strong>
+
                     </div>
+
                     <div class="progress-bar">
                         <div
                             id="modalMatchProgress"
                             class="progress-fill"
                         ></div>
                     </div>
+
                     <p id="modalMatchText">
                         มีวัตถุดิบ 0 จาก 0 รายการ
                     </p>
+
                 </div>
+
+
                 <!-- Ingredients -->
                 <div class="modal-section">
+
                     <h3>🥕 วัตถุดิบ</h3>
+
                     <ul
                         id="modalIngredients"
                         class="ingredients-list"
                     ></ul>
+
                 </div>
+
+
                 <!-- Instructions -->
                 <div class="modal-section">
+
                     <h3>👨‍🍳 วิธีทำ</h3>
+
                     <ol
                         id="modalInstructions"
                         class="instructions-list"
                     ></ol>
+
                 </div>
+
             </div>
+
         </div>
+
     </div>
+
+
     <!-- =========================
          FOOTER
     ========================== -->
     <footer class="site-footer">
+
         <div class="container">
+
             <div class="footer-content">
+
                 <div class="footer-logo">
                     🍳 What Can I Cook?
                 </div>
+
                 <p>
                     ค้นหาเมนูอร่อยจากวัตถุดิบที่คุณมี
                 </p>
+
             </div>
+
             <div class="footer-bottom">
                 <p>
                     © 2026 What Can I Cook? | Made with ❤️
                 </p>
             </div>
+
         </div>
+
     </footer>
+
+
     <!-- JavaScript -->
     <script src="script.js"></script>
+
 </body>
 </html>
