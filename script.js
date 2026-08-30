@@ -2,28 +2,25 @@
    What Can I Cook? - script.js
    ========================================================= */
 
-
 /* =========================================================
-   1. RECIPE DATABASE
+   RECIPE DATABASE
    ========================================================= */
 
 const recipes = [
-
     {
         id: 1,
         name: "ข้าวผัดไข่",
-        description: "ข้าวผัดง่าย ๆ หอมกลิ่นกระทะ ทำได้รวดเร็ว เหมาะสำหรับมื้อเร่งด่วน",
+        description: "ข้าวผัดง่าย ๆ หอมกลิ่นกระทะ พร้อมไข่และผัก",
         image: "https://images.unsplash.com/photo-1603133872878-684f208fb84b?auto=format&fit=crop&w=900&q=80",
-        ingredients: ["ข้าวสวย", "ไข่", "กระเทียม", "น้ำมัน", "ซีอิ๊วขาว", "ต้นหอม"],
+        ingredients: ["ข้าว", "ไข่", "น้ำมัน", "กระเทียม", "ซีอิ๊ว"],
         instructions: [
-            "ตั้งกระทะใส่น้ำมันให้ร้อน",
-            "ใส่กระเทียมลงผัดจนหอม",
-            "ตอกไข่ลงไปแล้วยีให้พอสุก",
-            "ใส่ข้าวสวยลงผัดให้เข้ากัน",
-            "ปรุงรสด้วยซีอิ๊วขาว",
-            "ใส่ต้นหอม ผัดให้เข้ากันแล้วตักเสิร์ฟ"
+            "ตั้งกระทะใส่น้ำมันและผัดกระเทียมให้หอม",
+            "ตอกไข่ลงไปแล้วคนให้พอสุก",
+            "ใส่ข้าวลงไปผัดให้เข้ากัน",
+            "ปรุงรสด้วยซีอิ๊ว",
+            "ผัดต่อจนข้าวแห้งและหอม แล้วจัดเสิร์ฟ"
         ],
-        category: "ข้าว",
+        category: "อาหารจานเดียว",
         difficulty: "ง่าย",
         time: 15
     },
@@ -31,18 +28,17 @@ const recipes = [
     {
         id: 2,
         name: "ข้าวผัดหมู",
-        description: "ข้าวผัดหมูรสกลมกล่อม ใส่หมูนุ่ม ๆ และผักเพิ่มความอร่อย",
+        description: "ข้าวผัดหมูรสกลมกล่อม ทำง่าย เหมาะสำหรับมื้อเร่งด่วน",
         image: "https://images.unsplash.com/photo-1512058564366-18510be2db19?auto=format&fit=crop&w=900&q=80",
-        ingredients: ["ข้าวสวย", "หมู", "ไข่", "กระเทียม", "น้ำมัน", "ซีอิ๊วขาว", "ต้นหอม"],
+        ingredients: ["ข้าว", "หมู", "ไข่", "กระเทียม", "ซีอิ๊ว", "น้ำมัน"],
         instructions: [
             "หั่นหมูเป็นชิ้นพอดีคำ",
-            "ตั้งกระทะใส่น้ำมันและผัดกระเทียม",
-            "ใส่หมูลงผัดจนสุก",
-            "ใส่ไข่แล้วผัดให้เข้ากัน",
-            "ใส่ข้าวสวยและปรุงรส",
-            "ใส่ต้นหอมแล้วผัดอีกครั้งก่อนเสิร์ฟ"
+            "ตั้งกระทะใส่น้ำมันแล้วผัดกระเทียม",
+            "ใส่หมูลงผัดจนเกือบสุก",
+            "ใส่ไข่และข้าวลงไปผัด",
+            "ปรุงรสด้วยซีอิ๊วแล้วผัดจนเข้ากัน"
         ],
-        category: "ข้าว",
+        category: "อาหารจานเดียว",
         difficulty: "ง่าย",
         time: 20
     },
@@ -50,16 +46,16 @@ const recipes = [
     {
         id: 3,
         name: "ผัดกะเพราหมู",
-        description: "เมนูยอดนิยมรสจัดจ้าน หอมใบกะเพราและพริกกระเทียม",
-        image: "https://images.unsplash.com/photo-1603133872878-684f208fb84b?auto=format&fit=crop&w=900&q=80",
-        ingredients: ["หมู", "ใบกะเพรา", "พริก", "กระเทียม", "น้ำมัน", "น้ำปลา", "น้ำตาล"],
+        description: "เมนูยอดนิยมรสจัดจ้าน หอมใบกะเพรา",
+        image: "https://images.unsplash.com/photo-1601050690597-df0568f70950?auto=format&fit=crop&w=900&q=80",
+        ingredients: ["หมู", "ใบกะเพรา", "กระเทียม", "พริก", "น้ำปลา", "น้ำมัน"],
         instructions: [
-            "โขลกพริกกับกระเทียมพอหยาบ",
+            "โขลกกระเทียมและพริกพอหยาบ",
             "ตั้งกระทะใส่น้ำมัน",
-            "ผัดพริกกระเทียมจนหอม",
+            "ผัดพริกและกระเทียมจนหอม",
             "ใส่หมูลงผัดจนสุก",
-            "ปรุงรสด้วยน้ำปลาและน้ำตาล",
-            "ใส่ใบกะเพรา ผัดเร็ว ๆ แล้วปิดไฟ"
+            "ปรุงรสด้วยน้ำปลา",
+            "ใส่ใบกะเพราแล้วผัดเร็ว ๆ ก่อนปิดไฟ"
         ],
         category: "ผัด",
         difficulty: "ง่าย",
@@ -69,16 +65,15 @@ const recipes = [
     {
         id: 4,
         name: "ไข่เจียวหมูสับ",
-        description: "ไข่เจียวฟู ๆ ใส่หมูสับ ทำง่าย ใช้วัตถุดิบไม่เยอะ",
-        image: "https://images.unsplash.com/photo-1565299507177-b0ac66763828?auto=format&fit=crop&w=900&q=80",
+        description: "ไข่เจียวฟู ๆ ใส่หมูสับ เหมาะกับข้าวสวยร้อน ๆ",
+        image: "https://images.unsplash.com/photo-1525351484163-7529414344d8?auto=format&fit=crop&w=900&q=80",
         ingredients: ["ไข่", "หมู", "น้ำปลา", "น้ำมัน"],
         instructions: [
             "ตอกไข่ใส่ชาม",
             "ใส่หมูสับและน้ำปลา",
             "ตีไข่ให้เข้ากัน",
             "ตั้งกระทะใส่น้ำมันให้ร้อน",
-            "เทไข่ลงทอดจนเหลืองกรอบ",
-            "กลับด้านแล้วทอดจนสุก"
+            "เทไข่ลงทอดจนเหลืองกรอบทั้งสองด้าน"
         ],
         category: "ทอด",
         difficulty: "ง่าย",
@@ -88,35 +83,34 @@ const recipes = [
     {
         id: 5,
         name: "ผัดคะน้าหมู",
-        description: "คะน้ากรอบ ๆ ผัดกับหมูและกระเทียม รสชาติกลมกล่อม",
+        description: "คะน้ากรอบ ๆ ผัดกับหมูนุ่มและซอสปรุงรส",
         image: "https://images.unsplash.com/photo-1515003197210-e0cd71810b5f?auto=format&fit=crop&w=900&q=80",
-        ingredients: ["คะน้า", "หมู", "กระเทียม", "น้ำมัน", "น้ำปลา", "น้ำตาล"],
+        ingredients: ["คะน้า", "หมู", "กระเทียม", "น้ำมัน", "ซีอิ๊ว"],
         instructions: [
             "ล้างและหั่นคะน้า",
-            "ตั้งกระทะใส่น้ำมัน",
-            "ผัดกระเทียมจนหอม",
+            "หั่นหมูเป็นชิ้นพอดีคำ",
+            "ตั้งกระทะใส่น้ำมันและผัดกระเทียม",
             "ใส่หมูลงผัดจนสุก",
             "ใส่คะน้าและปรุงรส",
-            "ผัดด้วยไฟแรงจนคะน้าสุกกรอบ"
+            "ผัดเร็ว ๆ จนคะน้าสุกกรอบ"
         ],
         category: "ผัด",
         difficulty: "ง่าย",
-        time: 15
+        time: 20
     },
 
     {
         id: 6,
         name: "ต้มจืดเต้าหู้หมูสับ",
-        description: "ซุปร้อน ๆ รสอ่อน ทานง่าย เหมาะกับทุกคนในครอบครัว",
+        description: "ซุปใสรสอ่อน ๆ พร้อมเต้าหู้และหมูสับ",
         image: "https://images.unsplash.com/photo-1547592180-85f173990554?auto=format&fit=crop&w=900&q=80",
-        ingredients: ["เต้าหู้", "หมู", "ผักกาดขาว", "กระเทียม", "น้ำ", "ซีอิ๊วขาว"],
+        ingredients: ["หมู", "เต้าหู้", "ผักกาดขาว", "กระเทียม", "น้ำปลา"],
         instructions: [
             "ต้มน้ำให้เดือด",
-            "ปั้นหมูสับเป็นก้อนเล็ก ๆ",
-            "ใส่หมูลงต้มจนสุก",
-            "ใส่เต้าหู้และผักกาดขาว",
-            "ปรุงรสด้วยซีอิ๊วขาว",
-            "ต้มต่อจนผักสุกแล้วตักเสิร์ฟ"
+            "ใส่หมูสับลงไปต้ม",
+            "ใส่ผักกาดขาวและเต้าหู้",
+            "ปรุงรสด้วยน้ำปลา",
+            "ต้มจนผักนิ่มแล้วจัดเสิร์ฟ"
         ],
         category: "ต้ม",
         difficulty: "ง่าย",
@@ -126,16 +120,16 @@ const recipes = [
     {
         id: 7,
         name: "ต้มยำกุ้ง",
-        description: "ต้มยำกุ้งรสเปรี้ยวเผ็ด หอมสมุนไพรไทย",
+        description: "ต้มยำกุ้งรสจัดจ้าน เปรี้ยว เผ็ด หอมสมุนไพร",
         image: "https://images.unsplash.com/photo-1547592180-85f173990554?auto=format&fit=crop&w=900&q=80",
-        ingredients: ["กุ้ง", "ตะไคร้", "ใบมะกรูด", "ข่า", "พริก", "น้ำปลา", "มะนาว", "เห็ด"],
+        ingredients: ["กุ้ง", "ตะไคร้", "ใบมะกรูด", "พริก", "มะนาว", "น้ำปลา"],
         instructions: [
             "ต้มน้ำให้เดือด",
-            "ใส่ตะไคร้ ข่า และใบมะกรูด",
-            "ใส่กุ้งและเห็ด",
-            "ปรุงรสด้วยน้ำปลา",
-            "ใส่พริกตามความชอบ",
-            "ปิดไฟแล้วเติมน้ำมะนาว"
+            "ใส่ตะไคร้และใบมะกรูด",
+            "ใส่กุ้งลงไปต้มจนสุก",
+            "ใส่พริก",
+            "ปรุงรสด้วยน้ำปลาและมะนาว",
+            "ชิมรสแล้วจัดเสิร์ฟ"
         ],
         category: "ต้ม",
         difficulty: "ปานกลาง",
@@ -144,57 +138,57 @@ const recipes = [
 
     {
         id: 8,
-        name: "ผัดซีอิ๊วหมู",
-        description: "เส้นใหญ่ผัดซีอิ๊วกับหมูและคะน้า หอมกลิ่นกระทะ",
-        image: "https://images.unsplash.com/photo-1559314809-0d155014e29e?auto=format&fit=crop&w=900&q=80",
-        ingredients: ["เส้นใหญ่", "หมู", "คะน้า", "ไข่", "ซีอิ๊วดำ", "ซีอิ๊วขาว", "น้ำมัน"],
+        name: "ผัดซีอิ๊ว",
+        description: "เส้นใหญ่ผัดซีอิ๊วพร้อมหมูและผักคะน้า",
+        image: "https://images.unsplash.com/photo-1552566626-52f8b828add9?auto=format&fit=crop&w=900&q=80",
+        ingredients: ["เส้นใหญ่", "หมู", "ไข่", "คะน้า", "ซีอิ๊ว", "น้ำมัน"],
         instructions: [
             "ตั้งกระทะใส่น้ำมัน",
             "ผัดหมูจนเกือบสุก",
-            "ใส่ไข่และยีให้พอสุก",
-            "ใส่เส้นใหญ่",
-            "ปรุงรสด้วยซีอิ๊วขาวและซีอิ๊วดำ",
-            "ใส่คะน้าแล้วผัดจนสุก"
+            "ใส่ไข่แล้วคนให้เข้ากัน",
+            "ใส่เส้นใหญ่และคะน้า",
+            "ปรุงรสด้วยซีอิ๊ว",
+            "ผัดจนเส้นหอมและเข้ากัน"
         ],
-        category: "เส้น",
+        category: "อาหารจานเดียว",
         difficulty: "ปานกลาง",
         time: 20
     },
 
     {
         id: 9,
-        name: "ราดหน้าหมู",
-        description: "เส้นนุ่มราดน้ำราดหน้าเข้มข้น พร้อมหมูและผัก",
-        image: "https://images.unsplash.com/photo-1559314809-0d155014e29e?auto=format&fit=crop&w=900&q=80",
-        ingredients: ["เส้นใหญ่", "หมู", "คะน้า", "แป้งมัน", "ซีอิ๊วขาว", "น้ำตาล"],
+        name: "สุกี้น้ำ",
+        description: "สุกี้น้ำร้อน ๆ พร้อมผัก ไข่ และเนื้อสัตว์",
+        image: "https://images.unsplash.com/photo-1601050690597-df0568f70950?auto=format&fit=crop&w=900&q=80",
+        ingredients: ["หมู", "ไข่", "ผักกาดขาว", "วุ้นเส้น", "น้ำจิ้มสุกี้"],
         instructions: [
-            "ผัดเส้นใหญ่ให้หอมแล้วพักไว้",
-            "ผัดหมูจนสุก",
-            "เติมน้ำและใส่คะน้า",
-            "ปรุงรสด้วยซีอิ๊วขาวและน้ำตาล",
-            "ละลายแป้งมันกับน้ำ",
-            "เทแป้งลงในน้ำราด คนจนข้นแล้วราดบนเส้น"
+            "ต้มน้ำให้เดือด",
+            "ใส่หมูลงไปต้ม",
+            "ใส่ผักกาดขาวและวุ้นเส้น",
+            "ตอกไข่ลงไป",
+            "ต้มจนทุกอย่างสุก",
+            "เสิร์ฟพร้อมน้ำจิ้มสุกี้"
         ],
-        category: "เส้น",
-        difficulty: "ปานกลาง",
-        time: 30
+        category: "ต้ม",
+        difficulty: "ง่าย",
+        time: 20
     },
 
     {
         id: 10,
-        name: "แกงจืดสาหร่ายเต้าหู้",
-        description: "ซุปใสรสอ่อน หอมสาหร่ายและเต้าหู้",
-        image: "https://images.unsplash.com/photo-1547592180-85f173990554?auto=format&fit=crop&w=900&q=80",
-        ingredients: ["สาหร่าย", "เต้าหู้", "หมู", "ต้นหอม", "น้ำ", "ซีอิ๊วขาว"],
+        name: "ยำวุ้นเส้น",
+        description: "ยำวุ้นเส้นรสเปรี้ยวเผ็ด หอมสมุนไพร",
+        image: "https://images.unsplash.com/photo-1512621776951-a57141f2eefd?auto=format&fit=crop&w=900&q=80",
+        ingredients: ["วุ้นเส้น", "หมู", "หอมใหญ่", "มะนาว", "พริก", "น้ำปลา"],
         instructions: [
-            "ต้มน้ำให้เดือด",
-            "ใส่หมูสับลงไปต้ม",
-            "ใส่เต้าหู้",
-            "ใส่สาหร่าย",
-            "ปรุงรสด้วยซีอิ๊วขาว",
-            "โรยต้นหอมก่อนเสิร์ฟ"
+            "ลวกวุ้นเส้นและพักไว้",
+            "ลวกหมูให้สุก",
+            "หั่นหอมใหญ่",
+            "ผสมน้ำมะนาว น้ำปลา และพริก",
+            "ใส่วุ้นเส้น หมู และหอมใหญ่",
+            "คลุกให้เข้ากันแล้วจัดเสิร์ฟ"
         ],
-        category: "ต้ม",
+        category: "ยำ",
         difficulty: "ง่าย",
         time: 20
     },
@@ -203,13 +197,13 @@ const recipes = [
         id: 11,
         name: "ไข่ดาว",
         description: "ไข่ดาวทอดง่าย ๆ ไข่ขาวกรอบ ไข่แดงเยิ้ม",
-        image: "https://images.unsplash.com/photo-1525351484163-7529414344d8?auto=format&fit=crop&w=900&q=80",
+        image: "https://images.unsplash.com/photo-1482049016688-2d3e1b311543?auto=format&fit=crop&w=900&q=80",
         ingredients: ["ไข่", "น้ำมัน"],
         instructions: [
             "ตั้งกระทะใส่น้ำมัน",
             "ตอกไข่ลงกระทะ",
             "ทอดจนไข่ขาวสุก",
-            "ตักขึ้นพักให้สะเด็ดน้ำมัน"
+            "ตักขึ้นและจัดเสิร์ฟ"
         ],
         category: "ทอด",
         difficulty: "ง่าย",
@@ -218,131 +212,35 @@ const recipes = [
 
     {
         id: 12,
-        name: "ไข่คน",
-        description: "ไข่คนเนื้อนุ่ม ทำง่ายและใช้เวลาเพียงไม่กี่นาที",
-        image: "https://images.unsplash.com/photo-1525351484163-7529414344d8?auto=format&fit=crop&w=900&q=80",
-        ingredients: ["ไข่", "นม", "เนย", "เกลือ"],
+        name: "ไข่ต้ม",
+        description: "ไข่ต้มทำง่าย เหมาะสำหรับรับประทานคู่กับอาหารหลายชนิด",
+        image: "https://images.unsplash.com/photo-1506976785307-8732e854ad03?auto=format&fit=crop&w=900&q=80",
+        ingredients: ["ไข่"],
         instructions: [
-            "ตอกไข่ใส่ชาม",
-            "เติมนมและเกลือแล้วตีให้เข้ากัน",
-            "ตั้งกระทะใส่เนย",
-            "เทไข่ลงไป",
-            "คนช้า ๆ จนไข่เริ่มเซ็ตตัว",
-            "ปิดไฟก่อนที่ไข่จะแห้งเกินไป"
+            "ต้มน้ำให้เดือด",
+            "ใส่ไข่ลงไปอย่างระมัดระวัง",
+            "ต้มประมาณ 7-10 นาทีตามระดับความสุกที่ต้องการ",
+            "นำไข่ขึ้นแช่น้ำเย็น",
+            "ปอกเปลือกและจัดเสิร์ฟ"
         ],
-        category: "ทอด",
+        category: "ต้ม",
         difficulty: "ง่าย",
-        time: 8
+        time: 10
     },
 
     {
         id: 13,
-        name: "หมูกระเทียม",
-        description: "หมูทอดกระเทียมหอม ๆ รสเค็มหวาน ทานคู่กับข้าวสวย",
-        image: "https://images.unsplash.com/photo-1547592180-85f173990554?auto=format&fit=crop&w=900&q=80",
-        ingredients: ["หมู", "กระเทียม", "น้ำปลา", "น้ำตาล", "น้ำมัน"],
-        instructions: [
-            "หมักหมูกับน้ำปลาและน้ำตาล",
-            "ตั้งกระทะใส่น้ำมัน",
-            "ทอดกระเทียมจนเหลืองแล้วพักไว้",
-            "นำหมูลงทอดจนสุก",
-            "ใส่กระเทียมทอดกลับลงไป",
-            "คลุกให้เข้ากันแล้วเสิร์ฟ"
-        ],
-        category: "ทอด",
-        difficulty: "ง่าย",
-        time: 20
-    },
-
-    {
-        id: 14,
-        name: "ไก่ผัดเม็ดมะม่วง",
-        description: "ไก่ผัดซอสเข้มข้น พร้อมเม็ดมะม่วงหิมพานต์และผัก",
-        image: "https://images.unsplash.com/photo-1603133872878-684f208fb84b?auto=format&fit=crop&w=900&q=80",
-        ingredients: ["ไก่", "เม็ดมะม่วง", "พริกแห้ง", "หอมหัวใหญ่", "ซีอิ๊วขาว", "น้ำตาล", "น้ำมัน"],
-        instructions: [
-            "หั่นไก่เป็นชิ้นพอดีคำ",
-            "ทอดเม็ดมะม่วงและพริกแห้งแล้วพักไว้",
-            "ผัดไก่จนสุก",
-            "ใส่หอมหัวใหญ่",
-            "ปรุงรสด้วยซีอิ๊วขาวและน้ำตาล",
-            "ใส่เม็ดมะม่วงและพริกแห้งแล้วผัดให้เข้ากัน"
-        ],
-        category: "ผัด",
-        difficulty: "ปานกลาง",
-        time: 30
-    },
-
-    {
-        id: 15,
-        name: "แกงเขียวหวานไก่",
-        description: "แกงเขียวหวานหอมกะทิและเครื่องแกง รสชาติเข้มข้น",
-        image: "https://images.unsplash.com/photo-1601050690597-df0568f70950?auto=format&fit=crop&w=900&q=80",
-        ingredients: ["ไก่", "กะทิ", "พริกแกงเขียวหวาน", "มะเขือ", "ใบโหระพา", "น้ำปลา", "น้ำตาล"],
-        instructions: [
-            "ตั้งหม้อใส่กะทิเล็กน้อย",
-            "ใส่พริกแกงเขียวหวานแล้วผัดจนหอม",
-            "ใส่ไก่ลงผัด",
-            "เติมกะทิที่เหลือ",
-            "ใส่มะเขือและปรุงรส",
-            "ใส่ใบโหระพาแล้วปิดไฟ"
-        ],
-        category: "แกง",
-        difficulty: "ปานกลาง",
-        time: 40
-    },
-
-    {
-        id: 16,
-        name: "สุกี้น้ำ",
-        description: "สุกี้น้ำร้อน ๆ ใส่ผักและเนื้อสัตว์ตามชอบ",
-        image: "https://images.unsplash.com/photo-1569718212165-3a8278d5f624?auto=format&fit=crop&w=900&q=80",
-        ingredients: ["หมู", "ผักกาดขาว", "วุ้นเส้น", "ไข่", "เต้าหู้", "น้ำจิ้มสุกี้"],
-        instructions: [
-            "ต้มน้ำให้เดือด",
-            "ใส่หมูลงต้มจนสุก",
-            "ใส่ผักกาดขาวและเต้าหู้",
-            "ใส่วุ้นเส้น",
-            "ตอกไข่ลงไป",
-            "ตักใส่ชามและเติมน้ำจิ้มสุกี้"
-        ],
-        category: "ต้ม",
-        difficulty: "ง่าย",
-        time: 25
-    },
-
-    {
-        id: 17,
-        name: "ยำวุ้นเส้น",
-        description: "ยำวุ้นเส้นรสเปรี้ยวเผ็ด หอมมะนาวและสมุนไพร",
-        image: "https://images.unsplash.com/photo-1547592180-85f173990554?auto=format&fit=crop&w=900&q=80",
-        ingredients: ["วุ้นเส้น", "หมู", "กุ้ง", "หอมหัวใหญ่", "มะนาว", "น้ำปลา", "พริก"],
-        instructions: [
-            "แช่วุ้นเส้นให้นิ่ม",
-            "ลวกวุ้นเส้น หมู และกุ้งให้สุก",
-            "หั่นหอมหัวใหญ่",
-            "ทำน้ำยำจากมะนาว น้ำปลา และพริก",
-            "ใส่ส่วนผสมทั้งหมดลงในชาม",
-            "คลุกให้เข้ากันแล้วเสิร์ฟ"
-        ],
-        category: "อาหารจานเดียว",
-        difficulty: "ง่าย",
-        time: 20
-    },
-
-    {
-        id: 18,
         name: "ผัดผักรวม",
-        description: "ผัดผักหลากชนิด กรอบ อร่อย และทำได้ง่าย",
-        image: "https://images.unsplash.com/photo-1515003197210-e0cd71810b5f?auto=format&fit=crop&w=900&q=80",
-        ingredients: ["แครอท", "คะน้า", "เห็ด", "ข้าวโพดอ่อน", "กระเทียม", "น้ำมัน", "ซีอิ๊วขาว"],
+        description: "ผัดผักหลากชนิดกรอบ ๆ ปรุงรสกลมกล่อม",
+        image: "https://images.unsplash.com/photo-1540420773420-3366772f4999?auto=format&fit=crop&w=900&q=80",
+        ingredients: ["แครอท", "คะน้า", "กะหล่ำ", "กระเทียม", "น้ำมัน", "ซีอิ๊ว"],
         instructions: [
-            "ล้างและหั่นผักทั้งหมด",
+            "ล้างและหั่นผักทุกชนิด",
             "ตั้งกระทะใส่น้ำมัน",
-            "ผัดกระเทียมจนหอม",
+            "ผัดกระเทียมให้หอม",
             "ใส่ผักที่สุกยากก่อน",
-            "เติมผักที่เหลือ",
-            "ปรุงรสด้วยซีอิ๊วขาวแล้วผัดจนสุก"
+            "ใส่ผักที่เหลือตามลงไป",
+            "ปรุงรสและผัดจนผักสุกกรอบ"
         ],
         category: "ผัด",
         difficulty: "ง่าย",
@@ -350,176 +248,261 @@ const recipes = [
     },
 
     {
-        id: 19,
-        name: "มาม่าผัดไข่",
-        description: "เมนูเส้นกึ่งสำเร็จรูปแบบง่าย ๆ เพิ่มไข่ให้อิ่มอร่อย",
-        image: "https://images.unsplash.com/photo-1569718212165-3a8278d5f624?auto=format&fit=crop&w=900&q=80",
-        ingredients: ["บะหมี่กึ่งสำเร็จรูป", "ไข่", "กระเทียม", "น้ำมัน", "ซีอิ๊วขาว"],
+        id: 14,
+        name: "แกงจืดไข่น้ำ",
+        description: "ซุปไข่นุ่ม ๆ รสอ่อน รับประทานง่าย",
+        image: "https://images.unsplash.com/photo-1547592180-85f173990554?auto=format&fit=crop&w=900&q=80",
+        ingredients: ["ไข่", "หมู", "ต้นหอม", "กระเทียม", "น้ำปลา"],
         instructions: [
-            "ลวกบะหมี่ให้พอนิ่มแล้วพักไว้",
-            "ตั้งกระทะใส่น้ำมัน",
-            "ผัดกระเทียมจนหอม",
-            "ใส่ไข่และยีให้พอสุก",
-            "ใส่เส้นลงผัด",
-            "ปรุงรสด้วยซีอิ๊วขาวแล้วตักเสิร์ฟ"
+            "ตีไข่ให้เข้ากัน",
+            "ทอดไข่ให้พอสุกแล้วหั่นเป็นชิ้น",
+            "ต้มน้ำให้เดือดและใส่หมู",
+            "ใส่ไข่ทอดลงในน้ำซุป",
+            "ปรุงรสด้วยน้ำปลา",
+            "โรยต้นหอมก่อนเสิร์ฟ"
         ],
-        category: "เส้น",
+        category: "ต้ม",
+        difficulty: "ง่าย",
+        time: 20
+    },
+
+    {
+        id: 15,
+        name: "หมูกระเทียม",
+        description: "หมูผัดกระเทียมหอม ๆ รสเค็มหวานกำลังดี",
+        image: "https://images.unsplash.com/photo-1547592180-85f173990554?auto=format&fit=crop&w=900&q=80",
+        ingredients: ["หมู", "กระเทียม", "ซีอิ๊ว", "น้ำมัน", "น้ำตาล"],
+        instructions: [
+            "หมักหมูกับซีอิ๊วและน้ำตาล",
+            "ตั้งกระทะใส่น้ำมัน",
+            "ผัดกระเทียมให้เหลืองหอม",
+            "ใส่หมูลงผัดจนสุก",
+            "ผัดต่อให้ซอสเคลือบเนื้อหมู",
+            "จัดเสิร์ฟพร้อมข้าว"
+        ],
+        category: "ผัด",
+        difficulty: "ง่าย",
+        time: 20
+    },
+
+    {
+        id: 16,
+        name: "ผัดพริกแกงหมู",
+        description: "หมูผัดพริกแกงรสเข้มข้น หอมเครื่องแกง",
+        image: "https://images.unsplash.com/photo-1601050690597-df0568f70950?auto=format&fit=crop&w=900&q=80",
+        ingredients: ["หมู", "พริกแกง", "ถั่วฝักยาว", "ใบมะกรูด", "น้ำปลา", "น้ำมัน"],
+        instructions: [
+            "หั่นหมูและถั่วฝักยาว",
+            "ตั้งกระทะใส่น้ำมัน",
+            "ผัดพริกแกงให้หอม",
+            "ใส่หมูลงผัดจนสุก",
+            "ใส่ถั่วฝักยาว",
+            "ปรุงรสและใส่ใบมะกรูด"
+        ],
+        category: "ผัด",
+        difficulty: "ปานกลาง",
+        time: 25
+    },
+
+    {
+        id: 17,
+        name: "แกงเขียวหวานไก่",
+        description: "แกงไทยรสเข้มข้น หอมกะทิและเครื่องแกง",
+        image: "https://images.unsplash.com/photo-1601050690597-df0568f70950?auto=format&fit=crop&w=900&q=80",
+        ingredients: ["ไก่", "พริกแกงเขียวหวาน", "กะทิ", "มะเขือ", "ใบโหระพา"],
+        instructions: [
+            "ตั้งหม้อใส่กะทิ",
+            "ใส่พริกแกงเขียวหวานแล้วคนให้เข้ากัน",
+            "ใส่ไก่และต้มจนสุก",
+            "ใส่มะเขือ",
+            "ปรุงรสตามต้องการ",
+            "ใส่ใบโหระพาก่อนปิดไฟ"
+        ],
+        category: "แกง",
+        difficulty: "ปานกลาง",
+        time: 40
+    },
+
+    {
+        id: 18,
+        name: "ลาบหมู",
+        description: "ลาบหมูรสจัดจ้าน หอมข้าวคั่วและสมุนไพร",
+        image: "https://images.unsplash.com/photo-1547592180-85f173990554?auto=format&fit=crop&w=900&q=80",
+        ingredients: ["หมู", "มะนาว", "น้ำปลา", "พริก", "ข้าวคั่ว", "หอมแดง"],
+        instructions: [
+            "รวนหมูสับในกระทะจนสุก",
+            "ใส่น้ำปลาและน้ำมะนาว",
+            "ใส่พริกและข้าวคั่ว",
+            "ใส่หอมแดงซอย",
+            "คลุกทุกอย่างให้เข้ากัน",
+            "จัดเสิร์ฟพร้อมผักสด"
+        ],
+        category: "ยำ",
+        difficulty: "ปานกลาง",
+        time: 25
+    },
+
+    {
+        id: 19,
+        name: "ข้าวต้มหมู",
+        description: "ข้าวต้มหมูร้อน ๆ รสอ่อน เหมาะสำหรับมื้อเช้า",
+        image: "https://images.unsplash.com/photo-1547592180-85f173990554?auto=format&fit=crop&w=900&q=80",
+        ingredients: ["ข้าว", "หมู", "กระเทียม", "ต้นหอม", "น้ำปลา"],
+        instructions: [
+            "ต้มน้ำให้เดือด",
+            "ใส่ข้าวลงไปต้ม",
+            "ใส่หมูสับ",
+            "ปรุงรสด้วยน้ำปลา",
+            "ต้มจนข้าวนิ่มและหมูสุก",
+            "โรยต้นหอมก่อนเสิร์ฟ"
+        ],
+        category: "อาหารจานเดียว",
+        difficulty: "ง่าย",
+        time: 30
+    },
+
+    {
+        id: 20,
+        name: "มาม่าผัดไข่",
+        description: "บะหมี่กึ่งสำเร็จรูปผัดไข่ เมนูง่าย ๆ ใช้วัตถุดิบน้อย",
+        image: "https://images.unsplash.com/photo-1569718212165-3a8278d5f624?auto=format&fit=crop&w=900&q=80",
+        ingredients: ["บะหมี่", "ไข่", "กระเทียม", "น้ำมัน", "ซีอิ๊ว"],
+        instructions: [
+            "ต้มบะหมี่ให้พอนิ่มแล้วพักไว้",
+            "ตั้งกระทะใส่น้ำมัน",
+            "ผัดกระเทียมให้หอม",
+            "ใส่ไข่แล้วคนให้พอสุก",
+            "ใส่เส้นบะหมี่",
+            "ปรุงรสและผัดจนเข้ากัน"
+        ],
+        category: "อาหารจานเดียว",
         difficulty: "ง่าย",
         time: 10
     },
 
     {
-        id: 20,
-        name: "ก๋วยเตี๋ยวหมูน้ำใส",
-        description: "ก๋วยเตี๋ยวน้ำซุปร้อน ๆ พร้อมหมูและลูกชิ้น",
-        image: "https://images.unsplash.com/photo-1569718212165-3a8278d5f624?auto=format&fit=crop&w=900&q=80",
-        ingredients: ["เส้นก๋วยเตี๋ยว", "หมู", "ลูกชิ้น", "ถั่วงอก", "ต้นหอม", "น้ำซุป"],
+        id: 21,
+        name: "ไก่ผัดเม็ดมะม่วง",
+        description: "ไก่ผัดซอสพร้อมเม็ดมะม่วงหิมพานต์กรุบกรอบ",
+        image: "https://images.unsplash.com/photo-1601050690597-df0568f70950?auto=format&fit=crop&w=900&q=80",
+        ingredients: ["ไก่", "เม็ดมะม่วง", "หอมใหญ่", "พริกแห้ง", "ซีอิ๊ว", "น้ำมัน"],
         instructions: [
-            "ต้มน้ำซุปให้เดือด",
-            "ลวกเส้นก๋วยเตี๋ยว",
-            "ลวกหมูและลูกชิ้นจนสุก",
-            "ใส่เส้นลงในชาม",
-            "เติมหมู ลูกชิ้น และถั่วงอก",
-            "เทน้ำซุปร้อน ๆ แล้วโรยต้นหอม"
+            "หั่นไก่เป็นชิ้นพอดีคำ",
+            "ทอดไก่จนเหลือง",
+            "ผัดหอมใหญ่และพริกแห้ง",
+            "ใส่ไก่และเม็ดมะม่วง",
+            "ปรุงรสด้วยซีอิ๊ว",
+            "ผัดจนเข้ากันแล้วจัดเสิร์ฟ"
         ],
-        category: "เส้น",
+        category: "ผัด",
         difficulty: "ปานกลาง",
         time: 30
     },
 
     {
-        id: 21,
-        name: "ข้าวต้มหมู",
-        description: "ข้าวต้มหมูร้อน ๆ เนื้อนุ่ม ทานง่าย เหมาะกับมื้อเช้า",
-        image: "https://images.unsplash.com/photo-1547592180-85f173990554?auto=format&fit=crop&w=900&q=80",
-        ingredients: ["ข้าว", "หมู", "กระเทียม", "ต้นหอม", "ขิง", "ซีอิ๊วขาว", "น้ำ"],
-        instructions: [
-            "ต้มน้ำให้เดือด",
-            "ใส่ข้าวลงต้มจนเมล็ดข้าวนิ่ม",
-            "ใส่หมูสับ",
-            "ปรุงรสด้วยซีอิ๊วขาว",
-            "ต้มจนหมูสุก",
-            "โรยต้นหอมและขิงก่อนเสิร์ฟ"
-        ],
-        category: "ข้าว",
-        difficulty: "ง่าย",
-        time: 25
-    },
-
-    {
         id: 22,
-        name: "ผัดพริกแกงหมู",
-        description: "หมูผัดพริกแกงรสเข้มข้น หอมเครื่องแกงและใบมะกรูด",
-        image: "https://images.unsplash.com/photo-1603133872878-684f208fb84b?auto=format&fit=crop&w=900&q=80",
-        ingredients: ["หมู", "พริกแกง", "ถั่วฝักยาว", "ใบมะกรูด", "น้ำปลา", "น้ำตาล", "น้ำมัน"],
+        name: "ปลาทอดน้ำปลา",
+        description: "ปลาทอดกรอบราดน้ำปลาหอม ๆ",
+        image: "https://images.unsplash.com/photo-1544943910-1c2e4b0b3f8b?auto=format&fit=crop&w=900&q=80",
+        ingredients: ["ปลา", "น้ำปลา", "น้ำมัน", "น้ำตาล"],
         instructions: [
+            "ทำความสะอาดปลาและซับให้แห้ง",
             "ตั้งกระทะใส่น้ำมัน",
-            "ผัดพริกแกงจนหอม",
-            "ใส่หมูลงผัด",
-            "ใส่ถั่วฝักยาว",
-            "ปรุงรสด้วยน้ำปลาและน้ำตาล",
-            "ใส่ใบมะกรูดแล้วผัดให้เข้ากัน"
+            "ทอดปลาจนเหลืองกรอบ",
+            "ผสมน้ำปลาและน้ำตาล",
+            "ราดซอสลงบนปลา",
+            "จัดเสิร์ฟ"
         ],
-        category: "ผัด",
+        category: "ทอด",
         difficulty: "ปานกลาง",
-        time: 20
+        time: 30
     }
-
 ];
 
 
 /* =========================================================
-   2. INGREDIENT ALIASES
+   INGREDIENT LIST
    ========================================================= */
 
-const ingredientAliases = {
-    "ข้าว": "ข้าวสวย",
-    "ข้าวสวย": "ข้าวสวย",
-    "หมูสับ": "หมู",
-    "เนื้อหมู": "หมู",
-    "หมู": "หมู",
-    "ไข่ไก่": "ไข่",
-    "ไข่": "ไข่",
-    "กุ้งสด": "กุ้ง",
-    "กุ้ง": "กุ้ง",
-    "ไก่": "ไก่",
-    "เนื้อไก่": "ไก่",
-    "ผักกาด": "ผักกาดขาว",
-    "ผักกาดขาว": "ผักกาดขาว",
-    "คะน้า": "คะน้า",
-    "เต้าหู้": "เต้าหู้",
-    "เส้นใหญ่": "เส้นใหญ่",
-    "วุ้นเส้น": "วุ้นเส้น",
-    "มาม่า": "บะหมี่กึ่งสำเร็จรูป",
-    "บะหมี่": "บะหมี่กึ่งสำเร็จรูป",
-    "กระเทียม": "กระเทียม",
-    "พริก": "พริก",
-    "เห็ด": "เห็ด",
-    "แครอท": "แครอท",
-    "ข้าวโพดอ่อน": "ข้าวโพดอ่อน",
-    "ถั่วฝักยาว": "ถั่วฝักยาว"
-};
-
-
-/* =========================================================
-   3. SUGGESTED INGREDIENTS
-   ========================================================= */
-
-const suggestedIngredients = [
-    "ไข่",
+const ingredientList = [
     "ข้าว",
+    "ไข่",
     "หมู",
     "ไก่",
     "กุ้ง",
+    "ปลา",
     "คะน้า",
-    "เต้าหู้",
+    "ผักกาดขาว",
+    "กะหล่ำ",
+    "แครอท",
+    "ถั่วฝักยาว",
+    "มะเขือ",
+    "หอมใหญ่",
+    "หอมแดง",
+    "ต้นหอม",
     "กระเทียม",
     "พริก",
-    "เห็ด",
-    "แครอท",
-    "วุ้นเส้น"
+    "พริกแห้ง",
+    "ใบกะเพรา",
+    "ใบมะกรูด",
+    "ใบโหระพา",
+    "ตะไคร้",
+    "มะนาว",
+    "น้ำปลา",
+    "ซีอิ๊ว",
+    "น้ำมัน",
+    "น้ำตาล",
+    "เต้าหู้",
+    "วุ้นเส้น",
+    "เส้นใหญ่",
+    "บะหมี่",
+    "น้ำจิ้มสุกี้",
+    "พริกแกง",
+    "พริกแกงเขียวหวาน",
+    "กะทิ",
+    "เม็ดมะม่วง",
+    "ข้าวคั่ว"
 ];
 
 
 /* =========================================================
-   4. LOCAL STORAGE KEYS
-   ========================================================= */
-
-const STORAGE_KEYS = {
-    favorites: "whatCanICook_favorites",
-    recent: "whatCanICook_recent"
-};
-
-
-/* =========================================================
-   5. STATE
+   STATE
    ========================================================= */
 
 let selectedIngredients = [];
-let favoriteRecipes = loadFavorites();
-let recentSearches = loadRecentSearches();
-let currentFilteredRecipes = [...recipes];
-let toastTimer = null;
+let favoriteIds = loadStorage("whatCanICookFavorites", []);
+let recentSearches = loadStorage("whatCanICookRecent", []);
+
+let currentRecipes = [...recipes];
 
 
 /* =========================================================
-   6. DOM ELEMENTS
+   DOM ELEMENTS
    ========================================================= */
 
-const ingredientInput = document.getElementById("ingredientInput");
-const addIngredientBtn = document.getElementById("addIngredientBtn");
-const ingredientSuggestions = document.getElementById("ingredientSuggestions");
+const ingredientInput =
+    document.getElementById("ingredientInput");
+
+const addIngredientBtn =
+    document.getElementById("addIngredientBtn");
+
+const ingredientSuggestions =
+    document.getElementById("ingredientSuggestions");
+
 const selectedIngredientsContainer =
     document.getElementById("selectedIngredients");
 
 const clearIngredientsBtn =
     document.getElementById("clearIngredientsBtn");
 
-const searchRecipesBtn =
-    document.getElementById("searchRecipesBtn");
+const searchBtn =
+    document.getElementById("searchBtn");
 
-const recipeSearchInput =
-    document.getElementById("recipeSearchInput");
+const randomBtn =
+    document.getElementById("randomBtn");
+
+const menuSearchInput =
+    document.getElementById("menuSearchInput");
 
 const categoryFilter =
     document.getElementById("categoryFilter");
@@ -542,23 +525,23 @@ const resultMessage =
 const emptyState =
     document.getElementById("emptyState");
 
-const resetSearchBtn =
-    document.getElementById("resetSearchBtn");
+const resetFiltersBtn =
+    document.getElementById("resetFiltersBtn");
 
-const randomRecipeBtn =
-    document.getElementById("randomRecipeBtn");
-
-const favoritesGrid =
-    document.getElementById("favoritesGrid");
-
-const favoritesEmpty =
-    document.getElementById("favoritesEmpty");
+const recentSection =
+    document.getElementById("recentSection");
 
 const recentSearchesContainer =
     document.getElementById("recentSearches");
 
 const clearRecentBtn =
     document.getElementById("clearRecentBtn");
+
+const favoriteGrid =
+    document.getElementById("favoriteGrid");
+
+const favoriteEmpty =
+    document.getElementById("favoriteEmpty");
 
 const recipeModal =
     document.getElementById("recipeModal");
@@ -572,29 +555,23 @@ const closeModalBtn =
 const modalRecipeImage =
     document.getElementById("modalRecipeImage");
 
-const modalCategory =
-    document.getElementById("modalCategory");
+const modalRecipeMeta =
+    document.getElementById("modalRecipeMeta");
 
-const modalDifficulty =
-    document.getElementById("modalDifficulty");
-
-const modalTime =
-    document.getElementById("modalTime");
-
-const modalRecipeName =
-    document.getElementById("modalRecipeName");
+const modalRecipeTitle =
+    document.getElementById("modalRecipeTitle");
 
 const modalRecipeDescription =
     document.getElementById("modalRecipeDescription");
 
-const modalPercentage =
-    document.getElementById("modalPercentage");
+const modalMatchPercentage =
+    document.getElementById("modalMatchPercentage");
 
-const modalProgressFill =
-    document.getElementById("modalProgressFill");
+const modalProgressBar =
+    document.getElementById("modalProgressBar");
 
-const modalIngredientStatus =
-    document.getElementById("modalIngredientStatus");
+const modalIngredientCount =
+    document.getElementById("modalIngredientCount");
 
 const modalIngredients =
     document.getElementById("modalIngredients");
@@ -602,365 +579,113 @@ const modalIngredients =
 const modalInstructions =
     document.getElementById("modalInstructions");
 
-const toast =
-    document.getElementById("toast");
-
-const toastIcon =
-    document.getElementById("toastIcon");
-
-const toastMessage =
-    document.getElementById("toastMessage");
-
 
 /* =========================================================
-   7. INITIALIZATION
+   LOCAL STORAGE
    ========================================================= */
 
-document.addEventListener("DOMContentLoaded", () => {
+function loadStorage(key, fallback) {
+    try {
+        const value = localStorage.getItem(key);
 
-    renderIngredientSuggestions();
-
-    renderSelectedIngredients();
-
-    renderRecipes(recipes);
-
-    renderFavorites();
-
-    renderRecentSearches();
-
-    setupEventListeners();
-
-});
-
-
-/* =========================================================
-   8. EVENT LISTENERS
-   ========================================================= */
-
-function setupEventListeners() {
-
-    addIngredientBtn.addEventListener(
-        "click",
-        addIngredientFromInput
-    );
-
-    ingredientInput.addEventListener(
-        "keydown",
-        (event) => {
-
-            if (event.key === "Enter") {
-                event.preventDefault();
-                addIngredientFromInput();
-            }
-
-        }
-    );
-
-    ingredientInput.addEventListener(
-        "input",
-        handleIngredientInput
-    );
-
-    clearIngredientsBtn.addEventListener(
-        "click",
-        clearIngredients
-    );
-
-    searchRecipesBtn.addEventListener(
-        "click",
-        searchRecipes
-    );
-
-    recipeSearchInput.addEventListener(
-        "input",
-        applyFilters
-    );
-
-    categoryFilter.addEventListener(
-        "change",
-        applyFilters
-    );
-
-    timeFilter.addEventListener(
-        "change",
-        applyFilters
-    );
-
-    difficultyFilter.addEventListener(
-        "change",
-        applyFilters
-    );
-
-    resetSearchBtn.addEventListener(
-        "click",
-        resetSearch
-    );
-
-    randomRecipeBtn.addEventListener(
-        "click",
-        randomRecipe
-    );
-
-    clearRecentBtn.addEventListener(
-        "click",
-        clearRecentSearches
-    );
-
-    closeModalBtn.addEventListener(
-        "click",
-        closeRecipeModal
-    );
-
-    modalOverlay.addEventListener(
-        "click",
-        closeRecipeModal
-    );
-
-    document.addEventListener(
-        "keydown",
-        (event) => {
-
-            if (
-                event.key === "Escape" &&
-                !recipeModal.classList.contains("hidden")
-            ) {
-                closeRecipeModal();
-            }
-
-        }
-    );
-
-    setupNavigation();
-
+        return value
+            ? JSON.parse(value)
+            : fallback;
+    } catch (error) {
+        console.warn("Cannot read localStorage:", error);
+        return fallback;
+    }
 }
 
 
-/* =========================================================
-   9. NAVIGATION
-   ========================================================= */
-
-function setupNavigation() {
-
-    const navButtons =
-        document.querySelectorAll(".nav-btn");
-
-    navButtons.forEach(button => {
-
-        button.addEventListener("click", () => {
-
-            const sectionId =
-                button.dataset.section;
-
-            navButtons.forEach(btn => {
-                btn.classList.remove("active");
-            });
-
-            button.classList.add("active");
-
-            const section =
-                document.getElementById(sectionId);
-
-            if (section) {
-                section.scrollIntoView({
-                    behavior: "smooth"
-                });
-            }
-
-        });
-
-    });
-
-}
-
-
-/* =========================================================
-   10. INGREDIENT SUGGESTIONS
-   ========================================================= */
-
-function renderIngredientSuggestions(
-    searchTerm = ""
-) {
-
-    const normalizedSearch =
-        normalizeText(searchTerm);
-
-    let suggestions =
-        suggestedIngredients.filter(
-            ingredient => {
-
-                const normalized =
-                    normalizeText(ingredient);
-
-                const notSelected =
-                    !selectedIngredients.includes(
-                        normalizeIngredient(ingredient)
-                    );
-
-                return (
-                    notSelected &&
-                    (
-                        !normalizedSearch ||
-                        normalized.includes(normalizedSearch)
-                    )
-                );
-
-            }
+function saveStorage(key, value) {
+    try {
+        localStorage.setItem(
+            key,
+            JSON.stringify(value)
         );
-
-    suggestions =
-        suggestions.slice(0, 8);
-
-    ingredientSuggestions.innerHTML =
-        suggestions
-            .map(ingredient => `
-                <button
-                    type="button"
-                    class="suggestion-item"
-                    data-ingredient="${escapeHTML(ingredient)}"
-                >
-                    + ${escapeHTML(ingredient)}
-                </button>
-            `)
-            .join("");
-
-    ingredientSuggestions
-        .querySelectorAll(".suggestion-item")
-        .forEach(button => {
-
-            button.addEventListener(
-                "click",
-                () => {
-
-                    addIngredient(
-                        button.dataset.ingredient
-                    );
-
-                }
-            );
-
-        });
-
+    } catch (error) {
+        console.warn("Cannot save localStorage:", error);
+    }
 }
 
 
 /* =========================================================
-   11. HANDLE INGREDIENT INPUT
+   NORMALIZE TEXT
    ========================================================= */
 
-function handleIngredientInput() {
-
-    renderIngredientSuggestions(
-        ingredientInput.value
-    );
-
+function normalizeText(value) {
+    return String(value)
+        .trim()
+        .toLowerCase()
+        .replace(/\s+/g, "");
 }
 
 
 /* =========================================================
-   12. ADD INGREDIENT FROM INPUT
+   INGREDIENT MANAGEMENT
    ========================================================= */
 
-function addIngredientFromInput() {
+function addIngredient(value) {
 
-    const value =
-        ingredientInput.value.trim();
+    const ingredient = String(value)
+        .trim()
+        .replace(/\s+/g, " ");
 
-    if (!value) {
-        showToast(
-            "⚠️",
-            "กรุณาพิมพ์วัตถุดิบก่อน"
-        );
+    if (!ingredient) {
         return;
     }
 
-    const parts =
-        value
-            .split(",")
-            .map(item => item.trim())
-            .filter(Boolean);
+    const exists = selectedIngredients.some(
+        item =>
+            normalizeText(item) ===
+            normalizeText(ingredient)
+    );
 
-    let addedCount = 0;
+    if (exists) {
+        ingredientInput.value = "";
+        hideSuggestions();
+        return;
+    }
 
-    parts.forEach(part => {
-
-        if (addIngredient(part)) {
-            addedCount++;
-        }
-
-    });
+    selectedIngredients.push(ingredient);
 
     ingredientInput.value = "";
 
-    renderIngredientSuggestions();
+    hideSuggestions();
 
-    if (addedCount > 0) {
-
-        showToast(
-            "✓",
-            `เพิ่มวัตถุดิบ ${addedCount} รายการแล้ว`
-        );
-
-    }
-
+    renderSelectedIngredients();
 }
 
 
-/* =========================================================
-   13. ADD INGREDIENT
-   ========================================================= */
+function removeIngredient(index) {
 
-function addIngredient(ingredient) {
-
-    const normalized =
-        normalizeIngredient(ingredient);
-
-    if (!normalized) {
-        return false;
-    }
-
-    if (selectedIngredients.includes(normalized)) {
-
-        showToast(
-            "ℹ️",
-            "วัตถุดิบนี้ถูกเลือกไว้แล้ว"
-        );
-
-        return false;
-    }
-
-    selectedIngredients.push(normalized);
+    selectedIngredients.splice(index, 1);
 
     renderSelectedIngredients();
 
-    renderIngredientSuggestions(
-        ingredientInput.value
-    );
-
-    return true;
-
+    if (selectedIngredients.length > 0) {
+        searchRecipes();
+    }
 }
 
 
-/* =========================================================
-   14. REMOVE INGREDIENT
-   ========================================================= */
+function clearIngredients() {
 
-function removeIngredient(ingredient) {
+    selectedIngredients = [];
 
-    selectedIngredients =
-        selectedIngredients.filter(
-            item => item !== ingredient
-        );
+    ingredientInput.value = "";
 
     renderSelectedIngredients();
 
-    renderIngredientSuggestions();
+    currentRecipes = [...recipes];
 
+    applyFilters();
 }
 
 
 /* =========================================================
-   15. RENDER SELECTED INGREDIENTS
+   RENDER SELECTED INGREDIENTS
    ========================================================= */
 
 function renderSelectedIngredients() {
@@ -968,7 +693,7 @@ function renderSelectedIngredients() {
     if (selectedIngredients.length === 0) {
 
         selectedIngredientsContainer.innerHTML = `
-            <span class="empty-tags">
+            <span class="empty-ingredients">
                 ยังไม่ได้เลือกวัตถุดิบ
             </span>
         `;
@@ -978,224 +703,228 @@ function renderSelectedIngredients() {
 
     selectedIngredientsContainer.innerHTML =
         selectedIngredients
-            .map(ingredient => `
-                <span class="ingredient-tag">
-                    ${escapeHTML(ingredient)}
+            .map(
+                (ingredient, index) => `
+                    <span class="ingredient-tag">
+                        ${escapeHTML(ingredient)}
 
-                    <button
-                        type="button"
-                        class="remove-ingredient"
-                        data-ingredient="${escapeHTML(ingredient)}"
-                        aria-label="ลบ ${escapeHTML(ingredient)}"
-                    >
-                        ×
-                    </button>
-                </span>
-            `)
+                        <button
+                            type="button"
+                            data-remove-ingredient="${index}"
+                            aria-label="ลบ ${escapeHTML(ingredient)}"
+                        >
+                            ×
+                        </button>
+                    </span>
+                `
+            )
             .join("");
-
-    selectedIngredientsContainer
-        .querySelectorAll(".remove-ingredient")
-        .forEach(button => {
-
-            button.addEventListener(
-                "click",
-                () => {
-
-                    removeIngredient(
-                        button.dataset.ingredient
-                    );
-
-                }
-            );
-
-        });
-
 }
 
 
 /* =========================================================
-   16. CLEAR INGREDIENTS
+   INGREDIENT SUGGESTIONS
    ========================================================= */
 
-function clearIngredients() {
+function showSuggestions(value) {
 
-    selectedIngredients = [];
+    const query = normalizeText(value);
 
-    renderSelectedIngredients();
-
-    renderIngredientSuggestions();
-
-    if (recipeSearchInput) {
-        recipeSearchInput.value = "";
+    if (!query) {
+        hideSuggestions();
+        return;
     }
 
-    showToast(
-        "✓",
-        "ล้างวัตถุดิบทั้งหมดแล้ว"
-    );
+    const matches = ingredientList
+        .filter(
+            ingredient =>
+                normalizeText(ingredient).includes(query)
+        )
+        .filter(
+            ingredient =>
+                !selectedIngredients.some(
+                    selected =>
+                        normalizeText(selected) ===
+                        normalizeText(ingredient)
+                )
+        )
+        .slice(0, 8);
 
+    if (matches.length === 0) {
+        hideSuggestions();
+        return;
+    }
+
+    ingredientSuggestions.innerHTML =
+        matches
+            .map(
+                ingredient => `
+                    <button
+                        type="button"
+                        class="ingredient-suggestion"
+                        data-suggestion="${escapeHTML(ingredient)}"
+                    >
+                        <span>🥕 ${escapeHTML(ingredient)}</span>
+                        <span>+</span>
+                    </button>
+                `
+            )
+            .join("");
+
+    ingredientSuggestions.style.display = "block";
+}
+
+
+function hideSuggestions() {
+    ingredientSuggestions.style.display = "none";
 }
 
 
 /* =========================================================
-   17. SEARCH RECIPES
+   SEARCH RECIPES
    ========================================================= */
 
 function searchRecipes() {
 
+    if (selectedIngredients.length === 0) {
+
+        currentRecipes = [...recipes];
+
+        resultMessage.textContent =
+            "แสดงเมนูทั้งหมด เลือกวัตถุดิบเพื่อจัดอันดับเมนู";
+
+        applyFilters();
+
+        return;
+    }
+
     saveRecentSearch();
+
+    currentRecipes = recipes
+        .map(recipe => ({
+            ...recipe,
+            match: calculateMatch(recipe)
+        }))
+        .sort(
+            (a, b) =>
+                b.match.percentage -
+                a.match.percentage
+        );
+
+    resultMessage.textContent =
+        `พบเมนูที่ตรงกับวัตถุดิบ ${selectedIngredients.length} รายการ`;
 
     applyFilters();
 
     document
-        .querySelector(".recipe-section")
+        .getElementById("recipes-section")
         .scrollIntoView({
-            behavior: "smooth"
+            behavior: "smooth",
+            block: "start"
         });
-
 }
 
 
 /* =========================================================
-   18. APPLY FILTERS
-   ========================================================= */
-
-function applyFilters() {
-
-    const searchTerm =
-        normalizeText(
-            recipeSearchInput.value
-        );
-
-    const category =
-        categoryFilter.value;
-
-    const time =
-        timeFilter.value;
-
-    const difficulty =
-        difficultyFilter.value;
-
-    let filtered =
-        recipes.filter(recipe => {
-
-            const matchesName =
-                !searchTerm ||
-                normalizeText(recipe.name)
-                    .includes(searchTerm);
-
-            const matchesCategory =
-                category === "all" ||
-                recipe.category === category;
-
-            const matchesTime =
-                time === "all" ||
-                recipe.time <= Number(time);
-
-            const matchesDifficulty =
-                difficulty === "all" ||
-                recipe.difficulty === difficulty;
-
-            return (
-                matchesName &&
-                matchesCategory &&
-                matchesTime &&
-                matchesDifficulty
-            );
-
-        });
-
-
-    /* -----------------------------------------
-       Rank by ingredient availability
-    ----------------------------------------- */
-
-    filtered.sort(
-        (a, b) => {
-
-            const percentageA =
-                calculateMatchPercentage(a);
-
-            const percentageB =
-                calculateMatchPercentage(b);
-
-            return percentageB - percentageA;
-
-        }
-    );
-
-
-    currentFilteredRecipes = filtered;
-
-    renderRecipes(filtered);
-
-}
-
-
-/* =========================================================
-   19. CALCULATE MATCH
+   CALCULATE MATCH
    ========================================================= */
 
 function calculateMatch(recipe) {
 
-    if (
-        !selectedIngredients.length ||
-        !recipe.ingredients.length
-    ) {
+    if (recipe.ingredients.length === 0) {
         return {
-            matched: 0,
-            total: recipe.ingredients.length,
+            count: 0,
+            total: 0,
             percentage: 0
         };
     }
 
-    const selected =
-        selectedIngredients.map(
-            normalizeText
-        );
+    const selected = selectedIngredients.map(
+        normalizeText
+    );
 
     const matchedIngredients =
         recipe.ingredients.filter(
             ingredient =>
                 selected.includes(
-                    normalizeIngredient(ingredient)
+                    normalizeText(ingredient)
                 )
         );
 
-    const matched =
-        matchedIngredients.length;
+    const count = matchedIngredients.length;
 
-    const total =
-        recipe.ingredients.length;
+    const total = recipe.ingredients.length;
 
     const percentage =
-        Math.round(
-            (matched / total) * 100
-        );
+        Math.round((count / total) * 100);
 
     return {
-        matched,
+        count,
         total,
         percentage
     };
-
 }
 
 
 /* =========================================================
-   20. CALCULATE PERCENTAGE
+   FILTERS
    ========================================================= */
 
-function calculateMatchPercentage(recipe) {
+function applyFilters() {
 
-    return calculateMatch(recipe).percentage;
+    const menuQuery =
+        normalizeText(menuSearchInput.value);
 
+    const category =
+        categoryFilter.value;
+
+    const maxTime =
+        timeFilter.value;
+
+    const difficulty =
+        difficultyFilter.value;
+
+    let filtered = [...currentRecipes];
+
+    if (menuQuery) {
+
+        filtered = filtered.filter(
+            recipe =>
+                normalizeText(recipe.name)
+                    .includes(menuQuery)
+        );
+    }
+
+    if (category !== "all") {
+
+        filtered = filtered.filter(
+            recipe =>
+                recipe.category === category
+        );
+    }
+
+    if (maxTime !== "all") {
+
+        filtered = filtered.filter(
+            recipe =>
+                recipe.time <= Number(maxTime)
+        );
+    }
+
+    if (difficulty !== "all") {
+
+        filtered = filtered.filter(
+            recipe =>
+                recipe.difficulty === difficulty
+        );
+    }
+
+    renderRecipes(filtered);
 }
 
 
 /* =========================================================
-   21. RENDER RECIPES
+   RENDER RECIPE CARDS
    ========================================================= */
 
 function renderRecipes(recipeList) {
@@ -1207,40 +936,22 @@ function renderRecipes(recipeList) {
 
         recipeGrid.innerHTML = "";
 
-        emptyState.classList.remove("hidden");
-
-        resultMessage.textContent =
-            "ลองเปลี่ยนวัตถุดิบหรือ Filter แล้วค้นหาอีกครั้ง";
+        emptyState.hidden = false;
 
         return;
     }
 
-    emptyState.classList.add("hidden");
-
-    if (selectedIngredients.length > 0) {
-
-        resultMessage.textContent =
-            "จัดอันดับจากจำนวนวัตถุดิบที่คุณมี";
-
-    } else {
-
-        resultMessage.textContent =
-            "เลือกวัตถุดิบเพื่อดูเมนูที่เหมาะกับคุณ";
-
-    }
+    emptyState.hidden = true;
 
     recipeGrid.innerHTML =
         recipeList
-            .map(recipe => createRecipeCard(recipe))
+            .map(createRecipeCard)
             .join("");
-
-    attachRecipeCardEvents();
-
 }
 
 
 /* =========================================================
-   22. CREATE RECIPE CARD
+   CREATE RECIPE CARD
    ========================================================= */
 
 function createRecipeCard(recipe) {
@@ -1249,7 +960,7 @@ function createRecipeCard(recipe) {
         calculateMatch(recipe);
 
     const isFavorite =
-        favoriteRecipes.includes(recipe.id);
+        favoriteIds.includes(recipe.id);
 
     return `
         <article
@@ -1257,356 +968,149 @@ function createRecipeCard(recipe) {
             data-recipe-id="${recipe.id}"
         >
 
-            <div class="recipe-image-wrapper">
+            <div class="recipe-image">
 
                 <img
-                    class="recipe-image"
-                    src="${escapeHTML(recipe.image)}"
+                    src="${recipe.image}"
                     alt="${escapeHTML(recipe.name)}"
                     loading="lazy"
-                    onerror="this.style.display='none'; this.nextElementSibling.style.display='grid';"
+                    onerror="this.style.display='none'"
                 >
-
-                <div
-                    class="recipe-image-placeholder"
-                    style="display:none;"
-                >
-                    🍳
-                </div>
 
                 <button
                     type="button"
                     class="favorite-btn ${isFavorite ? "active" : ""}"
                     data-favorite-id="${recipe.id}"
-                    aria-label="เพิ่ม ${escapeHTML(recipe.name)} เป็นเมนูโปรด"
+                    aria-label="เพิ่ม ${escapeHTML(recipe.name)} ในรายการโปรด"
                 >
                     ${isFavorite ? "❤️" : "♡"}
                 </button>
 
-                ${
-                    selectedIngredients.length > 0
-                    ? `
-                        <span class="recipe-percentage">
-                            ${match.percentage}% มี ${match.matched}/${match.total}
-                        </span>
-                    `
-                    : ""
-                }
-
             </div>
 
 
-            <div class="recipe-content">
+            <div class="recipe-body">
 
-                <div class="recipe-meta">
+                <span class="recipe-category">
+                    ${escapeHTML(recipe.category)}
+                </span>
 
-                    <span>
-                        ${escapeHTML(recipe.category)}
-                    </span>
-
-                    <span class="difficulty">
-                        ${escapeHTML(recipe.difficulty)}
-                    </span>
-
-                </div>
-
-
-                <h3 class="recipe-title">
+                <h3>
                     ${escapeHTML(recipe.name)}
                 </h3>
-
 
                 <p class="recipe-description">
                     ${escapeHTML(recipe.description)}
                 </p>
 
 
-                ${
-                    selectedIngredients.length > 0
-                    ? `
-                        <div class="recipe-match">
+                <div class="match-info">
 
-                            <div class="match-header">
+                    <div class="match-header">
+                        <span>
+                            มีวัตถุดิบ ${match.count}/${match.total}
+                        </span>
 
-                                <span>
-                                    วัตถุดิบที่มี
-                                </span>
+                        <span class="match-percentage">
+                            ${match.percentage}%
+                        </span>
+                    </div>
 
-                                <strong>
-                                    ${match.percentage}%
-                                </strong>
+                    <div class="progress-bar">
+                        <div
+                            class="progress-fill"
+                            style="width: ${match.percentage}%"
+                        ></div>
+                    </div>
 
-                            </div>
-
-                            <div class="progress-bar">
-
-                                <div
-                                    class="progress-fill"
-                                    style="width:${match.percentage}%"
-                                ></div>
-
-                            </div>
-
-                        </div>
-                    `
-                    : ""
-                }
+                </div>
 
 
-                <div class="recipe-footer">
+                <div class="recipe-meta">
 
-                    <span class="recipe-time">
+                    <span>
                         ⏱️ ${recipe.time} นาที
                     </span>
 
-                    <button
-                        type="button"
-                        class="view-recipe-btn"
-                        data-view-id="${recipe.id}"
-                    >
-                        ดูวิธีทำ →
-                    </button>
+                    <span>
+                        📊 ${escapeHTML(recipe.difficulty)}
+                    </span>
 
                 </div>
+
+
+                <button
+                    type="button"
+                    class="view-recipe-btn"
+                    data-view-recipe="${recipe.id}"
+                >
+                    ดูรายละเอียด
+                </button>
 
             </div>
 
         </article>
     `;
-
 }
 
 
 /* =========================================================
-   23. RECIPE CARD EVENTS
-   ========================================================= */
-
-function attachRecipeCardEvents() {
-
-    document
-        .querySelectorAll(".favorite-btn")
-        .forEach(button => {
-
-            button.addEventListener(
-                "click",
-                event => {
-
-                    event.stopPropagation();
-
-                    toggleFavorite(
-                        Number(
-                            button.dataset.favoriteId
-                        )
-                    );
-
-                }
-            );
-
-        });
-
-
-    document
-        .querySelectorAll(".view-recipe-btn")
-        .forEach(button => {
-
-            button.addEventListener(
-                "click",
-                () => {
-
-                    openRecipeModal(
-                        Number(
-                            button.dataset.viewId
-                        )
-                    );
-
-                }
-            );
-
-        });
-
-}
-
-
-/* =========================================================
-   24. FAVORITES
+   FAVORITES
    ========================================================= */
 
 function toggleFavorite(recipeId) {
 
     const index =
-        favoriteRecipes.indexOf(recipeId);
+        favoriteIds.indexOf(recipeId);
 
     if (index === -1) {
 
-        favoriteRecipes.push(recipeId);
-
-        showToast(
-            "❤️",
-            "เพิ่มเมนูในรายการโปรดแล้ว"
-        );
+        favoriteIds.push(recipeId);
 
     } else {
 
-        favoriteRecipes.splice(
-            index,
-            1
-        );
-
-        showToast(
-            "✓",
-            "นำเมนูออกจากรายการโปรดแล้ว"
-        );
-
+        favoriteIds.splice(index, 1);
     }
 
-    saveFavorites();
+    saveStorage(
+        "whatCanICookFavorites",
+        favoriteIds
+    );
+
+    applyFilters();
 
     renderFavorites();
-
-    renderRecipes(currentFilteredRecipes);
-
 }
 
 
-/* =========================================================
-   25. RENDER FAVORITES
-   ========================================================= */
-
 function renderFavorites() {
 
-    const favorites =
+    const favoriteRecipes =
         recipes.filter(
             recipe =>
-                favoriteRecipes.includes(
-                    recipe.id
-                )
+                favoriteIds.includes(recipe.id)
         );
 
-    if (favorites.length === 0) {
+    if (favoriteRecipes.length === 0) {
 
-        favoritesGrid.innerHTML = "";
+        favoriteGrid.innerHTML = "";
 
-        favoritesEmpty.classList.remove(
-            "hidden"
-        );
+        favoriteEmpty.style.display = "block";
 
         return;
     }
 
-    favoritesEmpty.classList.add(
-        "hidden"
-    );
+    favoriteEmpty.style.display = "none";
 
-    favoritesGrid.innerHTML =
-        favorites
-            .map(recipe => createRecipeCard(recipe))
+    favoriteGrid.innerHTML =
+        favoriteRecipes
+            .map(createRecipeCard)
             .join("");
-
-    attachFavoriteSectionEvents();
-
 }
 
 
 /* =========================================================
-   26. FAVORITE SECTION EVENTS
-   ========================================================= */
-
-function attachFavoriteSectionEvents() {
-
-    favoritesGrid
-        .querySelectorAll(".favorite-btn")
-        .forEach(button => {
-
-            button.addEventListener(
-                "click",
-                event => {
-
-                    event.stopPropagation();
-
-                    toggleFavorite(
-                        Number(
-                            button.dataset.favoriteId
-                        )
-                    );
-
-                }
-            );
-
-        });
-
-
-    favoritesGrid
-        .querySelectorAll(".view-recipe-btn")
-        .forEach(button => {
-
-            button.addEventListener(
-                "click",
-                () => {
-
-                    openRecipeModal(
-                        Number(
-                            button.dataset.viewId
-                        )
-                    );
-
-                }
-            );
-
-        });
-
-}
-
-
-/* =========================================================
-   27. SAVE / LOAD FAVORITES
-   ========================================================= */
-
-function saveFavorites() {
-
-    localStorage.setItem(
-        STORAGE_KEYS.favorites,
-        JSON.stringify(favoriteRecipes)
-    );
-
-}
-
-
-function loadFavorites() {
-
-    try {
-
-        const saved =
-            localStorage.getItem(
-                STORAGE_KEYS.favorites
-            );
-
-        if (!saved) {
-            return [];
-        }
-
-        const parsed =
-            JSON.parse(saved);
-
-        return Array.isArray(parsed)
-            ? parsed
-            : [];
-
-    } catch (error) {
-
-        console.warn(
-            "ไม่สามารถโหลด Favorite ได้",
-            error
-        );
-
-        return [];
-
-    }
-
-}
-
-
-/* =========================================================
-   28. RECENT SEARCH
+   RECENT SEARCHES
    ========================================================= */
 
 function saveRecentSearch() {
@@ -1624,100 +1128,39 @@ function saveRecentSearch() {
             .sort()
             .join("|");
 
-
     recentSearches =
         recentSearches.filter(
-            item => {
-
-                const key =
-                    item
-                        .map(normalizeText)
-                        .sort()
-                        .join("|");
-
-                return key !== searchKey;
-
-            }
+            item =>
+                item
+                    .map(normalizeText)
+                    .sort()
+                    .join("|") !== searchKey
         );
-
 
     recentSearches.unshift(search);
 
     recentSearches =
-        recentSearches.slice(0, 8);
+        recentSearches.slice(0, 6);
 
-    localStorage.setItem(
-        STORAGE_KEYS.recent,
-        JSON.stringify(recentSearches)
+    saveStorage(
+        "whatCanICookRecent",
+        recentSearches
     );
 
     renderRecentSearches();
-
 }
 
-
-/* =========================================================
-   29. LOAD RECENT SEARCH
-   ========================================================= */
-
-function loadRecentSearches() {
-
-    try {
-
-        const saved =
-            localStorage.getItem(
-                STORAGE_KEYS.recent
-            );
-
-        if (!saved) {
-            return [];
-        }
-
-        const parsed =
-            JSON.parse(saved);
-
-        return Array.isArray(parsed)
-            ? parsed
-            : [];
-
-    } catch (error) {
-
-        console.warn(
-            "ไม่สามารถโหลด Recent Search ได้",
-            error
-        );
-
-        return [];
-
-    }
-
-}
-
-
-/* =========================================================
-   30. RENDER RECENT SEARCHES
-   ========================================================= */
 
 function renderRecentSearches() {
 
     if (recentSearches.length === 0) {
 
-        recentSearchesContainer.innerHTML = `
-            <div class="empty-state">
-                <div class="empty-icon">🕘</div>
-
-                <h3>ยังไม่มีประวัติการค้นหา</h3>
-
-                <p>
-                    เมื่อคุณค้นหาเมนู
-                    ประวัติจะปรากฏที่นี่
-                </p>
-            </div>
-        `;
+        recentSection.style.display = "none";
 
         return;
     }
 
+    recentSection.style.display = "block";
 
     recentSearchesContainer.innerHTML =
         recentSearches
@@ -1728,44 +1171,18 @@ function renderRecentSearches() {
                         class="recent-item"
                         data-recent-index="${index}"
                     >
-                        🕘
+                        🔄
                         ${search
                             .map(escapeHTML)
-                            .join(" + ")}
+                            .join(", ")}
                     </button>
                 `
             )
             .join("");
-
-
-    recentSearchesContainer
-        .querySelectorAll(".recent-item")
-        .forEach(button => {
-
-            button.addEventListener(
-                "click",
-                () => {
-
-                    const index =
-                        Number(
-                            button.dataset.recentIndex
-                        );
-
-                    useRecentSearch(index);
-
-                }
-            );
-
-        });
-
 }
 
 
-/* =========================================================
-   31. USE RECENT SEARCH
-   ========================================================= */
-
-function useRecentSearch(index) {
+function loadRecentSearch(index) {
 
     const search =
         recentSearches[index];
@@ -1779,50 +1196,32 @@ function useRecentSearch(index) {
 
     renderSelectedIngredients();
 
-    renderIngredientSuggestions();
-
-    applyFilters();
-
-    document
-        .querySelector(".recipe-section")
-        .scrollIntoView({
-            behavior: "smooth"
-        });
-
+    searchRecipes();
 }
 
-
-/* =========================================================
-   32. CLEAR RECENT
-   ========================================================= */
 
 function clearRecentSearches() {
 
     recentSearches = [];
 
-    localStorage.removeItem(
-        STORAGE_KEYS.recent
+    saveStorage(
+        "whatCanICookRecent",
+        recentSearches
     );
 
     renderRecentSearches();
-
-    showToast(
-        "✓",
-        "ล้างประวัติการค้นหาแล้ว"
-    );
-
 }
 
 
 /* =========================================================
-   33. RANDOM RECIPE
+   RANDOM RECIPE
    ========================================================= */
 
 function randomRecipe() {
 
     const availableRecipes =
-        currentFilteredRecipes.length > 0
-            ? currentFilteredRecipes
+        currentRecipes.length > 0
+            ? currentRecipes
             : recipes;
 
     const randomIndex =
@@ -1831,29 +1230,24 @@ function randomRecipe() {
             availableRecipes.length
         );
 
-    const selectedRecipe =
+    const recipe =
         availableRecipes[randomIndex];
 
-    if (!selectedRecipe) {
-        return;
+    if (recipe) {
+        openRecipeModal(recipe.id);
     }
-
-    openRecipeModal(
-        selectedRecipe.id
-    );
-
 }
 
 
 /* =========================================================
-   34. OPEN RECIPE MODAL
+   RECIPE MODAL
    ========================================================= */
 
 function openRecipeModal(recipeId) {
 
     const recipe =
         recipes.find(
-            item => item.id === recipeId
+            item => item.id === Number(recipeId)
         );
 
     if (!recipe) {
@@ -1863,108 +1257,45 @@ function openRecipeModal(recipeId) {
     const match =
         calculateMatch(recipe);
 
-    modalCategory.textContent =
-        recipe.category;
+    modalRecipeImage.innerHTML = `
+        <img
+            src="${recipe.image}"
+            alt="${escapeHTML(recipe.name)}"
+            onerror="this.style.display='none'"
+        >
+    `;
 
-    modalDifficulty.textContent =
-        `ความยาก: ${recipe.difficulty}`;
+    modalRecipeMeta.innerHTML = `
+        <span>🍽️ ${escapeHTML(recipe.category)}</span>
+        <span>⏱️ ${recipe.time} นาที</span>
+        <span>📊 ${escapeHTML(recipe.difficulty)}</span>
+    `;
 
-    modalTime.textContent =
-        `⏱️ ${recipe.time} นาที`;
-
-    modalRecipeName.textContent =
+    modalRecipeTitle.textContent =
         recipe.name;
 
     modalRecipeDescription.textContent =
         recipe.description;
 
+    modalMatchPercentage.textContent =
+        `${match.percentage}%`;
 
-    if (recipe.image) {
+    modalProgressBar.style.width =
+        `${match.percentage}%`;
 
-        modalRecipeImage.innerHTML = `
-            <img
-                src="${escapeHTML(recipe.image)}"
-                alt="${escapeHTML(recipe.name)}"
-                onerror="this.style.display='none'; this.nextElementSibling.style.display='grid';"
-            >
-
-            <div
-                class="modal-image-placeholder"
-                style="display:none;"
-            >
-                🍳
-            </div>
-        `;
-
-    } else {
-
-        modalRecipeImage.innerHTML = `
-            <div class="modal-image-placeholder">
-                🍳
-            </div>
-        `;
-
-    }
-
-
-    if (selectedIngredients.length > 0) {
-
-        modalPercentage.textContent =
-            `${match.percentage}%`;
-
-        modalProgressFill.style.width =
-            `${match.percentage}%`;
-
-        modalIngredientStatus.textContent =
-            `มีวัตถุดิบ ${match.matched} จาก ${match.total} รายการ`;
-
-    } else {
-
-        modalPercentage.textContent =
-            "—";
-
-        modalProgressFill.style.width =
-            "0%";
-
-        modalIngredientStatus.textContent =
-            "เลือกวัตถุดิบเพื่อดูว่าคุณมีวัตถุดิบกี่เปอร์เซ็นต์";
-
-    }
-
+    modalIngredientCount.textContent =
+        `มีวัตถุดิบ ${match.count} จาก ${match.total} รายการ`;
 
     modalIngredients.innerHTML =
         recipe.ingredients
             .map(
-                ingredient => {
-
-                    const hasIngredient =
-                        selectedIngredients.includes(
-                            normalizeIngredient(
-                                ingredient
-                            )
-                        );
-
-                    return `
-                        <li
-                            style="${
-                                hasIngredient
-                                    ? "background:#e8f3e8;"
-                                    : ""
-                            }"
-                        >
-                            ${
-                                hasIngredient
-                                    ? "✓ "
-                                    : ""
-                            }
-                            ${escapeHTML(ingredient)}
-                        </li>
-                    `;
-
-                }
+                ingredient => `
+                    <li>
+                        ${escapeHTML(ingredient)}
+                    </li>
+                `
             )
             .join("");
-
 
     modalInstructions.innerHTML =
         recipe.instructions
@@ -1977,44 +1308,37 @@ function openRecipeModal(recipeId) {
             )
             .join("");
 
+    recipeModal.classList.add("active");
 
-    recipeModal.classList.remove(
-        "hidden"
+    recipeModal.setAttribute(
+        "aria-hidden",
+        "false"
     );
 
-    document.body.style.overflow =
-        "hidden";
-
+    document.body.style.overflow = "hidden";
 }
 
-
-/* =========================================================
-   35. CLOSE MODAL
-   ========================================================= */
 
 function closeRecipeModal() {
 
-    recipeModal.classList.add(
-        "hidden"
+    recipeModal.classList.remove("active");
+
+    recipeModal.setAttribute(
+        "aria-hidden",
+        "true"
     );
 
-    document.body.style.overflow =
-        "";
-
+    document.body.style.overflow = "";
 }
 
 
 /* =========================================================
-   36. RESET SEARCH
+   RESET FILTERS
    ========================================================= */
 
-function resetSearch() {
+function resetFilters() {
 
-    selectedIngredients = [];
-
-    ingredientInput.value = "";
-
-    recipeSearchInput.value = "";
+    menuSearchInput.value = "";
 
     categoryFilter.value = "all";
 
@@ -2022,104 +1346,354 @@ function resetSearch() {
 
     difficultyFilter.value = "all";
 
-    currentFilteredRecipes =
-        [...recipes];
-
-    renderSelectedIngredients();
-
-    renderIngredientSuggestions();
-
-    renderRecipes(recipes);
-
-    showToast(
-        "✓",
-        "ล้างการค้นหาแล้ว"
-    );
-
+    applyFilters();
 }
 
 
 /* =========================================================
-   37. NORMALIZE INGREDIENT
+   EVENT LISTENERS
    ========================================================= */
 
-function normalizeIngredient(value) {
+addIngredientBtn.addEventListener(
+    "click",
+    () => {
+        addIngredient(
+            ingredientInput.value
+        );
+    }
+);
 
-    const cleaned =
-        normalizeText(value);
 
-    return (
-        ingredientAliases[cleaned] ||
-        cleaned
-    );
+ingredientInput.addEventListener(
+    "input",
+    event => {
+        showSuggestions(
+            event.target.value
+        );
+    }
+);
 
-}
+
+ingredientInput.addEventListener(
+    "keydown",
+    event => {
+
+        if (event.key === "Enter") {
+
+            event.preventDefault();
+
+            const firstSuggestion =
+                ingredientSuggestions.querySelector(
+                    "[data-suggestion]"
+                );
+
+            if (firstSuggestion) {
+
+                addIngredient(
+                    firstSuggestion.dataset.suggestion
+                );
+
+            } else {
+
+                addIngredient(
+                    ingredientInput.value
+                );
+            }
+        }
+
+        if (event.key === "Escape") {
+            hideSuggestions();
+        }
+    }
+);
+
+
+selectedIngredientsContainer.addEventListener(
+    "click",
+    event => {
+
+        const button =
+            event.target.closest(
+                "[data-remove-ingredient]"
+            );
+
+        if (!button) {
+            return;
+        }
+
+        removeIngredient(
+            Number(
+                button.dataset.removeIngredient
+            )
+        );
+    }
+);
+
+
+ingredientSuggestions.addEventListener(
+    "click",
+    event => {
+
+        const button =
+            event.target.closest(
+                "[data-suggestion]"
+            );
+
+        if (!button) {
+            return;
+        }
+
+        addIngredient(
+            button.dataset.suggestion
+        );
+    }
+);
+
+
+clearIngredientsBtn.addEventListener(
+    "click",
+    clearIngredients
+);
+
+
+searchBtn.addEventListener(
+    "click",
+    searchRecipes
+);
+
+
+randomBtn.addEventListener(
+    "click",
+    randomRecipe
+);
+
+
+menuSearchInput.addEventListener(
+    "input",
+    applyFilters
+);
+
+
+categoryFilter.addEventListener(
+    "change",
+    applyFilters
+);
+
+
+timeFilter.addEventListener(
+    "change",
+    applyFilters
+);
+
+
+difficultyFilter.addEventListener(
+    "change",
+    applyFilters
+);
+
+
+resetFiltersBtn.addEventListener(
+    "click",
+    resetFilters
+);
+
+
+clearRecentBtn.addEventListener(
+    "click",
+    clearRecentSearches
+);
 
 
 /* =========================================================
-   38. NORMALIZE TEXT
+   RECIPE GRID EVENTS
    ========================================================= */
 
-function normalizeText(value) {
+recipeGrid.addEventListener(
+    "click",
+    event => {
 
-    return String(value || "")
-        .trim()
-        .toLowerCase()
-        .replace(/\s+/g, " ");
+        const favoriteButton =
+            event.target.closest(
+                "[data-favorite-id]"
+            );
 
-}
+        if (favoriteButton) {
+
+            toggleFavorite(
+                Number(
+                    favoriteButton.dataset.favoriteId
+                )
+            );
+
+            return;
+        }
+
+
+        const viewButton =
+            event.target.closest(
+                "[data-view-recipe]"
+            );
+
+        if (viewButton) {
+
+            openRecipeModal(
+                Number(
+                    viewButton.dataset.viewRecipe
+                )
+            );
+        }
+    }
+);
 
 
 /* =========================================================
-   39. ESCAPE HTML
+   FAVORITE GRID EVENTS
+   ========================================================= */
+
+favoriteGrid.addEventListener(
+    "click",
+    event => {
+
+        const favoriteButton =
+            event.target.closest(
+                "[data-favorite-id]"
+            );
+
+        if (favoriteButton) {
+
+            toggleFavorite(
+                Number(
+                    favoriteButton.dataset.favoriteId
+                )
+            );
+
+            return;
+        }
+
+
+        const viewButton =
+            event.target.closest(
+                "[data-view-recipe]"
+            );
+
+        if (viewButton) {
+
+            openRecipeModal(
+                Number(
+                    viewButton.dataset.viewRecipe
+                )
+            );
+        }
+    }
+);
+
+
+/* =========================================================
+   RECENT SEARCH EVENTS
+   ========================================================= */
+
+recentSearchesContainer.addEventListener(
+    "click",
+    event => {
+
+        const button =
+            event.target.closest(
+                "[data-recent-index]"
+            );
+
+        if (!button) {
+            return;
+        }
+
+        loadRecentSearch(
+            Number(
+                button.dataset.recentIndex
+            )
+        );
+    }
+);
+
+
+/* =========================================================
+   MODAL EVENTS
+   ========================================================= */
+
+closeModalBtn.addEventListener(
+    "click",
+    closeRecipeModal
+);
+
+
+modalOverlay.addEventListener(
+    "click",
+    closeRecipeModal
+);
+
+
+document.addEventListener(
+    "keydown",
+    event => {
+
+        if (
+            event.key === "Escape" &&
+            recipeModal.classList.contains("active")
+        ) {
+            closeRecipeModal();
+        }
+    }
+);
+
+
+/* =========================================================
+   CLOSE SUGGESTIONS WHEN CLICKING OUTSIDE
+   ========================================================= */
+
+document.addEventListener(
+    "click",
+    event => {
+
+        if (
+            !event.target.closest(
+                ".ingredient-search"
+            )
+        ) {
+            hideSuggestions();
+        }
+    }
+);
+
+
+/* =========================================================
+   ESCAPE HTML
    ========================================================= */
 
 function escapeHTML(value) {
 
-    return String(value ?? "")
+    return String(value)
         .replace(/&/g, "&amp;")
         .replace(/</g, "&lt;")
         .replace(/>/g, "&gt;")
         .replace(/"/g, "&quot;")
         .replace(/'/g, "&#039;");
-
 }
 
 
 /* =========================================================
-   40. TOAST
+   INITIALIZE
    ========================================================= */
 
-function showToast(
-    icon,
-    message
-) {
+function initialize() {
 
-    clearTimeout(toastTimer);
+    renderSelectedIngredients();
 
-    toastIcon.textContent =
-        icon;
+    renderRecentSearches();
 
-    toastMessage.textContent =
-        message;
+    renderFavorites();
 
-    toast.classList.add("show");
+    currentRecipes = [...recipes];
 
-    toastTimer =
-        setTimeout(
-            () => {
-
-                toast.classList.remove(
-                    "show"
-                );
-
-            },
-            2500
-        );
-
+    applyFilters();
 }
 
 
-/* =========================================================
-   END OF SCRIPT
-   ========================================================= */
+initialize();
