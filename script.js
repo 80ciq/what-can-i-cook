@@ -4,7 +4,7 @@
    ========================================================= */
 
 /* =========================================================
-   1. RECIPE DATABASE
+   RECIPE DATABASE
    ========================================================= */
 
 const recipes = [
@@ -12,14 +12,8 @@ const recipes = [
         id: 1,
         name: "ข้าวผัดไข่",
         description: "ข้าวผัดง่าย ๆ หอมกระทะ พร้อมไข่และเครื่องปรุงพื้นฐาน",
-        image: "https://images.unsplash.com/photo-1603133872878-684f208fb84b?auto=format&fit=crop&w=900&q=80",
-        ingredients: [
-            "ข้าวสวย",
-            "ไข่",
-            "กระเทียม",
-            "น้ำมัน",
-            "ซีอิ๊ว"
-        ],
+        image: "images/ข้าวผัดไข่.jpg",
+        ingredients: ["ข้าวสวย", "ไข่", "กระเทียม", "น้ำมัน", "ซีอิ๊ว"],
         instructions: [
             "ตั้งกระทะใส่น้ำมันและเจียวกระเทียมให้หอม",
             "ตอกไข่ลงไปแล้วยีให้พอสุก",
@@ -38,15 +32,8 @@ const recipes = [
         id: 2,
         name: "ข้าวผัดหมู",
         description: "ข้าวผัดหมูร้อน ๆ หอมกลิ่นกระทะ ทำง่ายและอิ่มท้อง",
-        image: "https://images.unsplash.com/photo-1512058564366-18510be2db19?auto=format&fit=crop&w=900&q=80",
-        ingredients: [
-            "ข้าวสวย",
-            "หมู",
-            "ไข่",
-            "กระเทียม",
-            "น้ำมัน",
-            "ซีอิ๊ว"
-        ],
+        image: "images/ข้าวผัดหมู.jpg",
+        ingredients: ["ข้าวสวย", "หมู", "ไข่", "กระเทียม", "น้ำมัน", "ซีอิ๊ว"],
         instructions: [
             "หั่นหมูเป็นชิ้นพอดีคำ",
             "ตั้งกระทะใส่น้ำมันแล้วเจียวกระเทียม",
@@ -66,17 +53,8 @@ const recipes = [
         id: 3,
         name: "ผัดกะเพราหมู",
         description: "เมนูยอดนิยม รสจัดจ้าน หอมใบกะเพราและกระเทียม",
-        image: "https://images.unsplash.com/photo-1562565652-a0d8f0c59eb4?auto=format&fit=crop&w=900&q=80",
-        ingredients: [
-            "หมู",
-            "ใบกะเพรา",
-            "กระเทียม",
-            "พริก",
-            "น้ำมัน",
-            "น้ำปลา",
-            "ซีอิ๊ว",
-            "น้ำตาล"
-        ],
+        image: "images/ผัดกะเพราหมู.jpg",
+        ingredients: ["หมู", "ใบกะเพรา", "กระเทียม", "พริก", "น้ำมัน", "น้ำปลา", "ซีอิ๊ว", "น้ำตาล"],
         instructions: [
             "โขลกพริกกับกระเทียมพอหยาบ",
             "ตั้งกระทะใส่น้ำมันแล้วผัดพริกกระเทียมให้หอม",
@@ -96,13 +74,8 @@ const recipes = [
         id: 4,
         name: "ไข่เจียวหมูสับ",
         description: "ไข่เจียวฟู ๆ ใส่หมูสับ เมนูง่ายที่ใช้เวลาไม่นาน",
-        image: "https://images.unsplash.com/photo-1525351484163-7529414344d8?auto=format&fit=crop&w=900&q=80",
-        ingredients: [
-            "ไข่",
-            "หมู",
-            "น้ำปลา",
-            "น้ำมัน"
-        ],
+        image: "images/ไข่เจียวหมูสับ.jpg",
+        ingredients: ["ไข่", "หมู", "น้ำปลา", "น้ำมัน"],
         instructions: [
             "ตอกไข่ใส่ชามแล้วตีให้เข้ากัน",
             "ใส่หมูสับและน้ำปลา",
@@ -122,16 +95,8 @@ const recipes = [
         id: 5,
         name: "ผัดคะน้าหมู",
         description: "คะน้ากรอบ ๆ ผัดกับหมูนุ่มและซอสเข้มข้น",
-        image: "https://images.unsplash.com/photo-1512058564366-18510be2db19?auto=format&fit=crop&w=900&q=80",
-        ingredients: [
-            "หมู",
-            "คะน้า",
-            "กระเทียม",
-            "น้ำมัน",
-            "น้ำปลา",
-            "ซีอิ๊ว",
-            "น้ำตาล"
-        ],
+        image: "images/ผัดคะน้าหมู.jpg",
+        ingredients: ["หมู", "คะน้า", "กระเทียม", "น้ำมัน", "น้ำปลา", "ซีอิ๊ว", "น้ำตาล"],
         instructions: [
             "หั่นหมูและคะน้าเตรียมไว้",
             "ตั้งกระทะใส่น้ำมันแล้วเจียวกระเทียม",
@@ -151,16 +116,8 @@ const recipes = [
         id: 6,
         name: "ต้มจืดเต้าหู้หมูสับ",
         description: "ซุปใสรสกลมกล่อม พร้อมเต้าหู้และหมูสับ",
-        image: "https://images.unsplash.com/photo-1547592180-85f173990554?auto=format&fit=crop&w=900&q=80",
-        ingredients: [
-            "หมู",
-            "เต้าหู้",
-            "ผักกาดขาว",
-            "กระเทียม",
-            "ซีอิ๊ว",
-            "น้ำปลา",
-            "น้ำ"
-        ],
+        image: "images/ต้มจืดเต้าหู้หมูสับ.jpg",
+        ingredients: ["หมู", "เต้าหู้", "ผักกาดขาว", "กระเทียม", "ซีอิ๊ว", "น้ำปลา", "น้ำ"],
         instructions: [
             "ต้มน้ำให้เดือด",
             "ใส่หมูสับปั้นเป็นก้อนลงไป",
@@ -180,18 +137,8 @@ const recipes = [
         id: 7,
         name: "ต้มยำกุ้ง",
         description: "ต้มยำกุ้งรสเปรี้ยวเผ็ด หอมสมุนไพรแบบไทย",
-        image: "https://images.unsplash.com/photo-1547592166-23ac45744acd?auto=format&fit=crop&w=900&q=80",
-        ingredients: [
-            "กุ้ง",
-            "ตะไคร้",
-            "ใบมะกรูด",
-            "ข่า",
-            "พริก",
-            "เห็ด",
-            "น้ำปลา",
-            "มะนาว",
-            "น้ำ"
-        ],
+        image: "images/ต้มยำกุ้ง.jpg",
+        ingredients: ["กุ้ง", "ตะไคร้", "ใบมะกรูด", "ข่า", "พริก", "เห็ด", "น้ำปลา", "มะนาว", "น้ำ"],
         instructions: [
             "ต้มน้ำให้เดือดแล้วใส่ข่า ตะไคร้ และใบมะกรูด",
             "ใส่เห็ดและกุ้ง",
@@ -211,17 +158,8 @@ const recipes = [
         id: 8,
         name: "ผัดซีอิ๊วหมู",
         description: "เส้นใหญ่ผัดซีอิ๊วกับหมูและคะน้า หอมกลิ่นกระทะ",
-        image: "https://images.unsplash.com/photo-1552611052-33e04de081de?auto=format&fit=crop&w=900&q=80",
-        ingredients: [
-            "เส้นใหญ่",
-            "หมู",
-            "คะน้า",
-            "ไข่",
-            "กระเทียม",
-            "ซีอิ๊วดำ",
-            "ซีอิ๊ว",
-            "น้ำมัน"
-        ],
+        image: "images/ผัดซีอิ๊วหมู.jpg",
+        ingredients: ["เส้นใหญ่", "หมู", "คะน้า", "ไข่", "กระเทียม", "ซีอิ๊วดำ", "ซีอิ๊ว", "น้ำมัน"],
         instructions: [
             "ตั้งกระทะใส่น้ำมันแล้วผัดกระเทียม",
             "ใส่หมูลงผัดจนสุก",
@@ -241,17 +179,8 @@ const recipes = [
         id: 9,
         name: "ราดหน้าหมู",
         description: "เส้นราดหน้าพร้อมหมูนุ่มและน้ำราดข้น ๆ",
-        image: "https://images.unsplash.com/photo-1569718212165-3a8278d5f624?auto=format&fit=crop&w=900&q=80",
-        ingredients: [
-            "เส้นใหญ่",
-            "หมู",
-            "คะน้า",
-            "กระเทียม",
-            "แป้งมัน",
-            "ซีอิ๊ว",
-            "น้ำปลา",
-            "น้ำ"
-        ],
+        image: "images/ราดหน้าหมู.jpg",
+        ingredients: ["เส้นใหญ่", "หมู", "คะน้า", "กระเทียม", "แป้งมัน", "ซีอิ๊ว", "น้ำปลา", "น้ำ"],
         instructions: [
             "ผัดเส้นใหญ่กับซีอิ๊วดำจนหอมแล้วพักไว้",
             "ผัดกระเทียมและหมูจนสุก",
@@ -271,16 +200,8 @@ const recipes = [
         id: 10,
         name: "ผัดผักรวมหมู",
         description: "ผักหลากหลายชนิดผัดกับหมู รสกลมกล่อม",
-        image: "https://images.unsplash.com/photo-1512621776951-a57141f2eefd?auto=format&fit=crop&w=900&q=80",
-        ingredients: [
-            "หมู",
-            "แครอท",
-            "ข้าวโพด",
-            "คะน้า",
-            "กระเทียม",
-            "น้ำมัน",
-            "ซีอิ๊ว"
-        ],
+        image: "images/ผัดผักรวมหมู.jpg",
+        ingredients: ["หมู", "แครอท", "ข้าวโพด", "คะน้า", "กระเทียม", "น้ำมัน", "ซีอิ๊ว"],
         instructions: [
             "หั่นผักและหมูเป็นชิ้นพอดีคำ",
             "ผัดกระเทียมกับน้ำมันให้หอม",
@@ -300,11 +221,8 @@ const recipes = [
         id: 11,
         name: "ไข่ดาว",
         description: "ไข่ดาวกรอบนอก ไข่แดงเยิ้ม ทำง่ายและรวดเร็ว",
-        image: "https://images.unsplash.com/photo-1482049016688-2d3e1b311543?auto=format&fit=crop&w=900&q=80",
-        ingredients: [
-            "ไข่",
-            "น้ำมัน"
-        ],
+        image: "images/ไข่ดาว.jpg",
+        ingredients: ["ไข่", "น้ำมัน"],
         instructions: [
             "ตั้งกระทะใส่น้ำมันให้ร้อน",
             "ตอกไข่ลงในกระทะ",
@@ -323,11 +241,8 @@ const recipes = [
         id: 12,
         name: "ไข่ต้ม",
         description: "ไข่ต้มทำง่าย ใช้เป็นเครื่องเคียงหรือรับประทานกับข้าว",
-        image: "https://images.unsplash.com/photo-1506976785307-8732e854ad03?auto=format&fit=crop&w=900&q=80",
-        ingredients: [
-            "ไข่",
-            "น้ำ"
-        ],
+        image: "images/ไข่ต้ม.jpg",
+        ingredients: ["ไข่", "น้ำ"],
         instructions: [
             "ใส่ไข่ลงในหม้อ",
             "เติมน้ำให้ท่วมไข่",
@@ -346,14 +261,8 @@ const recipes = [
         id: 13,
         name: "มาม่าผัดไข่",
         description: "บะหมี่กึ่งสำเร็จรูปผัดกับไข่ เมนูง่ายสำหรับวันที่เร่งรีบ",
-        image: "https://images.unsplash.com/photo-1569718212165-3a8278d5f624?auto=format&fit=crop&w=900&q=80",
-        ingredients: [
-            "บะหมี่กึ่งสำเร็จรูป",
-            "ไข่",
-            "กระเทียม",
-            "น้ำมัน",
-            "ซีอิ๊ว"
-        ],
+        image: "images/มาม่าผัดไข่.jpg",
+        ingredients: ["บะหมี่กึ่งสำเร็จรูป", "ไข่", "กระเทียม", "น้ำมัน", "ซีอิ๊ว"],
         instructions: [
             "ต้มบะหมี่ให้พอสุกแล้วสะเด็ดน้ำ",
             "ตั้งกระทะใส่น้ำมันและเจียวกระเทียม",
@@ -373,16 +282,8 @@ const recipes = [
         id: 14,
         name: "สุกี้น้ำหมู",
         description: "สุกี้น้ำร้อน ๆ พร้อมหมู ผัก และน้ำจิ้มรสเด็ด",
-        image: "https://images.unsplash.com/photo-1601050690597-df0568f70950?auto=format&fit=crop&w=900&q=80",
-        ingredients: [
-            "หมู",
-            "ผักกาดขาว",
-            "ไข่",
-            "วุ้นเส้น",
-            "เห็ด",
-            "น้ำจิ้มสุกี้",
-            "น้ำ"
-        ],
+        image: "images/สุกี้น้ำหมู.jpg",
+        ingredients: ["หมู", "ผักกาดขาว", "ไข่", "วุ้นเส้น", "เห็ด", "น้ำจิ้มสุกี้", "น้ำ"],
         instructions: [
             "ต้มน้ำให้เดือด",
             "ใส่หมูลงไปต้มจนสุก",
@@ -402,15 +303,8 @@ const recipes = [
         id: 15,
         name: "หมูกระเทียม",
         description: "หมูผัดกระเทียมหอม ๆ รสเค็มหวานกำลังดี",
-        image: "https://images.unsplash.com/photo-1547592180-85f173990554?auto=format&fit=crop&w=900&q=80",
-        ingredients: [
-            "หมู",
-            "กระเทียม",
-            "น้ำมัน",
-            "ซีอิ๊ว",
-            "น้ำตาล",
-            "พริกไทย"
-        ],
+        image: "images/หมูกระเทียม.jpg",
+        ingredients: ["หมู", "กระเทียม", "น้ำมัน", "ซีอิ๊ว", "น้ำตาล", "พริกไทย"],
         instructions: [
             "หมักหมูกับซีอิ๊ว น้ำตาล และพริกไทย",
             "เจียวกระเทียมในน้ำมันจนเหลือง",
@@ -430,16 +324,8 @@ const recipes = [
         id: 16,
         name: "ผัดพริกแกงหมู",
         description: "หมูผัดพริกแกงเข้มข้น หอมเครื่องแกงแบบไทย",
-        image: "https://images.unsplash.com/photo-1547592180-85f173990554?auto=format&fit=crop&w=900&q=80",
-        ingredients: [
-            "หมู",
-            "พริกแกง",
-            "ถั่วฝักยาว",
-            "ใบมะกรูด",
-            "น้ำมัน",
-            "น้ำปลา",
-            "น้ำตาล"
-        ],
+        image: "images/ผัดพริกแกงหมู.jpg",
+        ingredients: ["หมู", "พริกแกง", "ถั่วฝักยาว", "ใบมะกรูด", "น้ำมัน", "น้ำปลา", "น้ำตาล"],
         instructions: [
             "ตั้งกระทะใส่น้ำมัน",
             "ผัดพริกแกงให้หอม",
@@ -459,15 +345,8 @@ const recipes = [
         id: 17,
         name: "ยำไข่ดาว",
         description: "ไข่ดาวกรอบคลุกน้ำยำรสเปรี้ยวเผ็ดสดชื่น",
-        image: "https://images.unsplash.com/photo-1547592180-85f173990554?auto=format&fit=crop&w=900&q=80",
-        ingredients: [
-            "ไข่",
-            "หอมแดง",
-            "พริก",
-            "มะนาว",
-            "น้ำปลา",
-            "น้ำตาล"
-        ],
+        image: "images/ยำไข่ดาว.jpg",
+        ingredients: ["ไข่", "หอมแดง", "พริก", "มะนาว", "น้ำปลา", "น้ำตาล"],
         instructions: [
             "ทอดไข่ดาวให้กรอบแล้วหั่นเป็นชิ้น",
             "ซอยหอมแดงและเตรียมพริก",
@@ -487,16 +366,8 @@ const recipes = [
         id: 18,
         name: "แกงจืดไข่น้ำ",
         description: "แกงจืดน้ำซุปใสพร้อมไข่ทอดนุ่ม ๆ",
-        image: "https://images.unsplash.com/photo-1547592166-23ac45744acd?auto=format&fit=crop&w=900&q=80",
-        ingredients: [
-            "ไข่",
-            "หมู",
-            "ต้นหอม",
-            "กระเทียม",
-            "ซีอิ๊ว",
-            "น้ำปลา",
-            "น้ำ"
-        ],
+        image: "images/แกงจืดไข่น้ำ.jpg",
+        ingredients: ["ไข่", "หมู", "ต้นหอม", "กระเทียม", "ซีอิ๊ว", "น้ำปลา", "น้ำ"],
         instructions: [
             "ตีไข่แล้วนำไปทอดให้เป็นแผ่น",
             "หั่นไข่ทอดเป็นชิ้น",
@@ -516,16 +387,8 @@ const recipes = [
         id: 19,
         name: "ข้าวต้มหมู",
         description: "ข้าวต้มร้อน ๆ พร้อมหมูสับและเครื่องปรุงหอม ๆ",
-        image: "https://images.unsplash.com/photo-1547592180-85f173990554?auto=format&fit=crop&w=900&q=80",
-        ingredients: [
-            "ข้าวสวย",
-            "หมู",
-            "กระเทียม",
-            "ต้นหอม",
-            "ซีอิ๊ว",
-            "น้ำปลา",
-            "น้ำ"
-        ],
+        image: "images/ข้าวต้มหมู.jpg",
+        ingredients: ["ข้าวสวย", "หมู", "กระเทียม", "ต้นหอม", "ซีอิ๊ว", "น้ำปลา", "น้ำ"],
         instructions: [
             "ต้มน้ำให้เดือด",
             "ใส่ข้าวสวยลงไป",
@@ -545,14 +408,8 @@ const recipes = [
         id: 20,
         name: "ข้าวไข่ข้น",
         description: "ข้าวร้อน ๆ เสิร์ฟคู่ไข่ข้นเนื้อนุ่มละมุน",
-        image: "https://images.unsplash.com/photo-1525351484163-7529414344d8?auto=format&fit=crop&w=900&q=80",
-        ingredients: [
-            "ข้าวสวย",
-            "ไข่",
-            "นม",
-            "เนย",
-            "ซีอิ๊ว"
-        ],
+        image: "images/ข้าวไข่ข้น.jpg",
+        ingredients: ["ข้าวสวย", "ไข่", "นม", "เนย", "ซีอิ๊ว"],
         instructions: [
             "ตอกไข่ใส่ชามแล้วตีให้เข้ากัน",
             "เติมนมเล็กน้อย",
@@ -572,15 +429,8 @@ const recipes = [
         id: 21,
         name: "ผัดกระเทียมพริกไทยหมู",
         description: "หมูนุ่มผัดกระเทียมและพริกไทย หอมและทำง่าย",
-        image: "https://images.unsplash.com/photo-1547592180-85f173990554?auto=format&fit=crop&w=900&q=80",
-        ingredients: [
-            "หมู",
-            "กระเทียม",
-            "พริกไทย",
-            "น้ำมัน",
-            "ซีอิ๊ว",
-            "น้ำตาล"
-        ],
+        image: "images/ผัดกระเทียมพริกไทยหมู.jpg",
+        ingredients: ["หมู", "กระเทียม", "พริกไทย", "น้ำมัน", "ซีอิ๊ว", "น้ำตาล"],
         instructions: [
             "หมักหมูกับซีอิ๊ว น้ำตาล และพริกไทย",
             "ตั้งกระทะใส่น้ำมัน",
@@ -600,15 +450,8 @@ const recipes = [
         id: 22,
         name: "กุ้งผัดกระเทียม",
         description: "กุ้งสดผัดกระเทียมหอม ๆ เมนูง่ายแต่รสชาติดี",
-        image: "https://images.unsplash.com/photo-1565680018434-b513d5e5fd47?auto=format&fit=crop&w=900&q=80",
-        ingredients: [
-            "กุ้ง",
-            "กระเทียม",
-            "น้ำมัน",
-            "ซีอิ๊ว",
-            "น้ำตาล",
-            "พริกไทย"
-        ],
+        image: "images/กุ้งผัดกระเทียม.jpg",
+        ingredients: ["กุ้ง", "กระเทียม", "น้ำมัน", "ซีอิ๊ว", "น้ำตาล", "พริกไทย"],
         instructions: [
             "ล้างและเตรียมกุ้งให้เรียบร้อย",
             "ตั้งกระทะใส่น้ำมัน",
@@ -627,7 +470,7 @@ const recipes = [
 
 
 /* =========================================================
-   2. INGREDIENT SUGGESTIONS
+   INGREDIENT SUGGESTIONS
    ========================================================= */
 
 const commonIngredients = [
@@ -650,7 +493,7 @@ const commonIngredients = [
 
 
 /* =========================================================
-   3. LOCAL STORAGE
+   LOCAL STORAGE
    ========================================================= */
 
 const STORAGE_KEYS = {
@@ -667,9 +510,8 @@ function getStorage(key, fallback = []) {
             return fallback;
         }
 
-        const parsed = JSON.parse(value);
+        return JSON.parse(value);
 
-        return parsed;
     } catch (error) {
         console.warn("ไม่สามารถอ่าน LocalStorage ได้:", error);
         return fallback;
@@ -685,6 +527,7 @@ function setStorage(key, value) {
         );
 
         return true;
+
     } catch (error) {
         console.warn("ไม่สามารถบันทึก LocalStorage ได้:", error);
         return false;
@@ -692,19 +535,21 @@ function setStorage(key, value) {
 }
 
 
-let favoriteIds = getStorage(
-    STORAGE_KEYS.favorites,
-    []
-);
+let favoriteIds =
+    getStorage(
+        STORAGE_KEYS.favorites,
+        []
+    );
 
-let recentSearches = getStorage(
-    STORAGE_KEYS.recentSearches,
-    []
-);
+let recentSearches =
+    getStorage(
+        STORAGE_KEYS.recentSearches,
+        []
+    );
 
 
 /* =========================================================
-   4. APPLICATION STATE
+   APPLICATION STATE
    ========================================================= */
 
 const state = {
@@ -719,7 +564,7 @@ const state = {
 
 
 /* =========================================================
-   5. DOM ELEMENTS
+   DOM ELEMENTS
    ========================================================= */
 
 const ingredientInput =
@@ -829,7 +674,7 @@ const modalInstructions =
 
 
 /* =========================================================
-   6. NORMALIZE TEXT
+   NORMALIZE TEXT
    ========================================================= */
 
 function normalizeText(value) {
@@ -841,12 +686,16 @@ function normalizeText(value) {
 
 
 /* =========================================================
-   7. INGREDIENT MATCHING
+   INGREDIENT MATCHING
    ========================================================= */
 
 function ingredientMatches(selected, required) {
-    const selectedText = normalizeText(selected);
-    const requiredText = normalizeText(required);
+
+    const selectedText =
+        normalizeText(selected);
+
+    const requiredText =
+        normalizeText(required);
 
     if (
         selectedText === requiredText ||
@@ -860,20 +709,21 @@ function ingredientMatches(selected, required) {
         "ข้าว": ["ข้าวสวย"],
         "หมูสับ": ["หมู"],
         "หมู": ["หมูสับ"],
-        "กระเทียม": ["กระเทียม"],
         "ไข่ไก่": ["ไข่"],
         "กุ้งสด": ["กุ้ง"]
     };
 
     if (aliases[selectedText]) {
         return aliases[selectedText].some(
-            alias => normalizeText(alias) === requiredText
+            alias =>
+                normalizeText(alias) === requiredText
         );
     }
 
     if (aliases[requiredText]) {
         return aliases[requiredText].some(
-            alias => normalizeText(alias) === selectedText
+            alias =>
+                normalizeText(alias) === selectedText
         );
     }
 
@@ -882,15 +732,22 @@ function ingredientMatches(selected, required) {
 
 
 function getMatchedIngredients(recipe) {
-    return recipe.ingredients.filter(required =>
-        state.selectedIngredients.some(selected =>
-            ingredientMatches(selected, required)
-        )
+
+    return recipe.ingredients.filter(
+        required =>
+            state.selectedIngredients.some(
+                selected =>
+                    ingredientMatches(
+                        selected,
+                        required
+                    )
+            )
     );
 }
 
 
 function getMatchData(recipe) {
+
     const matchedIngredients =
         getMatchedIngredients(recipe);
 
@@ -903,7 +760,9 @@ function getMatchData(recipe) {
     const percentage =
         total === 0
             ? 0
-            : Math.round((matched / total) * 100);
+            : Math.round(
+                (matched / total) * 100
+            );
 
     return {
         matchedIngredients,
@@ -915,11 +774,13 @@ function getMatchData(recipe) {
 
 
 /* =========================================================
-   8. ADD INGREDIENT
+   ADD INGREDIENT
    ========================================================= */
 
 function addIngredient(value) {
-    const cleaned = String(value || "").trim();
+
+    const cleaned =
+        String(value || "").trim();
 
     if (!cleaned) {
         return;
@@ -933,47 +794,65 @@ function addIngredient(value) {
         );
 
     if (exists) {
+
         ingredientInput.value = "";
+
         renderIngredientSuggestions("");
+
         return;
     }
 
-    state.selectedIngredients.push(cleaned);
+    state.selectedIngredients.push(
+        cleaned
+    );
 
     ingredientInput.value = "";
 
     renderSelectedIngredients();
+
     renderIngredientSuggestions("");
+
     renderRecipes();
 }
 
 
 function removeIngredient(index) {
-    state.selectedIngredients.splice(index, 1);
+
+    state.selectedIngredients.splice(
+        index,
+        1
+    );
 
     renderSelectedIngredients();
+
     renderRecipes();
 }
 
 
 function clearIngredients() {
+
     state.selectedIngredients = [];
 
     ingredientInput.value = "";
 
     renderSelectedIngredients();
+
     renderIngredientSuggestions("");
+
     renderRecipes();
 }
 
 
 /* =========================================================
-   9. INGREDIENT TAGS
+   SELECTED INGREDIENT TAGS
    ========================================================= */
 
 function renderSelectedIngredients() {
 
-    if (state.selectedIngredients.length === 0) {
+    if (
+        state.selectedIngredients.length === 0
+    ) {
+
         selectedIngredients.innerHTML = `
             <span class="empty-tag-message">
                 ยังไม่ได้เลือกวัตถุดิบ
@@ -985,28 +864,32 @@ function renderSelectedIngredients() {
 
     selectedIngredients.innerHTML =
         state.selectedIngredients
-            .map((ingredient, index) => `
-                <span class="ingredient-tag">
-                    ${escapeHTML(ingredient)}
+            .map(
+                (ingredient, index) => `
+                    <span class="ingredient-tag">
+                        ${escapeHTML(ingredient)}
 
-                    <button
-                        type="button"
-                        data-remove-ingredient="${index}"
-                        aria-label="ลบ ${escapeHTML(ingredient)}"
-                    >
-                        ×
-                    </button>
-                </span>
-            `)
+                        <button
+                            type="button"
+                            data-remove-ingredient="${index}"
+                            aria-label="ลบ ${escapeHTML(ingredient)}"
+                        >
+                            ×
+                        </button>
+                    </span>
+                `
+            )
             .join("");
 }
 
 
 /* =========================================================
-   10. INGREDIENT SUGGESTIONS
+   INGREDIENT SUGGESTIONS
    ========================================================= */
 
-function renderIngredientSuggestions(query = "") {
+function renderIngredientSuggestions(
+    query = ""
+) {
 
     const normalizedQuery =
         normalizeText(query);
@@ -1036,35 +919,42 @@ function renderIngredientSuggestions(query = "") {
             .slice(0, 8);
 
     if (suggestions.length === 0) {
+
         ingredientSuggestions.innerHTML = "";
+
         return;
     }
 
     ingredientSuggestions.innerHTML =
         suggestions
-            .map(ingredient => `
-                <button
-                    type="button"
-                    class="suggestion-btn"
-                    data-suggestion="${escapeHTML(ingredient)}"
-                >
-                    + ${escapeHTML(ingredient)}
-                </button>
-            `)
+            .map(
+                ingredient => `
+                    <button
+                        type="button"
+                        class="suggestion-btn"
+                        data-suggestion="${escapeHTML(ingredient)}"
+                    >
+                        + ${escapeHTML(ingredient)}
+                    </button>
+                `
+            )
             .join("");
 }
 
 
 /* =========================================================
-   11. SEARCH / FILTER
+   FILTER RECIPES
    ========================================================= */
 
 function getFilteredRecipes() {
 
     const query =
-        normalizeText(state.recipeSearch);
+        normalizeText(
+            state.recipeSearch
+        );
 
     return recipes
+
         .map(recipe => {
 
             const matchData =
@@ -1075,6 +965,7 @@ function getFilteredRecipes() {
                 matchData
             };
         })
+
         .filter(recipe => {
 
             if (
@@ -1115,6 +1006,7 @@ function getFilteredRecipes() {
 
             return true;
         })
+
         .sort((a, b) => {
 
             const percentageDifference =
@@ -1139,7 +1031,7 @@ function getFilteredRecipes() {
 
 
 /* =========================================================
-   12. RENDER RECIPES
+   RENDER RECIPES
    ========================================================= */
 
 function renderRecipes() {
@@ -1149,10 +1041,15 @@ function renderRecipes() {
 
     recipeGrid.innerHTML = "";
 
-    if (state.selectedIngredients.length > 0) {
+    if (
+        state.selectedIngredients.length > 0
+    ) {
+
         resultsTitle.textContent =
             "เมนูที่เหมาะกับวัตถุดิบของคุณ";
+
     } else {
+
         resultsTitle.textContent =
             "เมนูแนะนำ";
     }
@@ -1160,22 +1057,30 @@ function renderRecipes() {
     resultsCount.textContent =
         `พบ ${filteredRecipes.length} เมนู`;
 
-    if (filteredRecipes.length === 0) {
-        noResults.classList.remove("hidden");
+    if (
+        filteredRecipes.length === 0
+    ) {
+
+        noResults.classList.remove(
+            "hidden"
+        );
+
         return;
     }
 
-    noResults.classList.add("hidden");
+    noResults.classList.add(
+        "hidden"
+    );
 
     recipeGrid.innerHTML =
         filteredRecipes
-            .map(recipe => createRecipeCard(recipe))
+            .map(createRecipeCard)
             .join("");
 }
 
 
 /* =========================================================
-   13. CREATE RECIPE CARD
+   CREATE RECIPE CARD
    ========================================================= */
 
 function createRecipeCard(recipe) {
@@ -1198,7 +1103,10 @@ function createRecipeCard(recipe) {
                     src="${recipe.image}"
                     alt="${escapeHTML(recipe.name)}"
                     loading="lazy"
-                    onerror="this.style.display='none'; this.nextElementSibling.style.display='grid';"
+                    onerror="
+                        this.style.display='none';
+                        this.nextElementSibling.style.display='grid';
+                    "
                 >
 
                 <div
@@ -1212,13 +1120,16 @@ function createRecipeCard(recipe) {
                     type="button"
                     class="recipe-favorite"
                     data-favorite-id="${recipe.id}"
-                    aria-label="${isFavorite ? "ลบจากเมนูโปรด" : "เพิ่มในเมนูโปรด"}"
+                    aria-label="${
+                        isFavorite
+                            ? "ลบจากเมนูโปรด"
+                            : "เพิ่มในเมนูโปรด"
+                    }"
                 >
                     ${isFavorite ? "❤️" : "♡"}
                 </button>
 
             </div>
-
 
             <div class="recipe-card-body">
 
@@ -1233,7 +1144,6 @@ function createRecipeCard(recipe) {
                 <p class="recipe-card-description">
                     ${escapeHTML(recipe.description)}
                 </p>
-
 
                 <div class="recipe-card-meta">
 
@@ -1250,7 +1160,6 @@ function createRecipeCard(recipe) {
                     </span>
 
                 </div>
-
 
                 <div class="match-info">
 
@@ -1277,7 +1186,6 @@ function createRecipeCard(recipe) {
 
                 </div>
 
-
                 <button
                     type="button"
                     class="view-recipe-btn"
@@ -1294,18 +1202,22 @@ function createRecipeCard(recipe) {
 
 
 /* =========================================================
-   14. FAVORITES
+   FAVORITES
    ========================================================= */
 
 function toggleFavorite(recipeId) {
 
-    const id = Number(recipeId);
+    const id =
+        Number(recipeId);
 
-    if (favoriteIds.includes(id)) {
+    if (
+        favoriteIds.includes(id)
+    ) {
 
         favoriteIds =
             favoriteIds.filter(
-                favoriteId => favoriteId !== id
+                favoriteId =>
+                    favoriteId !== id
             );
 
     } else {
@@ -1323,6 +1235,7 @@ function toggleFavorite(recipeId) {
     if (
         state.currentRecipeId === id
     ) {
+
         updateModalFavoriteButton();
     }
 }
@@ -1348,7 +1261,7 @@ function updateModalFavoriteButton() {
 
 
 /* =========================================================
-   15. RECENT SEARCHES
+   RECENT SEARCHES
    ========================================================= */
 
 function saveRecentSearch() {
@@ -1396,7 +1309,9 @@ function saveRecentSearch() {
 
 function renderRecentSearches() {
 
-    if (recentSearches.length === 0) {
+    if (
+        recentSearches.length === 0
+    ) {
 
         recentSearchesContainer.innerHTML = `
             <span class="empty-message">
@@ -1409,15 +1324,19 @@ function renderRecentSearches() {
 
     recentSearchesContainer.innerHTML =
         recentSearches
-            .map((search, index) => `
-                <button
-                    type="button"
-                    class="recent-item"
-                    data-recent-index="${index}"
-                >
-                    🔎 ${escapeHTML(search.join(", "))}
-                </button>
-            `)
+            .map(
+                (search, index) => `
+                    <button
+                        type="button"
+                        class="recent-item"
+                        data-recent-index="${index}"
+                    >
+                        🔎 ${escapeHTML(
+                            search.join(", ")
+                        )}
+                    </button>
+                `
+            )
             .join("");
 }
 
@@ -1437,7 +1356,9 @@ function loadRecentSearch(index) {
     ingredientInput.value = "";
 
     renderSelectedIngredients();
+
     renderIngredientSuggestions("");
+
     renderRecipes();
 
     window.scrollTo({
@@ -1461,14 +1382,15 @@ function clearRecentSearches() {
 
 
 /* =========================================================
-   16. RECIPE MODAL
+   RECIPE MODAL
    ========================================================= */
 
 function openRecipeModal(recipeId) {
 
     const recipe =
         recipes.find(
-            item => item.id === Number(recipeId)
+            item =>
+                item.id === Number(recipeId)
         );
 
     if (!recipe) {
@@ -1512,7 +1434,9 @@ function openRecipeModal(recipeId) {
         <img
             src="${recipe.image}"
             alt="${escapeHTML(recipe.name)}"
-            onerror="this.style.display='none';"
+            onerror="
+                this.style.display='none';
+            "
         >
     `;
 
@@ -1524,13 +1448,26 @@ function openRecipeModal(recipeId) {
                     matchData.matchedIngredients
                         .some(
                             matched =>
-                                normalizeText(matched) ===
-                                normalizeText(ingredient)
+                                ingredientMatches(
+                                    matched,
+                                    ingredient
+                                )
                         );
 
                 return `
-                    <li class="${hasIngredient ? "ingredient-have" : ""}">
-                        ${hasIngredient ? "✓ " : ""}
+                    <li
+                        class="${
+                            hasIngredient
+                                ? "ingredient-have"
+                                : ""
+                        }"
+                    >
+                        ${
+                            hasIngredient
+                                ? "✓ "
+                                : ""
+                        }
+
                         ${escapeHTML(ingredient)}
                     </li>
                 `;
@@ -1539,33 +1476,42 @@ function openRecipeModal(recipeId) {
 
     modalInstructions.innerHTML =
         recipe.instructions
-            .map(instruction => `
-                <li>
-                    ${escapeHTML(instruction)}
-                </li>
-            `)
+            .map(
+                instruction => `
+                    <li>
+                        ${escapeHTML(instruction)}
+                    </li>
+                `
+            )
             .join("");
 
     updateModalFavoriteButton();
 
-    recipeModal.classList.remove("hidden");
+    recipeModal.classList.remove(
+        "hidden"
+    );
 
-    document.body.style.overflow = "hidden";
+    document.body.style.overflow =
+        "hidden";
 }
 
 
 function closeRecipeModal() {
 
-    recipeModal.classList.add("hidden");
+    recipeModal.classList.add(
+        "hidden"
+    );
 
-    document.body.style.overflow = "";
+    document.body.style.overflow =
+        "";
 
-    state.currentRecipeId = null;
+    state.currentRecipeId =
+        null;
 }
 
 
 /* =========================================================
-   17. RANDOM RECIPE
+   RANDOM RECIPE
    ========================================================= */
 
 function randomRecipe() {
@@ -1573,7 +1519,10 @@ function randomRecipe() {
     const availableRecipes =
         getFilteredRecipes();
 
-    if (availableRecipes.length === 0) {
+    if (
+        availableRecipes.length === 0
+    ) {
+
         alert(
             "ไม่พบเมนูสำหรับสุ่ม กรุณาล้างตัวกรองแล้วลองอีกครั้ง"
         );
@@ -1587,17 +1536,17 @@ function randomRecipe() {
             availableRecipes.length
         );
 
-    const randomRecipe =
+    const selectedRecipe =
         availableRecipes[randomIndex];
 
     openRecipeModal(
-        randomRecipe.id
+        selectedRecipe.id
     );
 }
 
 
 /* =========================================================
-   18. RESET FILTERS
+   RESET FILTERS
    ========================================================= */
 
 function resetFilters() {
@@ -1619,7 +1568,7 @@ function resetFilters() {
 
 
 /* =========================================================
-   19. ESCAPE HTML
+   ESCAPE HTML
    ========================================================= */
 
 function escapeHTML(value) {
@@ -1634,13 +1583,13 @@ function escapeHTML(value) {
 
 
 /* =========================================================
-   20. EVENT LISTENERS
+   EVENT LISTENERS
    ========================================================= */
 
-/* Add ingredient */
 addIngredientBtn.addEventListener(
     "click",
     () => {
+
         addIngredient(
             ingredientInput.value
         );
@@ -1648,7 +1597,6 @@ addIngredientBtn.addEventListener(
 );
 
 
-/* Enter ingredient */
 ingredientInput.addEventListener(
     "keydown",
     event => {
@@ -1665,7 +1613,6 @@ ingredientInput.addEventListener(
 );
 
 
-/* Ingredient typing */
 ingredientInput.addEventListener(
     "input",
     event => {
@@ -1677,7 +1624,6 @@ ingredientInput.addEventListener(
 );
 
 
-/* Ingredient suggestion click */
 ingredientSuggestions.addEventListener(
     "click",
     event => {
@@ -1698,7 +1644,6 @@ ingredientSuggestions.addEventListener(
 );
 
 
-/* Remove ingredient */
 selectedIngredients.addEventListener(
     "click",
     event => {
@@ -1721,14 +1666,12 @@ selectedIngredients.addEventListener(
 );
 
 
-/* Clear ingredients */
 clearIngredientsBtn.addEventListener(
     "click",
     clearIngredients
 );
 
 
-/* Search recipes */
 searchRecipeBtn.addEventListener(
     "click",
     () => {
@@ -1746,7 +1689,6 @@ searchRecipeBtn.addEventListener(
 );
 
 
-/* Recent search click */
 recentSearchesContainer.addEventListener(
     "click",
     event => {
@@ -1769,14 +1711,12 @@ recentSearchesContainer.addEventListener(
 );
 
 
-/* Clear recent */
 clearRecentBtn.addEventListener(
     "click",
     clearRecentSearches
 );
 
 
-/* Recipe name search */
 recipeSearchInput.addEventListener(
     "input",
     event => {
@@ -1789,7 +1729,6 @@ recipeSearchInput.addEventListener(
 );
 
 
-/* Category */
 categoryFilter.addEventListener(
     "change",
     event => {
@@ -1802,7 +1741,6 @@ categoryFilter.addEventListener(
 );
 
 
-/* Time */
 timeFilter.addEventListener(
     "change",
     event => {
@@ -1815,7 +1753,6 @@ timeFilter.addEventListener(
 );
 
 
-/* Difficulty */
 difficultyFilter.addEventListener(
     "change",
     event => {
@@ -1828,7 +1765,6 @@ difficultyFilter.addEventListener(
 );
 
 
-/* Favorite filter */
 favoriteFilter.addEventListener(
     "change",
     event => {
@@ -1841,7 +1777,6 @@ favoriteFilter.addEventListener(
 );
 
 
-/* Recipe grid */
 recipeGrid.addEventListener(
     "click",
     event => {
@@ -1860,7 +1795,6 @@ recipeGrid.addEventListener(
             return;
         }
 
-
         const recipeButton =
             event.target.closest(
                 "[data-recipe-id]"
@@ -1876,35 +1810,30 @@ recipeGrid.addEventListener(
 );
 
 
-/* Reset filters */
 resetFiltersBtn.addEventListener(
     "click",
     resetFilters
 );
 
 
-/* Random recipe */
 randomRecipeBtn.addEventListener(
     "click",
     randomRecipe
 );
 
 
-/* Close modal */
 closeModalBtn.addEventListener(
     "click",
     closeRecipeModal
 );
 
 
-/* Modal overlay */
 modalOverlay.addEventListener(
     "click",
     closeRecipeModal
 );
 
 
-/* Modal favorite */
 modalFavoriteBtn.addEventListener(
     "click",
     () => {
@@ -1912,6 +1841,7 @@ modalFavoriteBtn.addEventListener(
         if (
             state.currentRecipeId !== null
         ) {
+
             toggleFavorite(
                 state.currentRecipeId
             );
@@ -1920,15 +1850,17 @@ modalFavoriteBtn.addEventListener(
 );
 
 
-/* Escape key */
 document.addEventListener(
     "keydown",
     event => {
 
         if (
             event.key === "Escape" &&
-            !recipeModal.classList.contains("hidden")
+            !recipeModal.classList.contains(
+                "hidden"
+            )
         ) {
+
             closeRecipeModal();
         }
     }
@@ -1936,7 +1868,7 @@ document.addEventListener(
 
 
 /* =========================================================
-   21. INITIALIZE
+   INITIALIZE
    ========================================================= */
 
 function initializeApp() {
