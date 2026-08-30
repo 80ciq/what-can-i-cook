@@ -1,11 +1,9 @@
 /* =========================================================
    What Can I Cook? - script.js
    ========================================================= */
-
 /* =========================================================
    RECIPE DATABASE
    ========================================================= */
-
 const recipes = [
     {
         id: 1,
@@ -24,7 +22,6 @@ const recipes = [
         difficulty: "ง่าย",
         time: 15
     },
-
     {
         id: 2,
         name: "ข้าวผัดหมู",
@@ -42,7 +39,6 @@ const recipes = [
         difficulty: "ง่าย",
         time: 20
     },
-
     {
         id: 3,
         name: "ผัดกะเพราหมู",
@@ -61,7 +57,6 @@ const recipes = [
         difficulty: "ง่าย",
         time: 15
     },
-
     {
         id: 4,
         name: "ไข่เจียวหมูสับ",
@@ -79,7 +74,6 @@ const recipes = [
         difficulty: "ง่าย",
         time: 10
     },
-
     {
         id: 5,
         name: "ผัดคะน้าหมู",
@@ -98,7 +92,6 @@ const recipes = [
         difficulty: "ง่าย",
         time: 20
     },
-
     {
         id: 6,
         name: "ต้มจืดเต้าหู้หมูสับ",
@@ -116,7 +109,6 @@ const recipes = [
         difficulty: "ง่าย",
         time: 25
     },
-
     {
         id: 7,
         name: "ต้มยำกุ้ง",
@@ -135,7 +127,6 @@ const recipes = [
         difficulty: "ปานกลาง",
         time: 30
     },
-
     {
         id: 8,
         name: "ผัดซีอิ๊ว",
@@ -154,7 +145,6 @@ const recipes = [
         difficulty: "ปานกลาง",
         time: 20
     },
-
     {
         id: 9,
         name: "สุกี้น้ำ",
@@ -173,7 +163,6 @@ const recipes = [
         difficulty: "ง่าย",
         time: 20
     },
-
     {
         id: 10,
         name: "ยำวุ้นเส้น",
@@ -192,7 +181,6 @@ const recipes = [
         difficulty: "ง่าย",
         time: 20
     },
-
     {
         id: 11,
         name: "ไข่ดาว",
@@ -209,7 +197,6 @@ const recipes = [
         difficulty: "ง่าย",
         time: 5
     },
-
     {
         id: 12,
         name: "ไข่ต้ม",
@@ -227,7 +214,6 @@ const recipes = [
         difficulty: "ง่าย",
         time: 10
     },
-
     {
         id: 13,
         name: "ผัดผักรวม",
@@ -246,7 +232,6 @@ const recipes = [
         difficulty: "ง่าย",
         time: 15
     },
-
     {
         id: 14,
         name: "แกงจืดไข่น้ำ",
@@ -265,7 +250,6 @@ const recipes = [
         difficulty: "ง่าย",
         time: 20
     },
-
     {
         id: 15,
         name: "หมูกระเทียม",
@@ -284,7 +268,6 @@ const recipes = [
         difficulty: "ง่าย",
         time: 20
     },
-
     {
         id: 16,
         name: "ผัดพริกแกงหมู",
@@ -303,7 +286,6 @@ const recipes = [
         difficulty: "ปานกลาง",
         time: 25
     },
-
     {
         id: 17,
         name: "แกงเขียวหวานไก่",
@@ -322,7 +304,6 @@ const recipes = [
         difficulty: "ปานกลาง",
         time: 40
     },
-
     {
         id: 18,
         name: "ลาบหมู",
@@ -341,7 +322,6 @@ const recipes = [
         difficulty: "ปานกลาง",
         time: 25
     },
-
     {
         id: 19,
         name: "ข้าวต้มหมู",
@@ -360,7 +340,6 @@ const recipes = [
         difficulty: "ง่าย",
         time: 30
     },
-
     {
         id: 20,
         name: "มาม่าผัดไข่",
@@ -379,7 +358,6 @@ const recipes = [
         difficulty: "ง่าย",
         time: 10
     },
-
     {
         id: 21,
         name: "ไก่ผัดเม็ดมะม่วง",
@@ -398,7 +376,6 @@ const recipes = [
         difficulty: "ปานกลาง",
         time: 30
     },
-
     {
         id: 22,
         name: "ปลาทอดน้ำปลา",
@@ -418,12 +395,9 @@ const recipes = [
         time: 30
     }
 ];
-
-
 /* =========================================================
    INGREDIENT LIST
    ========================================================= */
-
 const ingredientList = [
     "ข้าว",
     "ไข่",
@@ -463,131 +437,88 @@ const ingredientList = [
     "เม็ดมะม่วง",
     "ข้าวคั่ว"
 ];
-
-
 /* =========================================================
    STATE
    ========================================================= */
-
 let selectedIngredients = [];
 let favoriteIds = loadStorage("whatCanICookFavorites", []);
 let recentSearches = loadStorage("whatCanICookRecent", []);
-
 let currentRecipes = [...recipes];
-
-
 /* =========================================================
    DOM ELEMENTS
    ========================================================= */
-
 const ingredientInput =
     document.getElementById("ingredientInput");
-
 const addIngredientBtn =
     document.getElementById("addIngredientBtn");
-
 const ingredientSuggestions =
     document.getElementById("ingredientSuggestions");
-
 const selectedIngredientsContainer =
     document.getElementById("selectedIngredients");
-
 const clearIngredientsBtn =
     document.getElementById("clearIngredientsBtn");
-
 const searchBtn =
     document.getElementById("searchBtn");
-
 const randomBtn =
     document.getElementById("randomBtn");
-
 const menuSearchInput =
     document.getElementById("menuSearchInput");
-
 const categoryFilter =
     document.getElementById("categoryFilter");
-
 const timeFilter =
     document.getElementById("timeFilter");
-
 const difficultyFilter =
     document.getElementById("difficultyFilter");
-
 const recipeGrid =
     document.getElementById("recipeGrid");
-
 const recipeCount =
     document.getElementById("recipeCount");
-
 const resultMessage =
     document.getElementById("resultMessage");
-
 const emptyState =
     document.getElementById("emptyState");
-
 const resetFiltersBtn =
     document.getElementById("resetFiltersBtn");
-
 const recentSection =
     document.getElementById("recentSection");
-
 const recentSearchesContainer =
     document.getElementById("recentSearches");
-
 const clearRecentBtn =
     document.getElementById("clearRecentBtn");
-
 const favoriteGrid =
     document.getElementById("favoriteGrid");
-
 const favoriteEmpty =
     document.getElementById("favoriteEmpty");
-
 const recipeModal =
     document.getElementById("recipeModal");
-
 const modalOverlay =
     document.getElementById("modalOverlay");
-
 const closeModalBtn =
     document.getElementById("closeModalBtn");
-
 const modalRecipeImage =
     document.getElementById("modalRecipeImage");
-
 const modalRecipeMeta =
     document.getElementById("modalRecipeMeta");
-
 const modalRecipeTitle =
     document.getElementById("modalRecipeTitle");
-
 const modalRecipeDescription =
     document.getElementById("modalRecipeDescription");
-
 const modalMatchPercentage =
     document.getElementById("modalMatchPercentage");
-
 const modalProgressBar =
     document.getElementById("modalProgressBar");
-
 const modalIngredientCount =
     document.getElementById("modalIngredientCount");
-
 const modalIngredients =
     document.getElementById("modalIngredients");
-
 const modalInstructions =
     document.getElementById("modalInstructions");
-
-
 /* =========================================================
    LOCAL STORAGE
    ========================================================= */
-
 function loadStorage(key, fallback) {
     try {
         const value = localStorage.getItem(key);
-
         return value
             ? JSON.parse(value)
             : fallback;
@@ -596,8 +527,6 @@ function loadStorage(key, fallback) {
         return fallback;
     }
 }
-
-
 function saveStorage(key, value) {
     try {
         localStorage.setItem(
@@ -608,106 +537,72 @@ function saveStorage(key, value) {
         console.warn("Cannot save localStorage:", error);
     }
 }
-
-
 /* =========================================================
    NORMALIZE TEXT
    ========================================================= */
-
 function normalizeText(value) {
     return String(value)
         .trim()
         .toLowerCase()
         .replace(/\s+/g, "");
 }
-
-
 /* =========================================================
    INGREDIENT MANAGEMENT
    ========================================================= */
-
 function addIngredient(value) {
-
     const ingredient = String(value)
         .trim()
         .replace(/\s+/g, " ");
-
     if (!ingredient) {
         return;
     }
-
     const exists = selectedIngredients.some(
         item =>
             normalizeText(item) ===
             normalizeText(ingredient)
     );
-
     if (exists) {
         ingredientInput.value = "";
         hideSuggestions();
         return;
     }
-
     selectedIngredients.push(ingredient);
-
     ingredientInput.value = "";
-
     hideSuggestions();
-
     renderSelectedIngredients();
 }
-
-
 function removeIngredient(index) {
-
     selectedIngredients.splice(index, 1);
-
     renderSelectedIngredients();
-
     if (selectedIngredients.length > 0) {
         searchRecipes();
     }
 }
-
-
 function clearIngredients() {
-
     selectedIngredients = [];
-
     ingredientInput.value = "";
-
     renderSelectedIngredients();
-
     currentRecipes = [...recipes];
-
     applyFilters();
 }
-
-
 /* =========================================================
    RENDER SELECTED INGREDIENTS
    ========================================================= */
-
 function renderSelectedIngredients() {
-
     if (selectedIngredients.length === 0) {
-
         selectedIngredientsContainer.innerHTML = `
             <span class="empty-ingredients">
                 ยังไม่ได้เลือกวัตถุดิบ
             </span>
         `;
-
         return;
     }
-
     selectedIngredientsContainer.innerHTML =
         selectedIngredients
             .map(
                 (ingredient, index) => `
                     <span class="ingredient-tag">
                         ${escapeHTML(ingredient)}
-
                         <button
                             type="button"
                             data-remove-ingredient="${index}"
@@ -720,21 +615,15 @@ function renderSelectedIngredients() {
             )
             .join("");
 }
-
-
 /* =========================================================
    INGREDIENT SUGGESTIONS
    ========================================================= */
-
 function showSuggestions(value) {
-
     const query = normalizeText(value);
-
     if (!query) {
         hideSuggestions();
         return;
     }
-
     const matches = ingredientList
         .filter(
             ingredient =>
@@ -749,12 +638,10 @@ function showSuggestions(value) {
                 )
         )
         .slice(0, 8);
-
     if (matches.length === 0) {
         hideSuggestions();
         return;
     }
-
     ingredientSuggestions.innerHTML =
         matches
             .map(
@@ -770,36 +657,23 @@ function showSuggestions(value) {
                 `
             )
             .join("");
-
     ingredientSuggestions.style.display = "block";
 }
-
-
 function hideSuggestions() {
     ingredientSuggestions.style.display = "none";
 }
-
-
 /* =========================================================
    SEARCH RECIPES
    ========================================================= */
-
 function searchRecipes() {
-
     if (selectedIngredients.length === 0) {
-
         currentRecipes = [...recipes];
-
         resultMessage.textContent =
             "แสดงเมนูทั้งหมด เลือกวัตถุดิบเพื่อจัดอันดับเมนู";
-
         applyFilters();
-
         return;
     }
-
     saveRecentSearch();
-
     currentRecipes = recipes
         .map(recipe => ({
             ...recipe,
@@ -810,12 +684,9 @@ function searchRecipes() {
                 b.match.percentage -
                 a.match.percentage
         );
-
     resultMessage.textContent =
         `พบเมนูที่ตรงกับวัตถุดิบ ${selectedIngredients.length} รายการ`;
-
     applyFilters();
-
     document
         .getElementById("recipes-section")
         .scrollIntoView({
@@ -823,14 +694,10 @@ function searchRecipes() {
             block: "start"
         });
 }
-
-
 /* =========================================================
    CALCULATE MATCH
    ========================================================= */
-
 function calculateMatch(recipe) {
-
     if (recipe.ingredients.length === 0) {
         return {
             count: 0,
@@ -838,11 +705,9 @@ function calculateMatch(recipe) {
             percentage: 0
         };
     }
-
     const selected = selectedIngredients.map(
         normalizeText
     );
-
     const matchedIngredients =
         recipe.ingredients.filter(
             ingredient =>
@@ -850,133 +715,93 @@ function calculateMatch(recipe) {
                     normalizeText(ingredient)
                 )
         );
-
     const count = matchedIngredients.length;
-
     const total = recipe.ingredients.length;
-
     const percentage =
         Math.round((count / total) * 100);
-
     return {
         count,
         total,
         percentage
     };
 }
-
-
 /* =========================================================
    FILTERS
    ========================================================= */
-
 function applyFilters() {
-
     const menuQuery =
         normalizeText(menuSearchInput.value);
-
     const category =
         categoryFilter.value;
-
     const maxTime =
         timeFilter.value;
-
     const difficulty =
         difficultyFilter.value;
-
     let filtered = [...currentRecipes];
-
     if (menuQuery) {
-
         filtered = filtered.filter(
             recipe =>
                 normalizeText(recipe.name)
                     .includes(menuQuery)
         );
     }
-
     if (category !== "all") {
-
         filtered = filtered.filter(
             recipe =>
                 recipe.category === category
         );
     }
-
     if (maxTime !== "all") {
-
         filtered = filtered.filter(
             recipe =>
                 recipe.time <= Number(maxTime)
         );
     }
-
     if (difficulty !== "all") {
-
         filtered = filtered.filter(
             recipe =>
                 recipe.difficulty === difficulty
         );
     }
-
     renderRecipes(filtered);
 }
-
-
 /* =========================================================
    RENDER RECIPE CARDS
    ========================================================= */
-
 function renderRecipes(recipeList) {
-
     recipeCount.textContent =
         `(${recipeList.length})`;
-
     if (recipeList.length === 0) {
-
         recipeGrid.innerHTML = "";
-
         emptyState.hidden = false;
-
         return;
     }
-
     emptyState.hidden = true;
-
     recipeGrid.innerHTML =
         recipeList
             .map(createRecipeCard)
             .join("");
 }
-
-
 /* =========================================================
    CREATE RECIPE CARD
    ========================================================= */
-
 function createRecipeCard(recipe) {
-
     const match =
         calculateMatch(recipe);
-
     const isFavorite =
         favoriteIds.includes(recipe.id);
-
     return `
         <article
             class="recipe-card"
             data-recipe-id="${recipe.id}"
         >
-
             <div class="recipe-image">
-
                 <img
                     src="${recipe.image}"
                     alt="${escapeHTML(recipe.name)}"
                     loading="lazy"
                     onerror="this.style.display='none'"
                 >
-
                 <button
                     type="button"
                     class="favorite-btn ${isFavorite ? "active" : ""}"
@@ -985,60 +810,41 @@ function createRecipeCard(recipe) {
                 >
                     ${isFavorite ? "❤️" : "♡"}
                 </button>
-
             </div>
-
-
             <div class="recipe-body">
-
                 <span class="recipe-category">
                     ${escapeHTML(recipe.category)}
                 </span>
-
                 <h3>
                     ${escapeHTML(recipe.name)}
                 </h3>
-
                 <p class="recipe-description">
                     ${escapeHTML(recipe.description)}
                 </p>
-
-
                 <div class="match-info">
-
                     <div class="match-header">
                         <span>
                             มีวัตถุดิบ ${match.count}/${match.total}
                         </span>
-
                         <span class="match-percentage">
                             ${match.percentage}%
                         </span>
                     </div>
-
                     <div class="progress-bar">
                         <div
                             class="progress-fill"
                             style="width: ${match.percentage}%"
                         ></div>
                     </div>
-
                 </div>
-
-
                 <div class="recipe-meta">
-
                     <span>
                         ⏱️ ${recipe.time} นาที
                     </span>
-
                     <span>
                         📊 ${escapeHTML(recipe.difficulty)}
                     </span>
-
                 </div>
-
-
                 <button
                     type="button"
                     class="view-recipe-btn"
@@ -1046,88 +852,59 @@ function createRecipeCard(recipe) {
                 >
                     ดูรายละเอียด
                 </button>
-
             </div>
-
         </article>
     `;
 }
-
-
 /* =========================================================
    FAVORITES
    ========================================================= */
-
 function toggleFavorite(recipeId) {
-
     const index =
         favoriteIds.indexOf(recipeId);
-
     if (index === -1) {
-
         favoriteIds.push(recipeId);
-
     } else {
-
         favoriteIds.splice(index, 1);
     }
-
     saveStorage(
         "whatCanICookFavorites",
         favoriteIds
     );
-
     applyFilters();
-
     renderFavorites();
 }
-
-
 function renderFavorites() {
-
     const favoriteRecipes =
         recipes.filter(
             recipe =>
                 favoriteIds.includes(recipe.id)
         );
-
     if (favoriteRecipes.length === 0) {
-
         favoriteGrid.innerHTML = "";
-
         favoriteEmpty.style.display = "block";
-
         return;
     }
-
     favoriteEmpty.style.display = "none";
-
     favoriteGrid.innerHTML =
         favoriteRecipes
             .map(createRecipeCard)
             .join("");
 }
-
-
 /* =========================================================
    RECENT SEARCHES
    ========================================================= */
-
 function saveRecentSearch() {
-
     if (selectedIngredients.length === 0) {
         return;
     }
-
     const search =
         [...selectedIngredients];
-
     const searchKey =
         search
             .map(normalizeText)
             .sort()
             .join("|");
-
     recentSearches =
         recentSearches.filter(
             item =>
@@ -1136,32 +913,21 @@ function saveRecentSearch() {
                     .sort()
                     .join("|") !== searchKey
         );
-
     recentSearches.unshift(search);
-
     recentSearches =
         recentSearches.slice(0, 6);
-
     saveStorage(
         "whatCanICookRecent",
         recentSearches
     );
-
     renderRecentSearches();
 }
-
-
 function renderRecentSearches() {
-
     if (recentSearches.length === 0) {
-
         recentSection.style.display = "none";
-
         return;
     }
-
     recentSection.style.display = "block";
-
     recentSearchesContainer.innerHTML =
         recentSearches
             .map(
@@ -1180,83 +946,57 @@ function renderRecentSearches() {
             )
             .join("");
 }
-
-
 function loadRecentSearch(index) {
-
     const search =
         recentSearches[index];
-
     if (!search) {
         return;
     }
-
     selectedIngredients =
         [...search];
-
     renderSelectedIngredients();
-
     searchRecipes();
 }
-
-
 function clearRecentSearches() {
-
     recentSearches = [];
-
     saveStorage(
         "whatCanICookRecent",
         recentSearches
     );
-
     renderRecentSearches();
 }
-
-
 /* =========================================================
    RANDOM RECIPE
    ========================================================= */
-
 function randomRecipe() {
-
     const availableRecipes =
         currentRecipes.length > 0
             ? currentRecipes
             : recipes;
-
     const randomIndex =
         Math.floor(
             Math.random() *
             availableRecipes.length
         );
-
     const recipe =
         availableRecipes[randomIndex];
-
     if (recipe) {
         openRecipeModal(recipe.id);
     }
 }
-
-
 /* =========================================================
    RECIPE MODAL
    ========================================================= */
-
 function openRecipeModal(recipeId) {
-
     const recipe =
         recipes.find(
             item => item.id === Number(recipeId)
         );
-
     if (!recipe) {
         return;
     }
-
     const match =
         calculateMatch(recipe);
-
     modalRecipeImage.innerHTML = `
         <img
             src="${recipe.image}"
@@ -1264,28 +1004,21 @@ function openRecipeModal(recipeId) {
             onerror="this.style.display='none'"
         >
     `;
-
     modalRecipeMeta.innerHTML = `
         <span>🍽️ ${escapeHTML(recipe.category)}</span>
         <span>⏱️ ${recipe.time} นาที</span>
         <span>📊 ${escapeHTML(recipe.difficulty)}</span>
     `;
-
     modalRecipeTitle.textContent =
         recipe.name;
-
     modalRecipeDescription.textContent =
         recipe.description;
-
     modalMatchPercentage.textContent =
         `${match.percentage}%`;
-
     modalProgressBar.style.width =
         `${match.percentage}%`;
-
     modalIngredientCount.textContent =
         `มีวัตถุดิบ ${match.count} จาก ${match.total} รายการ`;
-
     modalIngredients.innerHTML =
         recipe.ingredients
             .map(
@@ -1296,7 +1029,6 @@ function openRecipeModal(recipeId) {
                 `
             )
             .join("");
-
     modalInstructions.innerHTML =
         recipe.instructions
             .map(
@@ -1307,53 +1039,34 @@ function openRecipeModal(recipeId) {
                 `
             )
             .join("");
-
     recipeModal.classList.add("active");
-
     recipeModal.setAttribute(
         "aria-hidden",
         "false"
     );
-
     document.body.style.overflow = "hidden";
 }
-
-
 function closeRecipeModal() {
-
     recipeModal.classList.remove("active");
-
     recipeModal.setAttribute(
         "aria-hidden",
         "true"
     );
-
     document.body.style.overflow = "";
 }
-
-
 /* =========================================================
    RESET FILTERS
    ========================================================= */
-
 function resetFilters() {
-
     menuSearchInput.value = "";
-
     categoryFilter.value = "all";
-
     timeFilter.value = "all";
-
     difficultyFilter.value = "all";
-
     applyFilters();
 }
-
-
 /* =========================================================
    EVENT LISTENERS
    ========================================================= */
-
 addIngredientBtn.addEventListener(
     "click",
     () => {
@@ -1362,8 +1075,6 @@ addIngredientBtn.addEventListener(
         );
     }
 );
-
-
 ingredientInput.addEventListener(
     "input",
     event => {
@@ -1372,55 +1083,40 @@ ingredientInput.addEventListener(
         );
     }
 );
-
-
 ingredientInput.addEventListener(
     "keydown",
     event => {
-
         if (event.key === "Enter") {
-
             event.preventDefault();
-
             const firstSuggestion =
                 ingredientSuggestions.querySelector(
                     "[data-suggestion]"
                 );
-
             if (firstSuggestion) {
-
                 addIngredient(
                     firstSuggestion.dataset.suggestion
                 );
-
             } else {
-
                 addIngredient(
                     ingredientInput.value
                 );
             }
         }
-
         if (event.key === "Escape") {
             hideSuggestions();
         }
     }
 );
-
-
 selectedIngredientsContainer.addEventListener(
     "click",
     event => {
-
         const button =
             event.target.closest(
                 "[data-remove-ingredient]"
             );
-
         if (!button) {
             return;
         }
-
         removeIngredient(
             Number(
                 button.dataset.removeIngredient
@@ -1428,114 +1124,80 @@ selectedIngredientsContainer.addEventListener(
         );
     }
 );
-
-
 ingredientSuggestions.addEventListener(
     "click",
     event => {
-
         const button =
             event.target.closest(
                 "[data-suggestion]"
             );
-
         if (!button) {
             return;
         }
-
         addIngredient(
             button.dataset.suggestion
         );
     }
 );
-
-
 clearIngredientsBtn.addEventListener(
     "click",
     clearIngredients
 );
-
-
 searchBtn.addEventListener(
     "click",
     searchRecipes
 );
-
-
 randomBtn.addEventListener(
     "click",
     randomRecipe
 );
-
-
 menuSearchInput.addEventListener(
     "input",
     applyFilters
 );
-
-
 categoryFilter.addEventListener(
     "change",
     applyFilters
 );
-
-
 timeFilter.addEventListener(
     "change",
     applyFilters
 );
-
-
 difficultyFilter.addEventListener(
     "change",
     applyFilters
 );
-
-
 resetFiltersBtn.addEventListener(
     "click",
     resetFilters
 );
-
-
 clearRecentBtn.addEventListener(
     "click",
     clearRecentSearches
 );
-
-
 /* =========================================================
    RECIPE GRID EVENTS
    ========================================================= */
-
 recipeGrid.addEventListener(
     "click",
     event => {
-
         const favoriteButton =
             event.target.closest(
                 "[data-favorite-id]"
             );
-
         if (favoriteButton) {
-
             toggleFavorite(
                 Number(
                     favoriteButton.dataset.favoriteId
                 )
             );
-
             return;
         }
-
-
         const viewButton =
             event.target.closest(
                 "[data-view-recipe]"
             );
-
         if (viewButton) {
-
             openRecipeModal(
                 Number(
                     viewButton.dataset.viewRecipe
@@ -1544,40 +1206,29 @@ recipeGrid.addEventListener(
         }
     }
 );
-
-
 /* =========================================================
    FAVORITE GRID EVENTS
    ========================================================= */
-
 favoriteGrid.addEventListener(
     "click",
     event => {
-
         const favoriteButton =
             event.target.closest(
                 "[data-favorite-id]"
             );
-
         if (favoriteButton) {
-
             toggleFavorite(
                 Number(
                     favoriteButton.dataset.favoriteId
                 )
             );
-
             return;
         }
-
-
         const viewButton =
             event.target.closest(
                 "[data-view-recipe]"
             );
-
         if (viewButton) {
-
             openRecipeModal(
                 Number(
                     viewButton.dataset.viewRecipe
@@ -1586,25 +1237,19 @@ favoriteGrid.addEventListener(
         }
     }
 );
-
-
 /* =========================================================
    RECENT SEARCH EVENTS
    ========================================================= */
-
 recentSearchesContainer.addEventListener(
     "click",
     event => {
-
         const button =
             event.target.closest(
                 "[data-recent-index]"
             );
-
         if (!button) {
             return;
         }
-
         loadRecentSearch(
             Number(
                 button.dataset.recentIndex
@@ -1612,28 +1257,20 @@ recentSearchesContainer.addEventListener(
         );
     }
 );
-
-
 /* =========================================================
    MODAL EVENTS
    ========================================================= */
-
 closeModalBtn.addEventListener(
     "click",
     closeRecipeModal
 );
-
-
 modalOverlay.addEventListener(
     "click",
     closeRecipeModal
 );
-
-
 document.addEventListener(
     "keydown",
     event => {
-
         if (
             event.key === "Escape" &&
             recipeModal.classList.contains("active")
@@ -1642,16 +1279,12 @@ document.addEventListener(
         }
     }
 );
-
-
 /* =========================================================
    CLOSE SUGGESTIONS WHEN CLICKING OUTSIDE
    ========================================================= */
-
 document.addEventListener(
     "click",
     event => {
-
         if (
             !event.target.closest(
                 ".ingredient-search"
@@ -1661,14 +1294,10 @@ document.addEventListener(
         }
     }
 );
-
-
 /* =========================================================
    ESCAPE HTML
    ========================================================= */
-
 function escapeHTML(value) {
-
     return String(value)
         .replace(/&/g, "&amp;")
         .replace(/</g, "&lt;")
@@ -1676,24 +1305,14 @@ function escapeHTML(value) {
         .replace(/"/g, "&quot;")
         .replace(/'/g, "&#039;");
 }
-
-
 /* =========================================================
    INITIALIZE
    ========================================================= */
-
 function initialize() {
-
     renderSelectedIngredients();
-
     renderRecentSearches();
-
     renderFavorites();
-
     currentRecipes = [...recipes];
-
     applyFilters();
 }
-
-
 initialize();
